@@ -15,9 +15,8 @@
             <div class="collapse" id="data-master">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="../anggota/index.php">Anggota</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Buku</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Fakultas</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Jurusan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../buku/index.php">Buku</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../fakultas/index.php">Fakultas</a></li>
               </ul>
             </div>
           </li>

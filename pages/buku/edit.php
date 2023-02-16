@@ -10,12 +10,7 @@ include '../../template/sidebar.php'
               <div class="card">
                 <div class="card-body">
                 <div class="d-sm-flex align-items-center justify-content-between">
-                  <h4 class="card-title">Data Anggota</h4>
-                  <div>
-                    <div class="btn-wrapper">
-                      <a href="add.php" class="btn btn-primary text-white"><i class="mdi mdi-account-plus"></i>Tambah</a>
-                    </div>
-                  </div>
+                  <h4 class="card-title">Edit Anggota</h4>
                 </div>
                   <div class="table-responsive">
                     <table class="table table-striped">
