@@ -7,7 +7,7 @@ include '../../template/sidebar.php'
   <div class="content-wrapper">
     <div class="row">
       <div class="col-sm-3 stretch-card grid-margin">
-        <a href="" class="card bg-gradient-info card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="" class="card bg-gradient-success card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Anggota</h5>
@@ -25,7 +25,7 @@ include '../../template/sidebar.php'
         </a>
       </div>
       <div class="col-sm-3 stretch-card grid-margin">
-        <a href="" class="card bg-gradient-info card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="" class="card bg-gradient-warning card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Anggota Baru</h5>
@@ -34,7 +34,7 @@ include '../../template/sidebar.php'
         </a>
       </div>
       <div class="col-sm-3 stretch-card grid-margin">
-        <a href="" class="card bg-gradient-info card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="" class="card bg-gradient-danger card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Permintaan Pinjaman</h5>
@@ -43,7 +43,7 @@ include '../../template/sidebar.php'
         </a>
       </div>
       <div class="col-sm-3 stretch-card grid-margin">
-        <a href="" class="card bg-gradient-info card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="" class="card bg-gradient-dark card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> SKBP 1</h5>
@@ -52,7 +52,7 @@ include '../../template/sidebar.php'
         </a>
       </div>
       <div class="col-sm-3 stretch-card grid-margin">
-        <a href="" class="card bg-gradient-info card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="" class="card bg-gradient-dark card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> SKBP 2</h5>

@@ -26,6 +26,15 @@ include '../../template/sidebar.php'
                     <td>0fhdu difuyiod difyior hreifh</td>
                     <td>bukuku</td>
                     <td>
+                      <button type="button" class="btn btn-info btn-icon-text">
+                        <i class="ti-eye btn-icon-prepend"></i>
+                        Lihat
+                      </button>
+                      <button type="button" class="btn btn-warning btn-icon-text">
+                        <i class="ti-trash btn-icon-prepend"></i>
+                        Hapus
+                      </button>
+                      <br><br>
                       <button type="button" class="btn btn-success btn-icon-text">
                         <i class="ti-check btn-icon-prepend"></i>
                         Terima
@@ -33,10 +42,6 @@ include '../../template/sidebar.php'
                       <button type="button" class="btn btn-danger btn-icon-text">
                         <i class="ti-close btn-icon-prepend"></i>
                         Tolak
-                      </button>
-                      <button type="button" class="btn btn-warning btn-icon-text">
-                        <i class="ti-trash btn-icon-prepend"></i>
-                        Hapus
                       </button>
                     </td>
                   </tr>
