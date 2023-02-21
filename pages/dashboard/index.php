@@ -1,6 +1,8 @@
 <?php
 include '../../template/header.php';
-include '../../template/sidebar.php'
+include '../../template/sidebar.php';
+include '../../config/function-anggota.php';
+include '../../config/function-buku.php';
 ?>
 
 <div class="main-panel">
@@ -11,7 +13,7 @@ include '../../template/sidebar.php'
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Anggota</h5>
-            <h3 class="mb-2">122837</h3>
+            <h3 class="mb-2"><?php echo anggota(); ?></h3>
           </div>
         </a>
       </div>
@@ -20,7 +22,7 @@ include '../../template/sidebar.php'
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Buku</h5>
-            <h3 class="mb-2">122837</h3>
+            <h3 class="mb-2"><?php echo buku(); ?></h3>
           </div>
         </a>
       </div>
@@ -29,7 +31,7 @@ include '../../template/sidebar.php'
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Anggota Baru</h5>
-            <h3 class="mb-2">122837</h3>
+            <h3 class="mb-2"><?php echo anggota_baru(); ?></h3>
           </div>
         </a>
       </div>
@@ -38,7 +40,7 @@ include '../../template/sidebar.php'
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Permintaan Pinjaman</h5>
-            <h3 class="mb-2">122837</h3>
+            <h3 class="mb-2"><?php echo p_buku(); ?></h3>
           </div>
         </a>
       </div>
