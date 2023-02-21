@@ -27,7 +27,7 @@ include '../../template/sidebar.php'
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>hrgrretg</td>
+                    <td>asuuu</td>
                     <td>bukuku</td>
                     <td>
                       <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-pencil"></i></button>
