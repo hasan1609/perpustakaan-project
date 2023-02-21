@@ -18,7 +18,7 @@
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="../../vendors/chart.js/Chart.min.js"></script>
+  <!-- <script src="../../vendors/chart.js/Chart.min.js"></script> -->
   <script src="../../vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
   <script src="../../vendors/progressbar.js/progressbar.min.js"></script>
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
@@ -47,74 +47,5 @@
       });
     </script>
 
-    <script>
-		var pengguna = document.getElementById("chartPengguna").getContext('2d');
-    var pengunjung = document.getElementById("chartPengunjung").getContext('2d');
-		var chartPengguna = new Chart(pengguna, {
-			type: 'bar',
-			data: {
-				labels: ["Teknik", "Fisip", "Ekonomi", "Pertanian"],
-				datasets: [{
-					label: '',
-					data: [8,7,7,7
-					],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
-    var chartPengunjung = new Chart(pengunjung, {
-			type: 'bar',
-			data: {
-				labels: ["Teknik", "Fisip", "Ekonomi", "Pertanian"],
-				datasets: [{
-					label: '',
-					data: [8,7,7,7
-					],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
-	</script>
+
 </body>

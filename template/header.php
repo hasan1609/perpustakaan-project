@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
+  <script src="../../vendors/chart.js/Chart.min.js"></script>
 </head>
 <body>
     <!-- partial:partials/_navbar.html -->
