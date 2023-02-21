@@ -68,7 +68,7 @@ include '../../config/function-buku.php';
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Pengguna Baru</h4>
-            <canvas id="barChart"></canvas>
+            <canvas id="chartPengguna"></canvas>
           </div>
         </div>
       </div>
@@ -76,13 +76,12 @@ include '../../config/function-buku.php';
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Pengunjung</h4>
-            <canvas id="lineChart"></canvas>
+            <canvas id="chartPengunjung"></canvas>
           </div>
         </div>
       </div>
     </div>
       
-
 <?php
 include '../../template/footer.php';
 ?>
