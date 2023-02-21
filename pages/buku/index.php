@@ -30,7 +30,7 @@ include '../../template/sidebar.php'
                     <td>asuuu</td>
                     <td>bukuku</td>
                     <td>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-pencil"></i></button>
+                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"onClick="editBuku()"><i class="ti-pencil"></i></button>
                       <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
                     </td>
                   </tr>
@@ -42,7 +42,7 @@ include '../../template/sidebar.php'
       </div>
     </div>
     
-    <!-- buku -->
+    <!--add buku -->
     <div class="modal fade" id="modalBuku" tabindex="-1" role="dialog" aria-labelledby="modalBukuLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -69,6 +69,34 @@ include '../../template/sidebar.php'
       </div>
     </div>
 
+    <!-- edit buku -->
+    <div class="modal fade" id="editBuku" tabindex="-1" role="dialog" aria-labelledby="editBukuLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editBukuLabel"></h5>
+          </div>
+          <form role="form" method="" action="">
+            <div class="modal-body">
+              <input type="hidden" id="id" name="id">
+              <div class="form-group mb-3">
+                <label for="example-text-input" class="form-control-label">Kode Buku</label>
+                <input class="form-control" type="number" name="kode" id="kode">
+              </div>
+              <div class="form-group mb-3">
+                <label for="example-text-input" class="form-control-label">Nama Buku</label>
+                <input class="form-control" type="text" name="nama" id="nama">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="closeBuku()">Close</button>
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
 
 <script>
   function addBuku(){
@@ -77,9 +105,17 @@ include '../../template/sidebar.php'
     $('#modalBuku').modal('show');
     // $('#id').val('');
   }
+
+  function editBuku(){
+    // $('#add-group').trigger("reset");
+    $('#editBukuLabel').html("Update Buku");
+    $('#editBuku').modal('show');
+    // $('#id').val('');
+  }
   
   function closeBuku() { 
     $('#modalBuku').modal('hide');
+    $('#editBuku').modal('hide');
   }
 </script>
 

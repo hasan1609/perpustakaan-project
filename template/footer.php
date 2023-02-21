@@ -46,6 +46,20 @@
         });
       });
     </script>
+        <script>
+      $(document).ready(function () {
+        $('#jurusan').DataTable({
+          "ordering": false
+        });
+      });
+    </script>
+        <script>
+      $(document).ready(function () {
+        $('#fakultas').DataTable({
+          "ordering": false
+        });
+      });
+    </script>
 
 
 </body>

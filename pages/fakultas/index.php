@@ -6,21 +6,50 @@ include '../../template/sidebar.php'
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
-      <div class="col-sm-12 grid-margin stretch-card">
+      <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Data Fakultas</h4>
-            <div class="btn-wraper">
-              <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="addFakultas()">
-                <i class="mdi mdi-plus-box btn-icon-prepend"></i> Fakultas
-              </a>
-              <a href="javascript:void(0)" class="btn btn-success btn-icon-text btn-md mt-0" onClick="addJurusan()">
-                <i class="mdi mdi-plus-box btn-icon-prepend"></i> Jurusan
-              </a>
-            </div>
+            <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="addFakultas()">
+              <i class="mdi mdi-plus-box btn-icon-prepend"></i> Fakultas
+            </a>
+            <br>
             <br>
             <div class="table-responsive">
-              <table class="table table-striped table-bordered" id="example">
+              <table class="table table-striped table-bordered" id="fakultas">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Fakultas</th>
+                    <th>Opsi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>bukuku</td>
+                    <td>
+                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter" onClick="editFakultas()"><i class="ti-pencil"></i></button>
+                      <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Data Jurusan</h4>
+            <a href="javascript:void(0)" class="btn btn-success btn-icon-text btn-md mt-0" onClick="addJurusan()">
+              <i class="mdi mdi-plus-box btn-icon-prepend"></i> Jurusan
+            </a>
+            <br>
+            <br>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered" id="jurusan">
                 <thead>
                   <tr>
                     <th>No</th>
@@ -35,7 +64,7 @@ include '../../template/sidebar.php'
                     <td>0fhdu</td>
                     <td>bukuku</td>
                     <td>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-pencil"></i></button>
+                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter" onClick="editJurusan()"><i class="ti-pencil"></i></button>
                       <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
                     </td>
                   </tr>
@@ -48,7 +77,7 @@ include '../../template/sidebar.php'
     </div>
 
 
-    <!-- fakultas -->
+    <!-- add fakultas -->
     <div class="modal fade" id="modalFakultas" tabindex="-1" role="dialog" aria-labelledby="modalFakultasLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -70,12 +99,62 @@ include '../../template/sidebar.php'
         </div>
       </div>
     </div>
-    <!-- jurusan -->
+    <!-- editFakultas -->
+    <div class="modal fade" id="editFakultas" tabindex="-1" role="dialog" aria-labelledby="editFakultasLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editFakultasLabel"></h5>
+          </div>
+          <form role="form" method="" action="">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Nama Fakultas</label>
+                <input class="form-control" type="text" name="fakultas" id="fakultas">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="closeFakultas()">Close</button>
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--add jurusan -->
     <div class="modal fade" id="modalJurusan" tabindex="-1" role="dialog" aria-labelledby="modalJurusanLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalJurusanLabel"></h5>
+          </div>
+          <form role="form" method="" action="">
+            <div class="modal-body">
+              <div class="form-group mb-3">
+                <label for="fakultas">Pilih Fakultas</label>
+                <select class="form-control" id="fakultas" name="fakultas">
+                  <option value="">1</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Nama Jurusan</label>
+                <input class="form-control" type="text" name="jurusan" id="jurusan">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="closeJurusan()">Close</button>
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- edit jurusan -->
+    <div class="modal fade" id="editJurusan" tabindex="-1" role="dialog" aria-labelledby="editJurusanLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editJurusanLabel"></h5>
           </div>
           <form role="form" method="" action="">
             <div class="modal-body">
@@ -106,9 +185,16 @@ include '../../template/sidebar.php'
       $('#modalFakultas').modal('show');
     // $('#id').val('');
     }
+    function editFakultas(){
+    // $('#add-group').trigger("reset");
+      $('#editFakultasLabel').html("Edit Fakultas");
+      $('#editFakultas').modal('show');
+    // $('#id').val('');
+    }
     
     function closeFakultas() { 
       $('#modalFakultas').modal('hide');
+      $('#editFakultas').modal('hide');
     }
 
     function addJurusan(){
@@ -117,9 +203,17 @@ include '../../template/sidebar.php'
       $('#modalJurusan').modal('show');
     // $('#id').val('');
     }
+
+    function editJurusan(){
+    // $('#add-group').trigger("reset");
+      $('#editJurusanLabel').html("Edit Jurusan");
+      $('#editJurusan').modal('show');
+    // $('#id').val('');
+    }
     
     function closeJurusan() { 
       $('#modalJurusan').modal('hide');
+      $('#editJurusan').modal('hide');
     }
 
   </script>
