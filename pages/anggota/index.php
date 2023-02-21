@@ -1,6 +1,7 @@
 <?php
 include '../../template/header.php';
-include '../../template/sidebar.php'
+include '../../template/sidebar.php';
+include '../../config/function-anggota.php';
 ?>
 
 <div class="main-panel">
@@ -24,18 +25,7 @@ include '../../template/sidebar.php'
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>0fhdu</td>
-                    <td>bukuku</td>
-                    <td>fjdhjf</td>
-                    <td>dhfghdj</td>
-                    <td>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-pencil"></i></button>
-                      <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-facebook"><i class="ti-printer"></i></button>
-                    </td>
-                  </tr>
+              <?php list_anggota(); ?>
                 </tbody>
               </table>
             </div>
