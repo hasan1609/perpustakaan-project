@@ -34,6 +34,67 @@ include '../../config/function-anggota.php';
       </div>
     </div>
 
+    <div class="modal fade" id="modalAnggota" tabindex="-1" role="dialog" aria-labelledby="modalAnggotaLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAnggotaLabel"></h5>
+          </div>
+          <div class="modal-body">
+            <table>
+              <tr>
+                <td>No. Reg Pendaftaran</td>
+                <td>:</td>
+                <td>sdhgfjd</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td>sdhgfjd</td>
+              </tr>
+              <tr>
+                <td>Nama</td>
+                <td>:</td>
+                <td>sdhgfjd</td>
+              </tr>
+              <tr>
+                <td>NIDN</td>
+                <td>:</td>
+                <td>sdhgfjd</td>
+              </tr>
+              <tr>
+                <td>Fak/Jur</td>
+                <td>:</td>
+                <td>sdhgfjd</td>
+              </tr>
+              <tr>
+                <td>Alamat</td>
+                <td>:</td>
+                <td>sdhgfjd</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="closeAnggota()">Close</button>
+              <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<script>
+  function viewAnggota(){
+    // $('#add-group').trigger("reset");
+    $('#modalAnggotaLabel').html("Data Anggota");
+    $('#modalAnggota').modal('show');
+    // $('#id').val('');
+  }
+  
+  function closeAnggota() { 
+    $('#modalAnggota').modal('hide');
+  }
+</script>
 <?php
 include '../../template/footer.php';
 ?>

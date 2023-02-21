@@ -32,8 +32,8 @@ function list_anggota(){
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row["id"] . "</td><td> " . $row["nama"] . "</td><td>" . $row["fklts"] . "</td><td>" . $row["jrsn"] . "</td><td> " . $row["level"] . "        <td>
-                      <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter'><i class='ti-pencil'></i></button>
-                      <button type='button' class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></button>
+            <button class='btn btn-social-icon btn-outline-facebook' href='javascript:void(0)' onClick='viewAnggota()'><i class='ti-printer'></i></button>
+            <button class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></button>
                     </td>" ;
         }
     } else {
