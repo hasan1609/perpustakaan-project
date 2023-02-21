@@ -12,9 +12,9 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+<?php error_reporting(E_ALL ^ E_NOTICE); ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,7 +48,7 @@
                   <p class="mb-0">Masukkan Email dan Password</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" method="post" action="index.php">
                     <div class="form-group mb-3">
                         <label for="example-text-input" class="form-control-label">Email</label>
                         <input class="form-control" type="email" name="email" id="email">
@@ -58,7 +58,7 @@
                         <input class="form-control" type="password" name="password" id="password">
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Masuk</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Masuk</button>
                     </div>
                   </form>
                 </div>
@@ -90,3 +90,24 @@
 </body>
 
 </html>
+
+<?php
+include "config/koneksi.php";
+if (!empty($_POST)) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $sql = "SELECT * FROM `anggota` WHERE `email` LIKE '$email' AND `password` LIKE '$password' ORDER BY `id` DESC";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+      echo "id: " . $row["id"] . "<br>";
+    }
+  } else {
+    echo "0 results";
+  }
+  $conn->close();
+}
+
+?>

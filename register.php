@@ -12,6 +12,22 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+<?php
+ error_reporting (E_ALL ^ E_NOTICE);
+function generateRandomString($length = 10)
+{
+  $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $charactersLength = strlen($characters);
+  $randomString = '';
+  for ($i = 0; $i < $length; $i++) {
+    $randomString .= $characters[random_int(0, $charactersLength - 1)];
+  }
+  return $randomString;
+}
+
+$noreg =  "NOREG".generateRandomString($length = 10);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,14 +64,16 @@
                   <p class="mb-0">Isi data diri anda !</p>
                 </div>
                 <div class="card-body">
-                  <form role="form" method="" action="">
+                  <form role="form" method="post" action="register.php">
                     <div class="form-group mb-3">
                         <label for="example-text-input" class="form-control-label">No. Reg Perpustakaan</label>
-                        <input class="form-control" type="text" name="noreg" id="noreg" value="hsghfdgefhj" disabled>
+                        <input class="form-control" type="text" name="noreg" id="noreg" value="<?php echo $noreg ;?>" disabled>
                     </div>
+                     <input type="hidden" id="req_perpus" name="req_perpus" value="<?php echo $noreg ;?>">
+
                     <div class="form-group mb-3">
                         <label for="jurusan">Pilih Kategori</label>
-                        <select class="form-control" id="kategori" name="kategori">
+                        <select class="form-control" id="level" name="level">
                         <option value="" disabled selected>Pilih Kategori</option>
                         <option value="1">Admin</option>
                         <option value="2">Dosen</option>
@@ -74,13 +92,13 @@
                     <div class="form-group mb-3">
                         <label for="fakultas">Fakultas</label>
                         <select class="form-control" id="fakultas" name="fakultas">
-                        <option value="">1</option>
+                        <option value="1">1</option>
                         </select>
                     </div>
                     <div class="form-group mb-3">
                         <label for="jurusan">Jurusan</label>
                         <select class="form-control" id="jurusan" name="jurusan">
-                        <option value="">1</option>
+                        <option value="1">1</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -100,7 +118,7 @@
                         <input class="form-control" type="password" name="password" id="password">
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Daftar</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Daftar</button>
                     </div>
                   </form>
                 </div>
@@ -132,3 +150,30 @@
 </body>
 
 </html>
+
+<?php
+
+include "config/koneksi.php";
+
+if (!empty($_POST)) {
+  $req_perpus = $_POST['req_perpus'];
+  $nama = $_POST['nama'];
+  $STB = $_POST['stb'];
+  $fklts = $_POST['fakultas'];
+  $jrsn = $_POST['jurusan'];
+  $almt = $_POST['alamat'];
+  $email = $_POST['email'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $level = $_POST['level'];
+$sql = "INSERT INTO `anggota` (`id`, `req_perpus`, `nama`, `STB`, `fklts`, `jrsn`, `almt`, `email`, `username`, `password`, `status`, `level`, `created`) VALUES (NULL, '$req_perpus', '$nama', '$STB', '$fklts', '$jrsn', '$almt', '$email', '$username', '$password', '0', '$level', current_timestamp())";
+
+if ($conn->query($sql) === TRUE) {
+
+} else {
+  // echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+}
+?>
