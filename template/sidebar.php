@@ -16,7 +16,7 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="../anggota/index.php">Anggota</a></li>
           <li class="nav-item"> <a class="nav-link" href="../buku/index.php">Buku</a></li>
-          <li class="nav-item"> <a class="nav-link" href="../fakultas/index.php">Fakultas</a></li>
+          <li class="nav-item"> <a class="nav-link" href="../fakultas/index.php">Fakultas & Jurusan</a></li>
         </ul>
       </div>
     </li>
