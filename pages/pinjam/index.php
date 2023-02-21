@@ -9,11 +9,7 @@ include '../../template/sidebar.php'
       <div class="col-sm-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Data Buku</h4>
-            <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="addBuku()">
-            <i class="mdi mdi-plus-box btn-icon-prepend"></i> Buku </a>
-            <br>
-            <br>
+            <h4 class="card-title">Data Peminjaman Buku</h4>
             <div class="table-responsive">
               <table class="table table-striped table-bordered" id="example">
                 <thead>
@@ -21,27 +17,47 @@ include '../../template/sidebar.php'
                     <th>No</th>
                     <th>Kode Buku</th>
                     <th>Nama Buku</th>
+                    <th>Nama Anggota</th>
+                    <th>Tgl. Pinjam</th>
+                    <th>Tgl. Kembali</th>
+                    <th>Status</th>
                     <th>Opsi</th>
                   </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>0fhdu</td>
-                    <td>bukuku</td>
-                    <td>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-pencil"></i></button>
-                      <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>0fhdu</td>
+                      <td>fhdjkhf</td>
+                      <td>hfdehafj</td>
+                      <td>bukuku</td>
+                      <td>gfjhkd</td>
+                      <td><label for="" class="badge badge-danger">Pinjam</label></td>
+                      <td>
+                        <button type="button" class="btn btn-primary btn-icon-text">
+                          <i class="ti-check btn-icon-prepend"></i>
+                          Terima
+                        </button>
+                        <button type="button" class="btn btn-warning btn-icon-text">
+                          <i class="ti-close btn-icon-prepend"></i>
+                          Tolak
+                        </button>
+                        <button type="button" class="btn btn-danger btn-icon-text">
+                          <i class="ti-trash btn-icon-prepend"></i>
+                          Hapus
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
+
     <!-- buku -->
     <div class="modal fade" id="modalBuku" tabindex="-1" role="dialog" aria-labelledby="modalBukuLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -70,20 +86,18 @@ include '../../template/sidebar.php'
     </div>
 
 
-<script>
-  function addBuku(){
-    // $('#add-group').trigger("reset");
-    $('#modalBukuLabel').html("Tambah Buku");
-    $('#modalBuku').modal('show');
-    // $('#id').val('');
-  }
-  
-  function closeBuku() { 
-    $('#modalBuku').modal('hide');
-  }
-</script>
+    <script>
+      function addBuku(){
+        // $('#add-group').trigger("reset");
+        $('#modalBukuLabel').html("Tambah Buku");
+        $('#modalBuku').modal('show');
+        // $('#id').val('');
+      }
 
-
+      function closeBuku() { 
+        $('#modalBuku').modal('hide');
+      }
+    </script>
 <?php
 include '../../template/footer.php';
 ?>
