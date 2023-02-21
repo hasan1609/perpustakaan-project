@@ -33,6 +33,7 @@ include '../../template/sidebar.php'
                     <td>
                       <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-pencil"></i></button>
                       <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
+                      <button type="button" class="btn btn-md btn-social-icon btn-outline-facebook"><i class="ti-printer"></i></button>
                     </td>
                   </tr>
                 </tbody>
