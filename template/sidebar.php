@@ -39,7 +39,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../dashboard/index.php">
+      <a class="nav-link" href="../denda/index.php">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">Denda</span>
       </a>
@@ -52,8 +52,8 @@
       </a>
       <div class="collapse" id="permintaan">
         <ul class="nav flex-column sub-menu">
-         <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">SKBP 1</a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">SKBP 2</a></li>
+         <li class="nav-item"> <a class="nav-link" href="../skbp1/index.php">SKBP 1</a></li>
+          <li class="nav-item"> <a class="nav-link" href="../skbp2/index.php">SKBP 2</a></li>
         </ul>
       </div>
     </li>
