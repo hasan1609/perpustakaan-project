@@ -53,6 +53,33 @@ include '../../template/sidebar.php'
           </div>
           <form role="form" method="" action="">
             <div class="modal-body">
+              <table>
+                <tr>
+                  <td>No. Reg Pendaftaran</td>
+                  <td>:</td>
+                  <td>sdhgfjd</td>
+                </tr>
+                <tr>
+                  <td>Nama</td>
+                  <td>:</td>
+                  <td>sdhgfjd</td>
+                </tr>
+                <tr>
+                  <td>NIDN</td>
+                  <td>:</td>
+                  <td>sdhgfjd</td>
+                </tr>
+                <tr>
+                  <td>Fak/Jur</td>
+                  <td>:</td>
+                  <td>sdhgfjd</td>
+                </tr>
+                <tr>
+                  <td>Alamat</td>
+                  <td>:</td>
+                  <td>sdhgfjd</td>
+                </tr>
+              </table>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary btn-icon-text"><i class="ti-check btn-icon-prepend"></i>Terima</button>
