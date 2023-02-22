@@ -32,9 +32,14 @@ function list_anggota(){
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row["id"] . "</td><td> " . $row["nama"] . "</td><td>" . $row["fklts"] . "</td><td>" . $row["jrsn"] . "</td><td> " . $row["level"] . "        <td>
-            <button class='btn btn-social-icon btn-outline-facebook' href='javascript:void(0)' onClick='viewAnggota()'><i class='ti-printer'></i></button>
-            <button class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></button>
+         
+            <button name='view' value='". $row["id"]."' class='btn btn-social-icon btn-outline-facebook' href='javascript:void(0)' onClick='viewAnggota()'><i class='ti-printer'></i></button>
+            <button name='print' value='" . $row["id"] . "' class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></button>
+
+
                     </td>" ;
+
+
         }
     } else {
         echo "0 results";
@@ -45,4 +50,5 @@ echo "</tr>";
 
 
 }
+
 ?>
