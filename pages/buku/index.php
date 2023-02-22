@@ -53,11 +53,16 @@ include '../../template/sidebar.php'
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Kode Buku</label>
-                <input class="form-control" type="number" name="kode" id="kode">
+                <input class="form-control" type="number" name="kodeAdd" id="kodeAdd">
               </div>
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Nama Buku</label>
-                <input class="form-control" type="text" name="nama" id="nama">
+                <input class="form-control" type="text" name="namaAdd" id="namaAdd">
+              </div>
+              <img id="previewAdd" src="#" style="width: 100px; margin: 5px;" alt="Foto"><br>
+              <div class="form-group mb-3">
+                <label for="example-text-input" class="form-control-label">Foto Buku</label>
+                <input class="form-control" type="file" name="gambarAdd" id="gambarAdd">
               </div>
             </div>
             <div class="modal-footer">
@@ -78,14 +83,19 @@ include '../../template/sidebar.php'
           </div>
           <form role="form" method="" action="">
             <div class="modal-body">
-              <input type="hidden" id="id" name="id">
+              <input type="hidden" id="idEdit" name="idEdit">
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Kode Buku</label>
-                <input class="form-control" type="number" name="kode" id="kode">
+                <input class="form-control" type="number" name="kodeEdit" id="kodeEdit">
               </div>
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Nama Buku</label>
-                <input class="form-control" type="text" name="nama" id="nama">
+                <input class="form-control" type="text" name="namaEdit" id="namaEdit">
+              </div>
+              <img id="previewEdit" src="#" style="width: 100px; margin: 5px;" alt="Foto"><br>
+              <div class="form-group mb-3">
+                <label for="example-text-input" class="form-control-label">Foto Buku</label>
+                <input class="form-control" type="file" name="gambarEdit" id="gambarEdit">
               </div>
             </div>
             <div class="modal-footer">
@@ -96,7 +106,6 @@ include '../../template/sidebar.php'
         </div>
       </div>
     </div>
-
 
 <script>
   function addBuku(){

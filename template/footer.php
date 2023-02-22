@@ -61,5 +61,32 @@
       });
     </script>
 
+    <script>
+      function readAddBuku(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            $('#previewAdd').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $("#gambarAdd").change(function() {
+        readAddBuku(this);
+      });
+      function readEditBuku(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            $('#previewEdit').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $("#gambarEdit").change(function() {
+        readEditBuku(this);
+      });
+    </script>
+
 
 </body>
