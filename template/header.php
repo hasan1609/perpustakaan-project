@@ -23,6 +23,8 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
   <script src="../../vendors/chart.js/Chart.min.js"></script>
+  <!-- select option -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
 </head>
 <body>
     <!-- partial:partials/_navbar.html -->

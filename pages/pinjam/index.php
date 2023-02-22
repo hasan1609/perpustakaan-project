@@ -10,6 +10,10 @@ include '../../template/sidebar.php'
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Data Peminjaman Buku</h4>
+            <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="addPinjam()">
+            <i class="mdi mdi-plus-box btn-icon-prepend"></i> Pinjam Buku </a>
+            <br>
+            <br>
             <div class="table-responsive">
               <table class="table table-striped table-bordered" id="example">
                 <thead>
@@ -68,12 +72,17 @@ include '../../template/sidebar.php'
           <form role="form" method="" action="">
             <div class="modal-body">
               <div class="form-group mb-3">
-                <label for="example-text-input" class="form-control-label">Kode Buku</label>
-                <input class="form-control" type="number" name="kode" id="kode">
+                <label for="jurusan">Pilih Buku</label>
+                <select class="form-control" id="pilihBuku" name="pilihBuku">
+                  <option value="1">1</option>
+                  <option value="2">234</option>
+                  <option value="3">djdfkjf</option>
+                  <option value="4">efjkoj</option>
+                </select>
               </div>
               <div class="form-group mb-3">
-                <label for="example-text-input" class="form-control-label">Nama Buku</label>
-                <input class="form-control" type="text" name="nama" id="nama">
+                <label for="example-text-input" class="form-control-label">Tgl Kembali</label>
+                <input class="form-control" type="date" name="tgl_kembali" id="tgl_kembali">
               </div>
             </div>
             <div class="modal-footer">
@@ -87,9 +96,9 @@ include '../../template/sidebar.php'
 
 
     <script>
-      function addBuku(){
+      function addPinjam(){
         // $('#add-group').trigger("reset");
-        $('#modalBukuLabel').html("Tambah Buku");
+        $('#modalBukuLabel').html("Pinjam Buku");
         $('#modalBuku').modal('show');
         // $('#id').val('');
       }
