@@ -49,12 +49,12 @@ function list_anggota(){
               <tr>
                 <td>No. Reg Pendaftaran</td>
                 <td>:</td>
-                <td>sdhgfjd</td>
+                <td>" . $row["req_perpus"] . "</td>
               </tr>
               <tr>
                 <td>Email</td>
                 <td>:</td>
-                <td>sdhgfjd</td>
+                <td>" . $row["email"] . "</td>
               </tr>
               <tr>
                 <td>Nama</td>
@@ -64,17 +64,17 @@ function list_anggota(){
               <tr>
                 <td>NIDN</td>
                 <td>:</td>
-                <td>sdhgfjd</td>
+                <td>" . $row["STB"] . "</td>
               </tr>
               <tr>
                 <td>Fak/Jur</td>
                 <td>:</td>
-                <td>sdhgfjd</td>
+                <td>" . $row["fklts"] . " \ " . $row["jrsn"] . "</td>
               </tr>
               <tr>
                 <td>Alamat</td>
                 <td>:</td>
-                <td>sdhgfjd</td>
+                <td>" . $row["almt"] . "</td>
               </tr>
             </table>
           </div>
