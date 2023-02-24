@@ -88,7 +88,7 @@ include '../../config/function-buku.php';
 		var chartPengguna = new Chart(pengguna, {
 			type: 'bar',
 			data: {
-				labels: ["Teknik", "Fisip", "Ekonomi", "Pertanian"],
+				labels: ["Teik", "Fisip", "Ekonomi", "Pertanian"],
 				datasets: [{
 					label: '',
 					data: [8,7,7,7

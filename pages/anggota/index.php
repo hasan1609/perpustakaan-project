@@ -35,6 +35,8 @@ include '../../config/function-anggota.php';
     </div>
 
 <?php
-viewanggota('1');
+$id = isset($_REQUEST['hapus']);
+print_r($id);
+// deletanggota($id);
 include '../../template/footer.php';
 ?>
