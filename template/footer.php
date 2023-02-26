@@ -53,9 +53,16 @@
         });
       });
     </script>
-        <script>
+    <script>
       $(document).ready(function () {
         $('#fakultas').DataTable({
+          "ordering": false
+        });
+      });
+    </script>
+        <script>
+      $(document).ready(function () {
+        $('#absensi2').DataTable({
           "ordering": false
         });
       });
