@@ -7,17 +7,19 @@ function list_anggota_baru()
 
     $sql = "SELECT * FROM `anggota` WHERE `status` = 0 ORDER BY `anggota`.`status` ASC;";
     $result = $conn->query($sql);
-    // output data of each row
+    $i = 0;
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>
-            <td>". $row["id"] ."</td>
-            <td>" . $row["nama"] . "</td>
-            <td>bukuku</td>
-            <td>
-                <a href='javascript:void(0)' onClick='viewAnggota" . $row["id"] . "()' class='btn btn-info btn-icon-text'>
-                    <i class='ti-eye btn-icon-prepend'></i>
-                    Lihat
-                </a>      
+        $i++;
+            echo "<tr>
+                    <td>". $i."</td>
+                    <td>" . $row["nama"] . "</td>
+                    <td>bukuku</td>
+                    <td>
+                      <a href='javascript:void(0)' onClick='viewAnggota" . $row["id"] . "()' class='btn btn-info btn-icon-text'>
+                        <i class='ti-eye btn-icon-prepend'></i>
+                        Lihat
+                      </a>
+                      
                 <!-- view -->
                 <div class='modal fade' id='modalView" . $row["id"] . "' tabindex='-1' role='dialog' aria-labelledby='modalViewLabel' aria-hidden='true'>
                     <div class='modal-dialog' role='document'>
@@ -138,10 +140,11 @@ function list_anggota(){
 
     $sql = "SELECT * FROM `anggota` WHERE `status` = 1 ORDER BY `anggota`.`status` ASC;";
     $result = $conn->query($sql);
-    // output data of each row
+    $i = 0;
     while ($row = $result->fetch_assoc()) {
+        $i++;
         echo "<tr>
-            <td>" . $row['id'] . "</td>
+                    <td>" . $i . "</td>
             <td> " . $row['nama'] . "</td>
             <td>" . $row['fklts'] . "</td>
             <td>" . $row['jrsn'] . "</td>
@@ -200,7 +203,7 @@ function list_anggota(){
                     </div>
                 </div>
                 <!-- Button delete anggota -->
-                <a href='index.php?hapus=".$row['id']."' type='submit' class='btn btn btn-danger btn-icon-text hapus_anggota'><i class='ti-trash'></i></a>
+                <a href='index.php?hapus=".$row['id']."' type='submit' class='btn btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
             </td>
         </tr>";
         

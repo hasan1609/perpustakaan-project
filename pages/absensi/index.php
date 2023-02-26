@@ -1,6 +1,7 @@
 <?php
 include '../../template/header.php';
-include '../../template/sidebar.php'
+include '../../template/sidebar.php';
+include '../../config/function-absensi.php';
 ?>
 
 <div class="main-panel">
@@ -21,11 +22,7 @@ include '../../template/sidebar.php'
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>0fhdu</td>
-                    <td>bukuku</td>
-                  </tr>
+                 <?php list_absensi_terima(); ?>
                 </tbody>
               </table>
             </div>
@@ -48,24 +45,7 @@ include '../../template/sidebar.php'
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>0fhdu</td>
-                    <td>bukuku</td>
-                    <td>
-                      <button type="button" class="btn btn-success btn-icon-text">
-                        <i class="ti-check btn-icon-prepend"></i>
-                        Terima
-                      </button>
-                      <button type="button" class="btn btn-danger btn-icon-text">
-                        <i class="ti-close btn-icon-prepend"></i>
-                        Tolak
-                      </button>
-                      <button type="button" class="btn btn-warning btn-icon-text">
-                        <i class="ti-trash btn-icon-prepend"></i>
-                        Hapus
-                      </button>
-                    </td>
-                  </tr>
+                <?php list_absensi();?>
                 </tbody>
               </table>
             </div>
@@ -75,5 +55,30 @@ include '../../template/sidebar.php'
     </div>
 
 <?php
+// terima absensi
+if (isset($_GET['terima'])) {
+
+  terima_absensi_anggota($_REQUEST['terima']);
+} else {
+  echo '';
+}
+
+// tolak absensi
+if (isset($_GET['tolak'])) {
+
+  tolak_absensi_anggota($_REQUEST['tolak']);
+} else {
+  echo '';
+}
+
+// hapus absensi
+if (isset($_GET['hapus'])) {
+
+  delete_absensi_anggota($_REQUEST['hapus']);
+} else {
+  echo '';
+}
+
+
 include '../../template/footer.php';
 ?>

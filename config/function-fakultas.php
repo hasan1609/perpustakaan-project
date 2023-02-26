@@ -27,10 +27,11 @@ function list_fakultas(){
     $result = $conn->query($sql);
 
 
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "                  <tr>
-                    <td>".$row['id']."</td>
+    $i = 0;
+    while ($row = $result->fetch_assoc()) {
+        $i++;
+        echo "<tr>
+                    <td>" . $i . "</td>
                     <td>".strtoupper($row['nama'])."</td>
                     <td>
                       <button type='button' class='btn btn-primary btn-icon-text' onClick='editFakultas" . $row['id'] . "()'><i class='ti-pencil'></i></button>
@@ -132,12 +133,11 @@ function list_jurusan()
     $sql = "SELECT * FROM `jurusan`";
     $result = $conn->query($sql);
 
-
-    // output data of each row
+    $i = 0;
     while ($row = $result->fetch_assoc()) {
-        echo " 
-                  <tr>
-                    <td>1</td>
+        $i++;
+        echo "<tr>
+                    <td>" . $i . "</td>
                     <td>".strtoupper($row['fklts'])."</td>
                     <td>".strtoupper($row['jrsn'])."</td>
                     <td>

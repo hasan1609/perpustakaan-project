@@ -19,10 +19,11 @@ function list_buku(){
     $result = $conn->query($sql);
 
 
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-                echo "                  <tr>
-                    <td>" . $row['id'] . "</td>
+    $i = 0;
+    while ($row = $result->fetch_assoc()) {
+        $i++;
+        echo "<tr>
+                    <td>" . $i . "</td>
                     <td>" . $row['code'] . "</td>
                     <td>" . $row['jdl_buku'] . "</td>
                     <td>
