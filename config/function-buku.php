@@ -111,8 +111,13 @@ function deletebuku($id)
 
 function addbuku($code,$judul,$jpg){
     include 'koneksi.php';
-  
-    $sql = "INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES (NULL, '$code', '$judul', '1', '$jpg', current_timestamp())";
+
+    if (empty($jpg)) {
+        $sql = "INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES (NULL, '$code', '$judul', '1', NULL, current_timestamp())";
+    }else{
+        $sql = "INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES (NULL, '$code', '$judul', '1', '$jpg', current_timestamp())";
+    }
+   
 
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";

@@ -112,7 +112,7 @@ function addJurusan($fklts, $jrsn)
     $sql = "INSERT INTO `jurusan` (`id`, `id_fklts`, `jrsn`) VALUES (NULL, '$fklts', '$jrsn');";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
     } else {
 
     }
