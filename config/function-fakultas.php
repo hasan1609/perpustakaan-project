@@ -7,7 +7,7 @@ function addFakultas($code,$fklts){
     $sql = "INSERT INTO `fakultas` (`id`, `id_fklts`, `nama`) VALUES (NULL, '$code', '$fklts')";
 
     if ($conn->query($sql) === TRUE) {
-         echo "New record created successfully";
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
     } else {
      
     }
