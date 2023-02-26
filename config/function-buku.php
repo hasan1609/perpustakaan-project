@@ -35,9 +35,9 @@ function list_buku(){
                             <div class='modal-header'>
                                 <h5 class='modal-title' id='editBukuLabel'></h5>
                             </div>
-                            <form role='form' method='' action=''>
+                            <form role='form' method='post' action='index.php'>
                                 <div class='modal-body'>
-                                <input type='hidden' id='idEdit' name='idEdit'>
+                                <input type='hidden' id='idEdit' name='idEdit' value='". $row['id']."'>
                                 <div class='form-group mb-3'>
                                     <label for='example-text-input' class='form-control-label'>Kode Buku</label>
                                     <input class='form-control' type='number' value='". $row['code']."' name='kodeEdit' id='kodeEdit'>
@@ -54,19 +54,14 @@ function list_buku(){
                                 </div>
                                 <div class='modal-footer'>
                                 <button type='button' class='btn btn-secondary' onclick='closeBuku()'>Close</button>
-                                <button type='button' class='btn btn-primary'>Save</button>
+                                <button type='submit'  value='updatebuku' name='updatebuku' class='btn btn-primary'>Save</button>
                                 </div>
                             </form>
                             </div>
                         </div>
                         </div>
                         <script>
-                            function addBuku(){
-                                // $('#add-group').trigger('reset');
-                                $('#modalBukuLabel').html('Tambah Buku');
-                                $('#modalBuku').modal('show');
-                                // $('#id').val('');
-                            }
+
 
                             function editBuku" . $row['id'] . "(){
                                 // $('#add-group').trigger('reset');
@@ -120,12 +115,37 @@ function addbuku($code,$judul,$jpg){
     $sql = "INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES (NULL, '$code', '$judul', '1', '$jpg', current_timestamp())";
 
     if ($conn->query($sql) === TRUE) {
-        // echo "New record created successfully";
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
     } else {
      
     }
 
     $conn->close();
+
+    
+}
+
+function updatebuku($judul,$img,$id,$code){
+
+    include 'koneksi.php';
+
+    if (empty($img)) {
+      
+      $sql = "UPDATE `buku` SET `jdl_buku` = '$judul',`code` = '$code' WHERE `buku`.`id` = $id";
+    }else{
+
+      $sql = " UPDATE `buku` SET `jdl_buku` = '$judul', `img_bk` = '$img',`code` = '$code' WHERE `buku`.`id` = $id";
+    }
+
+    
+
+        if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        } else {
+       
+        }
+
+$conn->close();
 
     
 }

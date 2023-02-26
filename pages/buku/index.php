@@ -62,13 +62,20 @@ include '../../config/function-buku.php';
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeBuku()">Close</button>
-              <button type="submit" value="submit" name="submit" class="btn btn-primary">Save</button>
+              <button type="submit" value="addbuku" name="addbuku" class="btn btn-primary">Save</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-
+<script>
+ function addBuku(){
+   // $('#add-group').trigger('reset');
+   $('#modalBukuLabel').html('Tambah Buku');
+   $('#modalBuku').modal('show');
+   // $('#id').val('');
+   }
+</script>
 
 
 
@@ -83,7 +90,7 @@ if (isset($_GET['hapus'])) {
   echo '';
 }
 
-if (!empty($_POST['submit'])) {
+if (!empty($_POST['addbuku'])) {
   print_r($_REQUEST);
   $code = $_POST['kodeAdd'];
   $judul = $_POST['namaAdd'];
@@ -91,6 +98,14 @@ if (!empty($_POST['submit'])) {
   //print_r($id);
   addbuku($code,$judul,$img);
   
+} else {
+  echo '';
+}
+
+if (!empty($_POST['updatebuku'])) {
+  ///print_r($_REQUEST);
+updatebuku($_POST['namaEdit'],$_POST['gambarEdit'],$_POST['idEdit'],$_POST['kodeEdit']);
+
 } else {
   echo '';
 }
