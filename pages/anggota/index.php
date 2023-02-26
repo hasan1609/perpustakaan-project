@@ -2,7 +2,7 @@
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
- error_reporting (E_ALL ^ E_NOTICE);
+error_reporting (E_ALL ^ E_NOTICE);
 ?>
 
 <div class="main-panel">
@@ -36,8 +36,8 @@ include '../../config/function-anggota.php';
     </div>
 
 <?php
-$id = $_REQUEST['hapus'];
- print_r($id);
+ $id = $_REQUEST['hapus'];
+ //print_r($id);
  deletanggota($id);
 include '../../template/footer.php';
 ?>
