@@ -33,7 +33,7 @@ function list_fakultas(){
                     <td>".$row['id']."</td>
                     <td>".strtoupper($row['nama'])."</td>
                     <td>
-                      <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter' onClick='editFakultas" . $row['id'] . "()'><i class='ti-pencil'></i></button>
+                      <button type='button' class='btn btn-primary btn-icon-text' onClick='editFakultas" . $row['id'] . "()'><i class='ti-pencil'></i></button>
                      
                          <!-- editFakultas -->
                             <div class='modal fade' id='editFakultas" . $row['id'] . "' tabindex='-1' role='dialog' aria-labelledby='editFakultasLabel' aria-hidden='true'>
@@ -70,7 +70,7 @@ function list_fakultas(){
                      </script>
                      
                      
-                      <a href=index.php?hapusf=" . $row['id'] . " type='submit' class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></a>
+                      <a href=index.php?hapusf=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
                     </td>
                  ";
 
@@ -141,7 +141,7 @@ function list_jurusan()
                     <td>".strtoupper($row['fklts'])."</td>
                     <td>".strtoupper($row['jrsn'])."</td>
                     <td>
-                      <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter' onClick='editJurusan". $row['id']."()'><i class='ti-pencil'></i></button>
+                      <button type='button' class='btn btn-primary btn-icon-text' onClick='editJurusan". $row['id']."()'><i class='ti-pencil'></i></button>
                         <!-- edit jurusan -->
                         <div class='modal fade' id='editJurusan" . $row['id'] . "' tabindex='-1' role='dialog' aria-labelledby='editJurusanLabel' aria-hidden='true'>
                         <div class='modal-dialog' role='document'>
@@ -182,7 +182,7 @@ function list_jurusan()
                       </script>
                       
                       
-                      <a  href=index.php?hapusj=" . $row['id'] . " type='submit'  class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></a>
+                      <a  href=index.php?hapusj=" . $row['id'] . " type='submit'  class='btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
                     </td>
              
                  ";
