@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2023 at 04:33 PM
+-- Generation Time: Feb 26, 2023 at 05:50 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -39,7 +39,14 @@ CREATE TABLE `absen` (
 --
 
 INSERT INTO `absen` (`id`, `username`, `foto`, `created`) VALUES
-(1, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51');
+(1, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
+(2, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
+(3, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
+(4, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
+(5, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
+(6, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
+(7, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
+(8, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51');
 
 -- --------------------------------------------------------
 
@@ -69,11 +76,9 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id`, `req_perpus`, `nama`, `STB`, `fklts`, `jrsn`, `almt`, `email`, `username`, `password`, `level`, `status`, `img`, `created`) VALUES
-(18, 'YTGJB356GBH18', 'Achmad Latief Alwy', '123', '122', '555', 'SSSS', 'AchmadLatiefAlwy@gmail.com', 'AchmadLatiefAlwy18', 'aaa131', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
-(19, 'YTGJB356GBH19', 'Achmad Nugraha Djuanda', '123', '122', '555', 'SSSS', 'AchmadNugrahaDjuanda@gmail.com', 'AchmadNugrahaDjuanda19', 'aaa132', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
-(20, 'YTGJB356GBH20', 'Achmad Sandi', '123', '122', '555', 'SSSS', 'AchmadSandi@gmail.com', 'AchmadSandi20', 'aaa132', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
-(21, 'YTGJB356GBH21', 'Achmad', '123', '122', '555', 'SSSS', 'Achmad@gmail.com', 'Achmad21', 'aaa133', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
-(22, 'YTGJB356GBH22', 'Adam Sautin', '123', '122', '555', 'SSSS', 'AdamSautin@gmail.com', 'AdamSautin22', 'aaa133', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
+(18, 'YTGJB356GBH18', 'Achmad Latief Alwy', '123', '122', '555', 'SSSS', 'AchmadLatiefAlwy@gmail.com', 'AchmadLatiefAlwy18', 'aaa131', '2', 1, 'umi.jpg', '2023-02-26 16:35:14'),
+(19, 'YTGJB356GBH19', 'Achmad Nugraha Djuanda', '123', '122', '555', 'SSSS', 'AchmadNugrahaDjuanda@gmail.com', 'AchmadNugrahaDjuanda19', 'aaa132', '2', 1, 'umi.jpg', '2023-02-26 16:38:33'),
+(22, 'YTGJB356GBH22', 'Adam Sautin', '123', '122', '555', 'SSSS', 'AdamSautin@gmail.com', 'AdamSautin22', 'aaa133', '2', 1, 'umi.jpg', '2023-02-26 16:41:37'),
 (23, 'YTGJB356GBH23', 'Ade R. Syarief', '123', '122', '555', 'SSSS', 'AdeR.Syarief@gmail.com', 'AdeR.Syarief23', 'aaa134', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (24, 'YTGJB356GBH24', 'Ade Tjakralaksana', '123', '122', '555', 'SSSS', 'AdeTjakralaksana@gmail.com', 'AdeTjakralaksana24', 'aaa134', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (25, 'YTGJB356GBH25', 'Adelina Prasetio', '123', '122', '555', 'SSSS', 'AdelinaPrasetio@gmail.com', 'AdelinaPrasetio25', 'aaa135', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
@@ -216,9 +221,17 @@ INSERT INTO `denda` (`id`, `jdl_buku`, `username`, `denda`, `status`, `created`)
 
 CREATE TABLE `fakultas` (
   `id` int(11) NOT NULL,
-  `id_fklts` varchar(40) NOT NULL,
   `nama` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fakultas`
+--
+
+INSERT INTO `fakultas` (`id`, `nama`) VALUES
+(4, 'asddf'),
+(6, 'asdss'),
+(5, 'sad');
 
 -- --------------------------------------------------------
 
@@ -228,7 +241,7 @@ CREATE TABLE `fakultas` (
 
 CREATE TABLE `jurusan` (
   `id` int(11) NOT NULL,
-  `id_fklts` varchar(40) NOT NULL,
+  `fklts` varchar(40) NOT NULL,
   `jrsn` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -236,8 +249,10 @@ CREATE TABLE `jurusan` (
 -- Dumping data for table `jurusan`
 --
 
-INSERT INTO `jurusan` (`id`, `id_fklts`, `jrsn`) VALUES
-(1, 'N7K3Y', 'teknik infromatika');
+INSERT INTO `jurusan` (`id`, `fklts`, `jrsn`) VALUES
+(5, 'asddf', '2222s3'),
+(6, 'asddf', 'asd'),
+(7, 'asdss', '44444');
 
 -- --------------------------------------------------------
 
@@ -316,7 +331,7 @@ ALTER TABLE `p_buku`
 -- AUTO_INCREMENT for table `absen`
 --
 ALTER TABLE `absen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `anggota`
@@ -340,13 +355,13 @@ ALTER TABLE `denda`
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `p_buku`
