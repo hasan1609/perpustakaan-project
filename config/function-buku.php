@@ -27,7 +27,7 @@ function list_buku(){
                     <td>" . $row['code'] . "</td>
                     <td>" . $row['jdl_buku'] . "</td>
                     <td>
-                      <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter'onClick='editBuku" . $row['id'] . "()'><i class='ti-pencil'></i></button>
+                      <button type='button' class='btn btn-primary btn-icon-text'onClick='editBuku" . $row['id'] . "()'><i class='ti-pencil'></i></button>
 
                          <!-- edit buku -->
                         <div class='modal fade' id='editBuku" . $row['id'] . "' tabindex='-1' role='dialog' aria-labelledby='editBukuLabel' aria-hidden='true'>
@@ -83,7 +83,7 @@ function list_buku(){
 
 
 
-                       <a href=index.php?hapus=" . $row['id'] . " type='submit' class='btn btn-social-icon btn-outline-youtube' '><i class='ti-trash'></i></a>
+                       <a href=index.php?hapus=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
                    </td> 
                     </td>
                   </tr>";
