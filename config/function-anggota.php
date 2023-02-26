@@ -184,13 +184,8 @@ function list_anggota(){
 
 
                  <!-- Button delete anggota -->
-
-                  
-                        <form role='form' method='post' action='".deletanggota($row['id'])."'>
-                                <input type='hidden' id='hapus' name='hapus' value=" . $row["id"] . " />
-                               <button type='submit' class='btn btn-social-icon btn-outline-youtube' data-toggle='modal' data-target='#modalDeleteAnggota" . $row["id"] . "'><i class='ti-trash'></i></button>
-                            </form>
-
+             
+    <a href=index.php?hapus=".$row['id']." type='submit' class='btn btn-social-icon btn-outline-youtube' '><i class='ti-trash'></i></a>
                    </td> 
 
                     " ;
@@ -207,16 +202,12 @@ function list_anggota(){
 
 function deletanggota($id){
 
-    
 
     include 'koneksi.php';
     $sql = "DELETE FROM `anggota` WHERE `anggota`.`id` = $id";
     if ($conn->query($sql) === TRUE) {
-        header("Location: index.php");
-        // echo "
-        //                 <script>
-        //                     document.location.href = 'index.php';
-        //                 </script>";
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        exit;
 
     } else {
         // echo "Error deleting record: " . $conn->error;
