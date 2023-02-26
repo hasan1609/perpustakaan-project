@@ -36,8 +36,8 @@ error_reporting (E_ALL ^ E_NOTICE);
     </div>
 
 <?php
- $id = $_REQUEST['hapus'];
- //print_r($id);
- deletanggota($id);
+//  $id = $_REQUEST['hapus'];
+//  //print_r($id);
+//  deletanggota($id);
 include '../../template/footer.php';
 ?>
