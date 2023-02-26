@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2023 at 05:50 PM
+-- Generation Time: Feb 26, 2023 at 06:33 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -31,6 +31,7 @@ CREATE TABLE `absen` (
   `id` int(11) NOT NULL,
   `username` varchar(40) NOT NULL,
   `foto` varchar(40) NOT NULL,
+  `status` int(11) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,15 +39,15 @@ CREATE TABLE `absen` (
 -- Dumping data for table `absen`
 --
 
-INSERT INTO `absen` (`id`, `username`, `foto`, `created`) VALUES
-(1, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
-(2, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
-(3, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
-(4, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
-(5, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
-(6, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
-(7, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51'),
-(8, 'damarwulan1', 'umi.jpg', '2023-02-21 02:17:51');
+INSERT INTO `absen` (`id`, `username`, `foto`, `status`, `created`) VALUES
+(1, 'damarwulan1', 'umi.jpg', 0, '2023-02-21 02:17:51'),
+(2, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:47'),
+(3, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:47'),
+(4, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:46'),
+(5, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:46'),
+(6, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:45'),
+(7, 'damarwulan1', 'umi.jpg', 1, '2023-02-26 17:13:40'),
+(8, 'damarwulan1', 'umi.jpg', 1, '2023-02-26 17:05:30');
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,6 @@ CREATE TABLE `anggota` (
 INSERT INTO `anggota` (`id`, `req_perpus`, `nama`, `STB`, `fklts`, `jrsn`, `almt`, `email`, `username`, `password`, `level`, `status`, `img`, `created`) VALUES
 (18, 'YTGJB356GBH18', 'Achmad Latief Alwy', '123', '122', '555', 'SSSS', 'AchmadLatiefAlwy@gmail.com', 'AchmadLatiefAlwy18', 'aaa131', '2', 1, 'umi.jpg', '2023-02-26 16:35:14'),
 (19, 'YTGJB356GBH19', 'Achmad Nugraha Djuanda', '123', '122', '555', 'SSSS', 'AchmadNugrahaDjuanda@gmail.com', 'AchmadNugrahaDjuanda19', 'aaa132', '2', 1, 'umi.jpg', '2023-02-26 16:38:33'),
-(22, 'YTGJB356GBH22', 'Adam Sautin', '123', '122', '555', 'SSSS', 'AdamSautin@gmail.com', 'AdamSautin22', 'aaa133', '2', 1, 'umi.jpg', '2023-02-26 16:41:37'),
 (23, 'YTGJB356GBH23', 'Ade R. Syarief', '123', '122', '555', 'SSSS', 'AdeR.Syarief@gmail.com', 'AdeR.Syarief23', 'aaa134', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (24, 'YTGJB356GBH24', 'Ade Tjakralaksana', '123', '122', '555', 'SSSS', 'AdeTjakralaksana@gmail.com', 'AdeTjakralaksana24', 'aaa134', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (25, 'YTGJB356GBH25', 'Adelina Prasetio', '123', '122', '555', 'SSSS', 'AdelinaPrasetio@gmail.com', 'AdelinaPrasetio25', 'aaa135', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
