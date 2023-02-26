@@ -7,11 +7,11 @@ function list_anggota_baru()
 
     $sql = "SELECT * FROM `anggota` WHERE `status` = 0 ORDER BY `anggota`.`status` ASC;";
     $result = $conn->query($sql);
-
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
+    $i = 0;
+    while ($row = $result->fetch_assoc()) {
+        $i++;
             echo "<tr>
-                    <td>". $row["id"] ."</td>
+                    <td>". $i."</td>
                     <td>" . $row["nama"] . "</td>
                     <td>bukuku</td>
                     <td>
@@ -147,10 +147,11 @@ function list_anggota(){
 
     $sql = "SELECT * FROM `anggota` WHERE `status` = 1 ORDER BY `anggota`.`status` ASC;";
     $result = $conn->query($sql);
-    // output data of each row
+    $i = 0;
     while ($row = $result->fetch_assoc()) {
+        $i++;
         echo "<tr>
-            <td>" . $row['id'] . "</td>
+                    <td>" . $i . "</td>
             <td> " . $row['nama'] . "</td>
             <td>" . $row['fklts'] . "</td>
             <td>" . $row['jrsn'] . "</td>
