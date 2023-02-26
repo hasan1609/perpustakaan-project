@@ -141,8 +141,48 @@ function list_jurusan()
                     <td>".strtoupper($row['fklts'])."</td>
                     <td>".strtoupper($row['jrsn'])."</td>
                     <td>
-                      <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter' onClick='editJurusan()'><i class='ti-pencil'></i></button>
-                      <button type='button' class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></button>
+                      <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter' onClick='editJurusan". $row['id']."()'><i class='ti-pencil'></i></button>
+                        <!-- edit jurusan -->
+                        <div class='modal fade' id='editJurusan" . $row['id'] . "' tabindex='-1' role='dialog' aria-labelledby='editJurusanLabel' aria-hidden='true'>
+                        <div class='modal-dialog' role='document'>
+                            <div class='modal-content'>
+                            <div class='modal-header'>
+                                <h5 class='modal-title' id='editJurusanLabel'></h5>
+                            </div>
+                            <form role='form' method='post' action='index.php'>
+                                <div class='modal-body'>
+        
+                                    <div class='form-group'>
+                                    <label for='example-text-input' class='form-control-label'>Nama Fakultas</label>
+                                    <input class='form-control' type='text' name='jurusan' id='jurusan' value='" . $row['fklts'] . "'  disabled>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='example-text-input' class='form-control-label'>Nama Jurusan</label>
+                                    <input class='form-control' type='text' name='jurusan' id='jurusan' value='". $row['jrsn']."' >
+                                    <input class='form-control' type='hidden' name='id' id='id' value='" . $row['id'] . "' >
+                                </div>
+                                </div>
+                                <div class='modal-footer'>
+                                <button type='button' class='btn btn-secondary' onclick='closeJurusan()'>Close</button>
+                                <button type='submit'  value='updatejurusan' name='updatejurusan' class='btn btn-primary'>Save</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                      
+                      
+                      <script>
+                          function editJurusan" . $row['id'] . "(){
+                            // $('#add-group').trigger('reset');
+                            $('#editJurusanLabel').html('Edit Jurusan');
+                            $('#editJurusan" . $row['id'] . "').modal('show');
+                            // $('#id').val('');
+                            }
+                      </script>
+                      
+                      
+                      <a  href=index.php?hapusj=" . $row['id'] . " type='submit'  class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></a>
                     </td>
              
                  ";
@@ -185,8 +225,51 @@ function deletefakultas($id)
         exit;
 
     } else {
+
+    }
+    $conn->close();
+}
+
+
+
+
+
+function updatejurusan($id, $jrsn)
+{
+
+    include 'koneksi.php';
+
+
+    $sql = "UPDATE `jurusan` SET `jrsn` = '$jrsn' WHERE `jurusan`.`id` = $id";
+
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+    } else {
+
+    }
+
+    $conn->close();
+
+
+}
+
+
+function deletejurusan($id)
+{
+
+
+    include 'koneksi.php';
+    $sql = " DELETE FROM `jurusan` WHERE `jurusan`.`id` = $id";
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        exit;
+
+    } else {
         // echo "Error deleting record: " . $conn->error;
     }
     $conn->close();
+
+
 }
 ?>

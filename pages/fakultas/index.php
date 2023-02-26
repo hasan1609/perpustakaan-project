@@ -115,34 +115,7 @@ include '../../config/function-fakultas.php';
         </div>
       </div>
     </div>
-    <!-- edit jurusan -->
-    <div class="modal fade" id="editJurusan" tabindex="-1" role="dialog" aria-labelledby="editJurusanLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editJurusanLabel"></h5>
-          </div>
-          <form role="form" method="" action="">
-            <div class="modal-body">
-              <div class="form-group mb-3">
-                <label for="fakultas">Pilih Fakultas</label>
-                <select class="form-control" id="fakultas" name="fakultas">
-                  <option value="">1</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Nama Jurusan</label>
-                <input class="form-control" type="text" name="jurusan" id="jurusan">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" onclick="closeJurusan()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+
 
   <script>
     function addFakultas(){
@@ -165,12 +138,7 @@ include '../../config/function-fakultas.php';
     // $('#id').val('');
     }
 
-    function editJurusan(){
-    // $('#add-group').trigger("reset");
-      $('#editJurusanLabel').html("Edit Jurusan");
-      $('#editJurusan').modal('show');
-    // $('#id').val('');
-    }
+
     
     function closeJurusan() { 
       $('#modalJurusan').modal('hide');
@@ -220,10 +188,21 @@ if (isset($_GET['hapusf'])) {
 }
 
 
+
+
+// update jurusan
+if (isset($_POST['updatejurusan'])) {
+
+ updatejurusan($_REQUEST['id'], $_REQUEST['jurusan']);
+} else {
+  echo '';
+}
+
+
 // hapus jurusan
 if (isset($_GET['hapusj'])) {
 
-  deletefakultas($_REQUEST['hapusj']);
+  deletejurusan($_REQUEST['hapusj']);
 } else {
   echo '';
 }
