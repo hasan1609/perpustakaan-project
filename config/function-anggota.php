@@ -140,38 +140,40 @@ function list_anggota(){
                                 <h5 class='modal-title' id='modalAnggotaLabel'>DATA ANGGOTA</h5>
                             </div>
                             <div class='modal-body'>
-                                <table>
-                                    <tr>
-                                        <td>No. Reg Pendaftaran</td>
-                                        <td>:</td>
-                                        <td>" . $row["req_perpus"] . "</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>:</td>
-                                        <td>" . $row["email"] . "</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama</td>
-                                        <td>:</td>
-                                        <td>" . $row["nama"] . "</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NIDN</td>
-                                        <td>:</td>
-                                        <td>" . $row["STB"] . "</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Fak/Jur</td>
-                                        <td>:</td>
-                                        <td>" . $row["fklts"] . " \ " . $row["jrsn"] . "</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alamat</td>
-                                        <td>:</td>
-                                        <td>" . $row["almt"] . "</td>
-                                    </tr>
-                                </table>
+                                <div class='table-responsive'>
+                                    <table>
+                                        <tr>
+                                            <td>No. Reg Pendaftaran</td>
+                                            <td>:</td>
+                                            <td>" . $row["req_perpus"] . "</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>:</td>
+                                            <td>" . $row["email"] . "</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama</td>
+                                            <td>:</td>
+                                            <td>" . $row["nama"] . "</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NIDN</td>
+                                            <td>:</td>
+                                            <td>" . $row["STB"] . "</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fak/Jur</td>
+                                            <td>:</td>
+                                            <td>" . $row["fklts"] . " \ " . $row["jrsn"] . "</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alamat</td>
+                                            <td>:</td>
+                                            <td>" . $row["almt"] . "</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                             <div class='modal-footer'>
                                 <button type='button' class='btn btn-secondary' data-dismiss='modal' >Close</button>
