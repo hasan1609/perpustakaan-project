@@ -73,7 +73,7 @@ include '../../template/sidebar.php'
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="jurusan">Pilih Buku</label>
-                <select class="form-control" id="pilihBuku" name="pilihBuku">
+                <select class="form-control" id="pilihBuku" name="pilihBuku[]">
                   <option value="1">1</option>
                   <option value="2">234</option>
                   <option value="3">djdfkjf</option>
