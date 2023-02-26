@@ -86,28 +86,7 @@ include '../../config/function-fakultas.php';
         </div>
       </div>
     </div>
-    <!-- editFakultas -->
-    <div class="modal fade" id="editFakultas" tabindex="-1" role="dialog" aria-labelledby="editFakultasLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editFakultasLabel"></h5>
-          </div>
-          <form role="form" method="" action="">
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Nama Fakultas</label>
-                <input class="form-control" type="text" name="fakultas" id="fakultas">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" onclick="closeFakultas()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+
     <!--add jurusan -->
     <div class="modal fade" id="modalJurusan" tabindex="-1" role="dialog" aria-labelledby="modalJurusanLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -172,12 +151,7 @@ include '../../config/function-fakultas.php';
       $('#modalFakultas').modal('show');
     // $('#id').val('');
     }
-    function editFakultas(){
-    // $('#add-group').trigger("reset");
-      $('#editFakultasLabel').html("Edit Fakultas");
-      $('#editFakultas').modal('show');
-    // $('#id').val('');
-    }
+
     
     function closeFakultas() { 
       $('#modalFakultas').modal('hide');
