@@ -185,7 +185,7 @@ function list_anggota(){
 
                  <!-- Button delete anggota -->
              
-    <a href=index.php?hapus=".$row['id']." type='submit' class='btn btn-social-icon btn-outline-youtube' '><i class='ti-trash'></i></a>
+                 <a href=index.php?hapus=".$row['id']." type='submit' class='btn btn-social-icon btn-outline-youtube' '><i class='ti-trash'></i></a>
                    </td> 
 
                     " ;
