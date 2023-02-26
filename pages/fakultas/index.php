@@ -179,21 +179,55 @@ include '../../config/function-fakultas.php';
 
   </script>
 <?php
+
+
+//tambah fakultas
 if (isset($_POST['submitfklts'])) {
-addFakultas(generateRandomString(5), $_POST['fakultas']);
+addFakultas($_POST['fakultas']);
 
 } else{
  echo ""; 
 }
+
+
+// tambah jurusan
 if (isset($_POST['submitjrsn'])) {
 
-
-print_r($_REQUEST);
  addJurusan($_REQUEST['fakultas'],$_REQUEST['jurusan']);
-
-
 } else {
   echo '';
 }
+
+
+
+
+// update fakultas
+if (isset($_POST['updatefakultas'])) {
+  
+ updatefakultas($_REQUEST['id'], $_REQUEST['fakultas']);
+} else {
+  echo '';
+}
+
+
+// hapus fakultas 
+if (isset($_GET['hapusf'])) {
+
+
+  deletefakultas($_REQUEST['hapusf']);
+} else {
+  echo '';
+}
+
+
+// hapus jurusan
+if (isset($_GET['hapusj'])) {
+
+  deletefakultas($_REQUEST['hapusj']);
+} else {
+  echo '';
+}
+
+
 include '../../template/footer.php';
 ?>

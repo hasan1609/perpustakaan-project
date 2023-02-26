@@ -1,10 +1,10 @@
 <?php
 
 
-function addFakultas($code,$fklts){
+function addFakultas($fklts){
     include 'koneksi.php';
   
-    $sql = "INSERT INTO `fakultas` (`id`, `id_fklts`, `nama`) VALUES (NULL, '$code', '$fklts')";
+    $sql = "INSERT INTO `fakultas` (`id`, `nama`) VALUES (NULL, '$fklts')";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
@@ -31,7 +31,7 @@ function list_fakultas(){
         while ($row = $result->fetch_assoc()) {
             echo "                  <tr>
                     <td>".$row['id']."</td>
-                    <td>".$row['nama']."</td>
+                    <td>".strtoupper($row['nama'])."</td>
                     <td>
                       <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter' onClick='editFakultas" . $row['id'] . "()'><i class='ti-pencil'></i></button>
                      
@@ -46,8 +46,9 @@ function list_fakultas(){
                                     <div class='modal-body'>
                                     <div class='form-group'>
                                         <label for='example-text-input' class='form-control-label'>Nama Fakultas</label>
-                                         <input class='form-control' type='hidden' name='code' id='code' value='" . $row['id_fklts'] . "'>
-                                        <input class='form-control' type='text' name='fakultas' id='fakultas' value='". $row['nama']."'>
+                                        
+                                        <input class='form-control' type='hidden' name='id' id='id' value='". $row['id']."'>
+                                        <input class='form-control' type='text' name='fakultas' id='fakultas' value='" . $row['nama'] . "'>
                                     </div>
                                     </div>
                                     <div class='modal-footer'>
@@ -69,7 +70,7 @@ function list_fakultas(){
                      </script>
                      
                      
-                      <button type='button' class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></button>
+                      <a href=index.php?hapusf=" . $row['id'] . " type='submit' class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></a>
                     </td>
                  ";
 
@@ -93,7 +94,7 @@ function list_fakultas2()
 
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-        echo "    <option value='". $row['id_fklts']."'>". $row['nama']."</option>
+        echo "    <option value='" . $row['nama'] . "'>". $row['nama']."</option>
                  ";
 
     }
@@ -109,7 +110,7 @@ function addJurusan($fklts, $jrsn)
 
     include 'koneksi.php';
 
-    $sql = "INSERT INTO `jurusan` (`id`, `id_fklts`, `jrsn`) VALUES (NULL, '$fklts', '$jrsn');";
+    $sql = "INSERT INTO `jurusan` (`id`, `fklts`, `jrsn`) VALUES (NULL, '$fklts', '$jrsn');";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
@@ -137,8 +138,8 @@ function list_jurusan()
         echo " 
                   <tr>
                     <td>1</td>
-                    <td>".$row['id_fklts']."</td>
-                    <td>".$row['jrsn']."</td>
+                    <td>".strtoupper($row['fklts'])."</td>
+                    <td>".strtoupper($row['jrsn'])."</td>
                     <td>
                       <button type='button' class='btn btn-md btn-social-icon btn-outline-twitter' onClick='editJurusan()'><i class='ti-pencil'></i></button>
                       <button type='button' class='btn btn-social-icon btn-outline-youtube'><i class='ti-trash'></i></button>
@@ -149,5 +150,43 @@ function list_jurusan()
     }
     echo " </tr>";
 
+}
+
+
+function updatefakultas($id, $fklts)
+{
+
+    include 'koneksi.php';
+
+  
+        $sql = "UPDATE `fakultas` SET `nama` = '$fklts' WHERE `fakultas`.`id` = $id";
+    
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+    } else {
+
+    }
+
+    $conn->close();
+
+
+}
+
+
+function deletefakultas($id)
+{
+
+
+    include 'koneksi.php';
+    $sql = "DELETE FROM `fakultas` WHERE `fakultas`.`id` = $id";
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        exit;
+
+    } else {
+        // echo "Error deleting record: " . $conn->error;
+    }
+    $conn->close();
 }
 ?>
