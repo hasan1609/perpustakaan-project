@@ -96,9 +96,5 @@
       });
     </script>
 
-    <script>
-        new MultiSelectTag('pilihBuku')  // id
-    </script>
-
 
 </body>
