@@ -36,5 +36,36 @@ include '../../template/sidebar.php';
     
 
 <?php
+
+
+// aktifasi anggota 
+if (isset($_GET['aktif'])) {
+  $id = $_REQUEST['aktif'];
+
+  terima_anggota($id);
+} else {
+  echo '';
+}
+
+
+// tolak anggota
+if (isset($_GET['tolak'])) {
+  $id = $_REQUEST['tolak'];
+
+  tolak_anggota($id);
+} else {
+  echo '';
+}
+
+
+
+// hapus anggota
+if (isset($_GET['hapus'])) {
+  $id = $_REQUEST['hapus'];
+  deletanggota($id);
+} else {
+  echo '';
+}
+
 include '../../template/footer.php';
 ?>

@@ -58,8 +58,8 @@ function list_anggota_baru()
                                         </table>
                                         </div>
                                         <div class='modal-footer'>
-                                        <button type='button' class='btn btn-primary btn-icon-text'><i class='ti-check btn-icon-prepend'></i>Terima</button>
-                                        <button type='button' class='btn btn-danger btn-icon-text'><i class='ti-close btn-icon-prepend'></i>Tolak</button>
+                                        <a href=index.php?aktif=" . $row['id'] . " type='submit' class='btn btn-primary btn-icon-text'><i class='ti-check btn-icon-prepend'></i>Terima</a>
+                                        <a href=index.php?tolak=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text'><i class='ti-close btn-icon-prepend'></i>Tolak</a>
                                         <button type='button' class='btn btn-secondary' onclick='closeView()'>Close</button>
                                         </div>
                                     </form>
@@ -78,10 +78,10 @@ function list_anggota_baru()
 
 
 
-                      <button type='button' class='btn btn-warning btn-icon-text'>
+                      <a href=index.php?hapus=" . $row['id'] . " type='submit' class='btn btn-warning btn-icon-text'>
                         <i class='ti-trash btn-icon-prepend'></i>
                         Hapus
-                      </button>
+                      </a>
                     </td>
                     
                 </tr>";
@@ -93,7 +93,33 @@ function list_anggota_baru()
 } 
 
                       
+function tolak_anggota($id){
+    include 'koneksi.php';
+    $sql = "UPDATE `anggota` SET `status` = '2' WHERE `anggota`.`id` = $id";
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        exit;
 
+    } else {
+
+    }
+    $conn->close();
+}
+function terima_anggota($id){
+
+    
+    include 'koneksi.php';
+    $sql = "UPDATE `anggota` SET `status` = '1' WHERE `anggota`.`id` = $id";
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        exit;
+
+    } else {
+
+    }
+    $conn->close();
+
+}
 
 function anggota()
 {
