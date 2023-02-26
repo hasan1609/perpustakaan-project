@@ -212,11 +212,11 @@ function deletanggota($id){
     include 'koneksi.php';
     $sql = "DELETE FROM `anggota` WHERE `anggota`.`id` = $id";
     if ($conn->query($sql) === TRUE) {
-        // header("Location: index.php");
-        echo "
-                        <script>
-                            document.location.href = 'index.php';
-                        </script>";
+        header("Location: index.php");
+        // echo "
+        //                 <script>
+        //                     document.location.href = 'index.php';
+        //                 </script>";
 
     } else {
         // echo "Error deleting record: " . $conn->error;
