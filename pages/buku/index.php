@@ -83,20 +83,20 @@ include '../../config/function-buku.php';
 <?php
 
 if (isset($_GET['hapus'])) {
-  $id = $_REQUEST['hapus'];
-  //print_r($id);
-  deletebuku($id);
+
+  deletebuku(['hapus']);
 } else {
   echo '';
 }
 
 if (!empty($_POST['addbuku'])) {
-  print_r($_REQUEST);
-  $code = $_POST['kodeAdd'];
-  $judul = $_POST['namaAdd'];
+
+
   $img = "umi.jpg";
   //print_r($id);
-  addbuku($code,$judul,$img);
+  addbuku($_POST['kodeAdd'], $_POST['namaAdd'],$img);
+
+
   
 } else {
   echo '';
