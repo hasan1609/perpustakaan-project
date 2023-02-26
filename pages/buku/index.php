@@ -1,7 +1,9 @@
 <?php
 include '../../template/header.php';
-include '../../template/sidebar.php'
-?>
+include '../../template/sidebar.php';
+include '../../config/function-buku.php';
+
+  ?>
 
 <div class="main-panel">
   <div class="content-wrapper">
@@ -25,15 +27,8 @@ include '../../template/sidebar.php'
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>asuuu</td>
-                    <td>bukuku</td>
-                    <td>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"onClick="editBuku()"><i class="ti-pencil"></i></button>
-                      <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
-                    </td>
-                  </tr>
+                <?php list_buku(); ?>
+                  
                 </tbody>
               </table>
             </div>
@@ -49,7 +44,7 @@ include '../../template/sidebar.php'
           <div class="modal-header">
             <h5 class="modal-title" id="modalBukuLabel"></h5>
           </div>
-          <form role="form" method="" action="">
+          <form role="form" method="post" action="index.php">
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Kode Buku</label>
@@ -67,68 +62,52 @@ include '../../template/sidebar.php'
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeBuku()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
+              <button type="submit" value="addbuku" name="addbuku" class="btn btn-primary">Save</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-
-    <!-- edit buku -->
-    <div class="modal fade" id="editBuku" tabindex="-1" role="dialog" aria-labelledby="editBukuLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editBukuLabel"></h5>
-          </div>
-          <form role="form" method="" action="">
-            <div class="modal-body">
-              <input type="hidden" id="idEdit" name="idEdit">
-              <div class="form-group mb-3">
-                <label for="example-text-input" class="form-control-label">Kode Buku</label>
-                <input class="form-control" type="number" name="kodeEdit" id="kodeEdit">
-              </div>
-              <div class="form-group mb-3">
-                <label for="example-text-input" class="form-control-label">Nama Buku</label>
-                <input class="form-control" type="text" name="namaEdit" id="namaEdit">
-              </div>
-              <img id="previewEdit" src="#" style="width: 100px; margin: 5px;" alt="Foto"><br>
-              <div class="form-group mb-3">
-                <label for="example-text-input" class="form-control-label">Foto Buku</label>
-                <input class="form-control" type="file" name="gambarEdit" id="gambarEdit">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" onclick="closeBuku()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
 <script>
-  function addBuku(){
-    // $('#add-group').trigger("reset");
-    $('#modalBukuLabel').html("Tambah Buku");
-    $('#modalBuku').modal('show');
-    // $('#id').val('');
-  }
-
-  function editBuku(){
-    // $('#add-group').trigger("reset");
-    $('#editBukuLabel').html("Update Buku");
-    $('#editBuku').modal('show');
-    // $('#id').val('');
-  }
-  
-  function closeBuku() { 
-    $('#modalBuku').modal('hide');
-    $('#editBuku').modal('hide');
-  }
+ function addBuku(){
+   // $('#add-group').trigger('reset');
+   $('#modalBukuLabel').html('Tambah Buku');
+   $('#modalBuku').modal('show');
+   // $('#id').val('');
+   }
 </script>
 
 
+
+
 <?php
+
+if (isset($_GET['hapus'])) {
+  $id = $_REQUEST['hapus'];
+  //print_r($id);
+  deletebuku($id);
+} else {
+  echo '';
+}
+
+if (!empty($_POST['addbuku'])) {
+  print_r($_REQUEST);
+  $code = $_POST['kodeAdd'];
+  $judul = $_POST['namaAdd'];
+  $img = "umi.jpg";
+  //print_r($id);
+  addbuku($code,$judul,$img);
+  
+} else {
+  echo '';
+}
+
+if (!empty($_POST['updatebuku'])) {
+  ///print_r($_REQUEST);
+updatebuku($_POST['namaEdit'],$_POST['gambarEdit'],$_POST['idEdit'],$_POST['kodeEdit']);
+
+} else {
+  echo '';
+}
 include '../../template/footer.php';
 ?>

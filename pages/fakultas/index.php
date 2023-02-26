@@ -1,6 +1,8 @@
 <?php
 include '../../template/header.php';
-include '../../template/sidebar.php'
+include '../../template/sidebar.php';
+include '../../config/random.php';
+include '../../config/function-fakultas.php';
 ?>
 
 <div class="main-panel">
@@ -25,14 +27,7 @@ include '../../template/sidebar.php'
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>bukuku</td>
-                    <td>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter" onClick="editFakultas()"><i class="ti-pencil"></i></button>
-                      <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
-                    </td>
-                  </tr>
+                <?php list_fakultas(); ?>
                 </tbody>
               </table>
             </div>
@@ -59,15 +54,7 @@ include '../../template/sidebar.php'
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>0fhdu</td>
-                    <td>bukuku</td>
-                    <td>
-                      <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter" onClick="editJurusan()"><i class="ti-pencil"></i></button>
-                      <button type="button" class="btn btn-social-icon btn-outline-youtube"><i class="ti-trash"></i></button>
-                    </td>
-                  </tr>
+              <?php list_jurusan(); ?>
                 </tbody>
               </table>
             </div>
@@ -84,7 +71,7 @@ include '../../template/sidebar.php'
           <div class="modal-header">
             <h5 class="modal-title" id="modalFakultasLabel"></h5>
           </div>
-          <form role="form" method="" action="">
+          <form role="form" method="post" action="index.php">
             <div class="modal-body">
               <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Nama Fakultas</label>
@@ -93,7 +80,7 @@ include '../../template/sidebar.php'
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeFakultas()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
+              <button type="submit"  value="submitfklts" name="submitfklts" class="btn btn-primary">Save</button>
             </div>
           </form>
         </div>
@@ -128,12 +115,12 @@ include '../../template/sidebar.php'
           <div class="modal-header">
             <h5 class="modal-title" id="modalJurusanLabel"></h5>
           </div>
-          <form role="form" method="" action="">
+          <form role="form" method="post" action="index.php">
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="fakultas">Pilih Fakultas</label>
                 <select class="form-control" id="fakultas" name="fakultas">
-                  <option value="">1</option>
+                <?php list_fakultas2(); ?>
                 </select>
               </div>
               <div class="form-group">
@@ -143,7 +130,7 @@ include '../../template/sidebar.php'
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeJurusan()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
+               <button type="submit"  value="submitjrsn" name="submitjrsn" class="btn btn-primary">Save</button>
             </div>
           </form>
         </div>
@@ -218,5 +205,21 @@ include '../../template/sidebar.php'
 
   </script>
 <?php
+if (isset($_POST['submitfklts'])) {
+addFakultas(generateRandomString(5), $_POST['fakultas']);
+
+} else{
+ echo ""; 
+}
+if (isset($_POST['submitjrsn'])) {
+
+
+print_r($_REQUEST);
+ addJurusan($_REQUEST['fakultas'],$_REQUEST['jurusan']);
+
+
+} else {
+  echo '';
+}
 include '../../template/footer.php';
 ?>
