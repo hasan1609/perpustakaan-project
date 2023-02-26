@@ -2,7 +2,6 @@
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
-error_reporting (E_ALL ^ E_NOTICE);
 ?>
 
 <div class="main-panel">
@@ -26,7 +25,7 @@ error_reporting (E_ALL ^ E_NOTICE);
                   </tr>
                 </thead>
                 <tbody>
-              <?php list_anggota(); ?>
+                  <?php list_anggota(); ?>
                 </tbody>
               </table>
             </div>
