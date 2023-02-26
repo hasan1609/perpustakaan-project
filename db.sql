@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2023 at 04:24 PM
+-- Generation Time: Feb 26, 2023 at 04:33 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -220,15 +220,6 @@ CREATE TABLE `fakultas` (
   `nama` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `fakultas`
---
-
-INSERT INTO `fakultas` (`id`, `id_fklts`, `nama`) VALUES
-(1, 'KM2L3', 'sad'),
-(2, 'N7K3Y', 'sad'),
-(3, 'RYEP3', '222');
-
 -- --------------------------------------------------------
 
 --
@@ -301,13 +292,15 @@ ALTER TABLE `denda`
 -- Indexes for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nama` (`nama`);
 
 --
 -- Indexes for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `jrsn` (`jrsn`);
 
 --
 -- Indexes for table `p_buku`
@@ -347,7 +340,7 @@ ALTER TABLE `denda`
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
