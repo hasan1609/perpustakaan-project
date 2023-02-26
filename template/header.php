@@ -28,7 +28,9 @@
   <script src="../../vendors/chart.js/Chart.min.js"></script>
   <!-- select option -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
-
+  <!-- sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
+    
 </head>
 <body>
     <!-- partial:partials/_navbar.html -->

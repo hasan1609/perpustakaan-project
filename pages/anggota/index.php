@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
@@ -33,16 +34,50 @@ include '../../config/function-anggota.php';
         </div>
       </div>
     </div>
-
+    <?php
+    if (isset($_GET['hapus'])) {
+      $id = $_REQUEST['hapus'];
+    //print_r($id);
+      deletanggota($id);
+      
+   }else{
+     echo '';
+   }
+   ?>
+    <?php if(@$_SESSION['sukses']){ ?>
+            <script>
+                Swal.fire({            
+                    icon: 'success',                   
+                    title: 'Sukses',    
+                    text: 'data berhasil dihapus',                        
+                    timer: 3000,                                
+                    showConfirmButton: false
+                })
+            </script>
+        <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
+        <?php unset($_SESSION['sukses']); } ?>
+        <script>
+            $('.hapus_anggota').on('click',function(){
+                var getLink = $(this).attr('href');
+                Swal.fire({
+                    title: "Yakin hapus data?",            
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Ya',
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: "Batal"
+                
+                }).then(result => {
+                    //jika klik ya maka arahkan ke proses.php
+                    if(result.isConfirmed){
+                        window.location.href = getLink
+                    }
+                })
+                return false;
+            });
+        </script>
 <?php
-
-if (isset($_GET['hapus'])) {
-   $id = $_REQUEST['hapus'];
- //print_r($id);
-   deletanggota($id);
-}else{
-  echo '';
-}
 
 include '../../template/footer.php';
 ?>

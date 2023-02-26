@@ -27,7 +27,7 @@ include '../../config/function-buku.php';
         </a>
       </div>
       <div class="col-sm-3 stretch-card grid-margin">
-        <a href="../anggota_baru/index.php" class="card bg-gradient-warning card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="../pengguna_baru/index.php" class="card bg-gradient-warning card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h5 class="font-weight-normal mb-3"> Anggota Baru</h5>
