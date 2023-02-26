@@ -8,28 +8,30 @@ include '../../config/function-anggota.php';
   <div class="content-wrapper">
     <div class="row">
       <div class="col-sm-3 stretch-card grid-margin">
-        <button class="card bg-gradient-success card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="" class="card bg-gradient-success card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h2 class="font-weight-normal"> SKBP 1</h2>
           </div>
-        </button>
+        </a>
       </div>
       <div class="col-sm-3 stretch-card grid-margin">
-        <button class="card bg-gradient-primary card-img-holder text-white" style="text-decoration-line: none;">
+        <a href="skbp2.php" class="card bg-gradient-primary card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
             <h3 class="font-weight-normal"> SKBP 2</h3>
           </div>
-        </button>
+        </a>
       </div>
     </div>
+
+    <!-- UNTUK TAMPILAN ADMIN -->
     <div class="row">
       <div class="col-sm-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
           <div class="row">
-            <h4 class="card-title">Riwayat SKBP 1</h4>
+            <h4 class="card-title">Data SKBP 1</h4>
               <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                   <thead>
@@ -62,7 +64,7 @@ include '../../config/function-anggota.php';
         <div class="card">
           <div class="card-body">
           <div class="row">
-            <h4 class="card-title">Riwayat SKBP 2</h4>
+            <h4 class="card-title">Data SKBP 2</h4>
               <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                   <thead>
@@ -93,35 +95,51 @@ include '../../config/function-anggota.php';
       </div>
     </div>
 
-    <div class="modal fade" id="modalSkbp" tabindex="-1" role="dialog" aria-labelledby="modalAnggotaLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalAnggotaLabel"></h5>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" onclick="closeAnggota()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
+    <!-- UNTUK TAMPILAN USER -->
+    <div class="row">
+      <div class="col-sm-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+          <div class="row">
+            <h4 class="card-title">Data SKBP</h4>
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama</th>
+                      <th>Tgl Pengajuan</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>SKBP 1</td>
+                      <td>Nama Anggota</td>
+                      <td>
+                        <label for="" class="badge badge-success">Diterima</label>
+                        <label for="" class="badge badge-danger">Ditolak</label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>SKBP 2</td>
+                      <td>Nama Anggota</td>
+                      <td>
+                        <label for="" class="badge badge-success">Diterima</label>
+                        <label for="" class="badge badge-danger">Ditolak</label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-
-<script>
-  function viewAnggota(){
-    // $('#add-group').trigger("reset");
-    $('#modalAnggotaLabel').html("Data Anggota");
-    $('#modalAnggota').modal('show');
-    // $('#id').val('');
-  }
-  
-  function closeAnggota() { 
-    $('#modalAnggota').modal('hide');
-  }
-</script>
 <?php
 include '../../template/footer.php';
 ?>
