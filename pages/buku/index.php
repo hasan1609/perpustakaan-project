@@ -81,7 +81,7 @@ include '../../config/function-buku.php';
 
 if (isset($_GET['hapus'])) {
 
-  deletebuku(['hapus']);
+  deletebuku($_GET['hapus']);
 } else {
   echo '';
 }
