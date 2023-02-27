@@ -26,7 +26,7 @@
   <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap4.min.js"></script>
 
   <!-- select option -->
-  <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script> -->
   <!-- End plugin js for this page -->
   <!-- inject:js -->
 
@@ -96,8 +96,8 @@
       });
     </script>
 
-    <script>
+    <!-- <script>
         new MultiSelectTag('pilihBuku')  // id
-    </script>
+    </script> -->
 
 </body>

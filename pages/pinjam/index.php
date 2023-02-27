@@ -73,7 +73,7 @@ include '../../template/sidebar.php'
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="jurusan">Pilih Buku</label>
-                <select class="form-control" id="pilihBuku" name="pilihBuku[]">
+                <select class="form-control" id="pilihBuku" name="pilihBuku[]" multiple="multiple" style="width: 100%">
                   <option value="1">1</option>
                   <option value="2">234</option>
                   <option value="3">djdfkjf</option>
@@ -100,12 +100,18 @@ include '../../template/sidebar.php'
         // $('#add-group').trigger("reset");
         $('#modalBukuLabel').html("Pinjam Buku");
         $('#modalBuku').modal('show');
+        $('#pilihBuku').select2();
         // $('#id').val('');
       }
 
       function closeBuku() { 
         $('#modalBuku').modal('hide');
       }
+
+      $('#pilihBuku').select2({
+        dropdownParent: $('#modalBuku'),
+        theme: "classic"
+    });
     </script>
 <?php
 include '../../template/footer.php';
