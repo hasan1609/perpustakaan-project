@@ -49,7 +49,7 @@ include '../../config/function-anggota.php';
         Swal.fire({            
           icon: 'success',                   
           title: 'Sukses',    
-          text: 'data berhasil dihapus',                        
+          text: 'Anggota berhasil dihapus',                        
           timer: 3000,                                
           showConfirmButton: false
         })

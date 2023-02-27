@@ -23,83 +23,69 @@ function list_buku(){
     while ($row = $result->fetch_assoc()) {
         $i++;
         echo "<tr>
-                    <td>" . $i . "</td>
-                    <td>" . $row['code'] . "</td>
-                    <td>" . $row['jdl_buku'] . "</td>
-                    <td>
-                      <button type='button' class='btn btn-primary btn-icon-text'onClick='editBuku" . $row['id'] . "()'><i class='ti-pencil'></i></button>
-
-                         <!-- edit buku -->
-                        <div class='modal fade' id='editBuku" . $row['id'] . "' tabindex='-1' role='dialog' aria-labelledby='editBukuLabel' aria-hidden='true'>
-                        <div class='modal-dialog' role='document'>
-                            <div class='modal-content'>
+            <td>" . $i . "</td>
+            <td>" . $row['code'] . "</td>
+            <td>" . $row['jdl_buku'] . "</td>
+            <td>
+                <button type='button' class='btn btn-primary btn-icon-text'onClick='editBuku" . $row['id'] . "()'><i class='ti-pencil'></i></button>
+                <!-- edit buku -->
+                <div class='modal fade' id='editBuku" . $row['id'] . "' tabindex='-1' role='dialog' aria-labelledby='editBukuLabel' aria-hidden='true'>
+                    <div class='modal-dialog' role='document'>
+                        <div class='modal-content'>
                             <div class='modal-header'>
                                 <h5 class='modal-title' id='editBukuLabel'></h5>
                             </div>
                             <form role='form' method='post' action='index.php'>
                                 <div class='modal-body'>
-                                <input type='hidden' id='idEdit' name='idEdit' value='". $row['id']."'>
-                                <div class='form-group mb-3'>
-                                    <label for='example-text-input' class='form-control-label'>Kode Buku</label>
-                                    <input class='form-control' type='number' value='". $row['code']."' name='kodeEdit' id='kodeEdit'>
-                                </div>
-                                <div class='form-group mb-3'>
-                                    <label for='example-text-input' class='form-control-label'>Nama Buku</label>
-                                    <input class='form-control' type='text' value='" . $row['jdl_buku'] . "' name='namaEdit' id='namaEdit'>
-                                </div>
-                                <img id='previewEdit' src='#' style='width: 100px; margin: 5px;' alt='Foto'><br>
-                                <div class='form-group mb-3'>
-                                    <label for='example-text-input' class='form-control-label'>Foto Buku</label>
-                                    <input class='form-control' type='file' name='gambarEdit' id='gambarEdit'>
-                                </div>
+                                    <input type='hidden' id='idEdit' name='idEdit' value='". $row['id']."'>
+                                    <div class='form-group mb-3'>
+                                        <label for='example-text-input' class='form-control-label'>Kode Buku</label>
+                                        <input class='form-control' type='number' value='". $row['code']."' name='kodeEdit' id='kodeEdit'>
+                                    </div>
+                                    <div class='form-group mb-3'>
+                                        <label for='example-text-input' class='form-control-label'>Nama Buku</label>
+                                        <input class='form-control' type='text' value='" . $row['jdl_buku'] . "' name='namaEdit' id='namaEdit'>
+                                    </div>
+                                    <img id='previewEdit' src='#' style='width: 100px; margin: 5px;' alt='Foto'><br>
+                                    <div class='form-group mb-3'>
+                                        <label for='example-text-input' class='form-control-label'>Foto Buku</label>
+                                        <input class='form-control' type='file' name='gambarEdit' id='gambarEdit'>
+                                    </div>
                                 </div>
                                 <div class='modal-footer'>
-                                <button type='button' class='btn btn-secondary' onclick='closeBuku()'>Close</button>
-                                <button type='submit'  value='updatebuku' name='updatebuku' class='btn btn-primary'>Save</button>
+                                    <button type='button' class='btn btn-secondary' onclick='closeBuku()'>Close</button>
+                                    <button type='submit'  value='updatebuku' name='updatebuku' class='btn btn-primary'>Save</button>
                                 </div>
                             </form>
-                            </div>
                         </div>
-                        </div>
-                        <script>
-
-
-                            function editBuku" . $row['id'] . "(){
-                                // $('#add-group').trigger('reset');
-                                $('#editBukuLabel').html('Update Buku');
-                                $('#editBuku" . $row['id'] . "').modal('show');
-                                // $('#id').val('');
-                            }
-                            
-                            function closeBuku() { 
-                                $('#modalBuku').modal('hide');
-                                $('#editBuku').modal('hide');
-                            }
-                            </script>
-
-
-
-
-
-
-
-                       <a href=index.php?hapus=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
-                   </td> 
-                    </td>
-                  </tr>";
-
-
-        }
+                    </div>
+                </div>
+                
+                <script>
+                    function editBuku" . $row['id'] . "(){
+                        // $('#add-group').trigger('reset');
+                        $('#editBukuLabel').html('Update Buku');
+                        $('#editBuku" . $row['id'] . "').modal('show');
+                        // $('#id').val('');
+                    }        
+                    function closeBuku() { 
+                        $('#modalBuku').modal('hide');
+                        $('#editBuku').modal('hide');
+                    }
+                </script>
+                <a href='index.php?hapus=".$row['id']."' type='submit' class='btn btn-danger btn-icon-text hapus_buku'><i class='ti-trash'></i></a>
+            </td> 
+        </tr>";
+    }
 }
 
 function deletebuku($id)
 {
-
-
     include 'koneksi.php';
     $sql = "DELETE FROM `buku` WHERE `buku`.`id` = $id";
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        $_SESSION["sukses"] = 'Buku Berhasil Dihapus';
         exit;
 
     } else {
@@ -122,6 +108,7 @@ function addbuku($code,$judul,$jpg){
 
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        $_SESSION["sukses"] = 'Data Berhasil Ditambahkan';
     } else {
      
     }
@@ -142,18 +129,14 @@ function updatebuku($judul,$img,$id,$code){
 
       $sql = " UPDATE `buku` SET `jdl_buku` = '$judul', `img_bk` = '$img',`code` = '$code' WHERE `buku`.`id` = $id";
     }
-
-    
-
-        if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
+        $_SESSION["sukses"] = 'Data Berhasil Ditambahkan';
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
-        } else {
-       
-        }
+    } else {   
+    }
 
-$conn->close();
-
-    
+    $conn->close();
+ 
 }
 
 function p_buku()

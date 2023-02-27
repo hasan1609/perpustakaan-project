@@ -203,7 +203,7 @@ function list_anggota(){
                     </div>
                 </div>
                 <!-- Button delete anggota -->
-                <a href='index.php?hapus=".$row['id']."' type='submit' class='btn btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
+                <a href='index.php?hapus=".$row['id']."' type='submit' class='btn btn btn-danger btn-icon-text hapus_anggota'><i class='ti-trash'></i></a>
             </td>
         </tr>";
         

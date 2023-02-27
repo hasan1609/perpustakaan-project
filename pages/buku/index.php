@@ -1,9 +1,9 @@
 <?php
+session_start();
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-buku.php';
-
-  ?>
+?>
 
 <div class="main-panel">
   <div class="content-wrapper">
@@ -77,9 +77,6 @@ include '../../config/function-buku.php';
    }
 </script>
 
-
-
-
 <?php
 
 if (isset($_GET['hapus'])) {
@@ -90,8 +87,6 @@ if (isset($_GET['hapus'])) {
 }
 
 if (!empty($_POST['addbuku'])) {
-
-
   $img = "umi.jpg";
   //print_r($id);
   addbuku($_POST['kodeAdd'], $_POST['namaAdd'],$img);
@@ -109,5 +104,39 @@ updatebuku($_POST['namaEdit'],$_POST['gambarEdit'],$_POST['idEdit'],$_POST['kode
 } else {
   echo '';
 }
+?>
+<?php if(@$_SESSION['sukses']){ ?>
+  <script>
+    Swal.fire({            
+      icon: 'success',                   
+      title: 'Sukses',    
+      text: 'Buku berhasil dihapus',                        
+      timer: 3000,                                
+      showConfirmButton: false
+    })
+  </script>
+  <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
+<?php unset($_SESSION['sukses']); } ?>
+  <script>
+    $('.hapus_buku').on('click',function(){
+      var getLink = $(this).attr('href');
+      Swal.fire({
+        title: "Yakin hapus buku?",            
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonColor: '#3085d6',
+        cancelButtonText: "Batal"
+      }).then(result => {
+      //jika klik ya maka arahkan ke proses.php
+        if(result.isConfirmed){
+          window.location.href = getLink
+        }
+      })
+      return false;
+    });
+  </script>
+<?php
 include '../../template/footer.php';
 ?>
