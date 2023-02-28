@@ -30,7 +30,7 @@ include '../../config/function-buku.php';
         <a href="../pengguna_baru/index.php" class="card bg-gradient-warning card-img-holder text-white" style="text-decoration-line: none;">
           <div class="card-body">
             <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-            <h5 class="font-weight-normal mb-3"> Anggota Baru</h5>
+            <h5 class="font-weight-normal mb-3"> Aktivasi Anggota Baru</h5>
             <h3 class="mb-2"><?php echo anggota_baru(); ?></h3>
           </div>
         </a>
@@ -67,7 +67,7 @@ include '../../config/function-buku.php';
       <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Pengguna Baru</h4>
+            <h4 class="card-title">Anggota Baru</h4>
             <canvas id="chartPengguna"></canvas>
           </div>
         </div>
@@ -88,19 +88,35 @@ include '../../config/function-buku.php';
 		var chartPengguna = new Chart(pengguna, {
 			type: 'bar',
 			data: {
-				labels: ["Teik", "Fisip", "Ekonomi", "Pertanian"],
+				labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
 				datasets: [{
 					label: '',
-					data: [8,7,7,7
+					data: [8,7,7,7,8,7,7,7,8,7,7,7
 					],
 					backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
 					'rgba(255, 206, 86, 0.2)',
 					'rgba(75, 192, 192, 0.2)'
 					],
 					borderColor: [
 					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+          'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+          'rgba(255,99,132,1)',
 					'rgba(54, 162, 235, 1)',
 					'rgba(255, 206, 86, 1)',
 					'rgba(75, 192, 192, 1)'
@@ -121,19 +137,35 @@ include '../../config/function-buku.php';
     var chartPengunjung = new Chart(pengunjung, {
 			type: 'bar',
 			data: {
-				labels: ["Teknik", "Fisip", "Ekonomi", "Pertanian"],
+				labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
 				datasets: [{
 					label: '',
-					data: [8,7,7,7
+					data: [8,7,7,7,8,7,7,7,8,7,7,7
 					],
 					backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
 					'rgba(255, 206, 86, 0.2)',
 					'rgba(75, 192, 192, 0.2)'
 					],
 					borderColor: [
 					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+          'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+          'rgba(255,99,132,1)',
 					'rgba(54, 162, 235, 1)',
 					'rgba(255, 206, 86, 1)',
 					'rgba(75, 192, 192, 1)'
@@ -154,5 +186,6 @@ include '../../config/function-buku.php';
 	  </script>
       
 <?php
+Januari();
 include '../../template/footer.php';
 ?>

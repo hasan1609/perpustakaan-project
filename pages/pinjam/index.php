@@ -69,7 +69,7 @@ include '../../template/sidebar.php'
           <div class="modal-header">
             <h5 class="modal-title" id="modalBukuLabel"></h5>
           </div>
-          <form role="form" method="" action="">
+          <form role="form" method="post" action="index.php">
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="jurusan">Pilih Buku</label>
@@ -87,7 +87,7 @@ include '../../template/sidebar.php'
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeBuku()">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
+              <button type="submit" class="btn btn-primary">Save</button>
             </div>
           </form>
         </div>
@@ -108,5 +108,7 @@ include '../../template/sidebar.php'
       }
     </script>
 <?php
+
+print_r($_REQUEST);
 include '../../template/footer.php';
 ?>
