@@ -3,6 +3,8 @@ include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
 include '../../config/function-buku.php';
+include '../../config/function-chart-anggota.php';
+include '../../config/function-chart-pengunjung.php';
 ?>
 
 <div class="main-panel">
@@ -91,7 +93,7 @@ include '../../config/function-buku.php';
 				labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
 				datasets: [{
 					label: '',
-					data: [8,7,7,7,8,7,7,7,8,7,7,7
+					data: [<?php Januari(); ?>,<?php Februari(); ?>,<?php Maret(); ?>,<?php April(); ?>,<?php Mei(); ?>,<?php Juni(); ?>,<?php Juli(); ?>,<?php Agustus(); ?>,<?php September(); ?>,<?php Oktober(); ?>,<?php November(); ?>,<?php Desember(); ?>
 					],
 					backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
@@ -140,7 +142,7 @@ include '../../config/function-buku.php';
 				labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
 				datasets: [{
 					label: '',
-					data: [8,7,7,7,8,7,7,7,8,7,7,7
+					data: [<?php p_Januari(); ?>,<?php p_Februari(); ?>,<?php p_Maret(); ?>,<?php p_April(); ?>,<?php p_Mei(); ?>,<?php p_Juni(); ?>,<?php p_Juli(); ?>,<?php p_Agustus(); ?>,<?php p_September(); ?>,<?php p_Oktober(); ?>,<?php p_November(); ?>,<?php p_Desember(); ?>
 					],
 					backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
@@ -186,6 +188,6 @@ include '../../config/function-buku.php';
 	  </script>
       
 <?php
-Januari();
+
 include '../../template/footer.php';
 ?>

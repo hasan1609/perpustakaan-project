@@ -1,6 +1,7 @@
 <?php
 include '../../template/header.php';
-include '../../template/sidebar.php'
+include '../../template/sidebar.php';
+include '../../config/function-pinjam.php';
 ?>
 
 <div class="main-panel">
@@ -115,6 +116,14 @@ include '../../template/sidebar.php'
     </script>
 <?php
 
-print_r($_REQUEST);
+print_r($_REQUEST['pilihBuku']);
+
+echo "<br>";
+
+foreach ($_REQUEST['pilihBuku'] as $value) {
+  pinjambuku($value);
+
+}
+
 include '../../template/footer.php';
 ?>
