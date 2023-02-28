@@ -24,7 +24,6 @@ include '../../config/function-anggota.php';
         </a>
       </div>
     </div>
-
     <!-- UNTUK TAMPILAN ADMIN -->
     <div class="row">
       <div class="col-sm-6 grid-margin stretch-card">
@@ -50,8 +49,19 @@ include '../../config/function-anggota.php';
                         <label for="" class="badge badge-danger">Lunas</label>
                       </td>
                       <td>
-                        <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-printer"></i></button>
-                      </td>
+                      <a href='' type='submit' class='btn btn-success btn-icon-text terima_absensi'>
+                        <i class='ti-check btn-icon-prepend'></i>
+                        Terima
+                      </a>
+                      <a href='' type='submit' class='btn btn-danger btn-icon-text tolak_absensi'>
+                        <i class='ti-close btn-icon-prepend'></i>
+                        Tolak
+                      </a>
+                      <a href='' type='submit' class='btn btn-warning btn-icon-text hapus_absensi'>
+                        <i class='ti-trash btn-icon-prepend'></i>
+                        Hapus
+                      </a>
+                    </td>
                     </tr>
                   </tbody>
                 </table>
@@ -82,8 +92,8 @@ include '../../config/function-anggota.php';
                         <label for="" class="badge badge-danger">Diterima</label>
                       </td>
                       <td>
-                          <button type="button" class="btn btn-md btn-social-icon btn-outline-facebook"><i class="ti-eye"></i></button>
-                        <button type="button" class="btn btn-md btn-social-icon btn-outline-twitter"><i class="ti-printer"></i></button>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="viewSkbp2()">
+                          <i class="mdi mdi-eye btn-icon-prepend"></i> View </a>
                       </td>
                     </tr>
                   </tbody>
@@ -94,6 +104,34 @@ include '../../config/function-anggota.php';
         </div>
       </div>
     </div>
+
+            <!--view Skbp2 -->
+    <div class="modal fade" id="modalSkbp2" tabindex="-1" role="dialog" aria-labelledby="modalSkbp2Label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSkbp2Label"></h5>
+          </div>
+          <form role="form" method="post" action="index.php">
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            <a href=''type='submit' class='btn btn-primary btn-icon-text terima_skbp2'><i class='ti-check btn-icon-prepend'></i>Terima</a>
+            <a href='' type='submit' class='btn btn-danger btn-icon-text tolak_skbp2'><i class='ti-close btn-icon-prepend'></i>Tolak</a>
+            <button type='button' class='btn btn-secondary' onclick='closeView()'>Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+<script>
+ function viewSkbp2(){
+   // $('#add-group').trigger('reset');
+   $('#modalSkbp2Label').html('Data SKBP 2');
+   $('#modalSkbp2').modal('show');
+   // $('#id').val('');
+   }
+</script>
 
     <!-- UNTUK TAMPILAN USER -->
     <div class="row">

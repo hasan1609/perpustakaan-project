@@ -58,8 +58,8 @@ function list_anggota_baru()
                                     </table>
                                 </div>
                                 <div class='modal-footer'>
-                                    <a href=index.php?aktif=" . $row['id'] . " type='submit' class='btn btn-primary btn-icon-text'><i class='ti-check btn-icon-prepend'></i>Terima</a>
-                                    <a href=index.php?tolak=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text'><i class='ti-close btn-icon-prepend'></i>Tolak</a>
+                                    <a href=index.php?aktif=" . $row['id'] . " type='submit' class='btn btn-primary btn-icon-text terima_anggota'><i class='ti-check btn-icon-prepend'></i>Terima</a>
+                                    <a href=index.php?tolak=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text tolak_anggota'><i class='ti-close btn-icon-prepend'></i>Tolak</a>
                                     <button type='button' class='btn btn-secondary' onclick='closeView()'>Close</button>
                                 </div>
                             </form>
@@ -74,7 +74,7 @@ function list_anggota_baru()
                         // $('#id').val('');
                     }
                 </script>
-                <a href='index.php?hapus=" . $row['id'] . "' class='btn btn-warning btn-icon-text'>
+                <a href='index.php?hapus=" . $row['id'] . "' class='btn btn-warning btn-icon-text hapus_anggota'>
                     <i class='ti-trash btn-icon-prepend'></i>
                     Hapus
                 </a>
@@ -91,6 +91,7 @@ function tolak_anggota($id){
     $sql = "UPDATE `anggota` SET `status` = '2' WHERE `anggota`.`id` = $id";
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        $_SESSION["tolak"] = 'Data Berhasil Ditolak';
         exit;
 
     } else {
@@ -105,6 +106,7 @@ function terima_anggota($id){
     $sql = "UPDATE `anggota` SET `status` = '1' WHERE `anggota`.`id` = $id";
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        $_SESSION["terima"] = 'Data Berhasil Diterima';
         exit;
 
     } else {

@@ -71,7 +71,7 @@ function list_fakultas(){
                      </script>
                      
                      
-                      <a href=index.php?hapusf=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
+                      <a href=index.php?hapusf=" . $row['id'] . " type='submit' class='btn btn-danger btn-icon-text hapus_fakultas'><i class='ti-trash'></i></a>
                     </td>
                  ";
 
@@ -182,7 +182,7 @@ function list_jurusan()
                       </script>
                       
                       
-                      <a  href=index.php?hapusj=" . $row['id'] . " type='submit'  class='btn btn-danger btn-icon-text'><i class='ti-trash'></i></a>
+                      <a  href=index.php?hapusj=" . $row['id'] . " type='submit'  class='btn btn-danger btn-icon-text hapus_jurusan'><i class='ti-trash'></i></a>
                     </td>
              
                  ";
@@ -222,6 +222,7 @@ function deletefakultas($id)
     $sql = "DELETE FROM `fakultas` WHERE `fakultas`.`id` = $id";
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        $_SESSION["sukses"] = 'Data Berhasil Dihapus';
         exit;
 
     } else {
@@ -263,6 +264,7 @@ function deletejurusan($id)
     $sql = " DELETE FROM `jurusan` WHERE `jurusan`.`id` = $id";
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>window.top.location='index.php';</script>";
+        $_SESSION["sukses"] = 'Data Berhasil Dihapus';
         exit;
 
     } else {
