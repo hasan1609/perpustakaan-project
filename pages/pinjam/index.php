@@ -2,6 +2,7 @@
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-pinjam.php';
+error_reporting(E_ALL ^ E_NOTICE);
 ?>
 
 <div class="main-panel">
@@ -116,14 +117,16 @@ include '../../config/function-pinjam.php';
     </script>
 <?php
 
-print_r($_REQUEST['pilihBuku']);
+print_r($_REQUEST);
 
 echo "<br>";
+if (!empty($_REQUEST['pilihBuku'])) {
+  foreach ($_REQUEST['pilihBuku'] as $value) {
+    pinjambuku($value,$_REQUEST['tgl_kembali']);
 
-foreach ($_REQUEST['pilihBuku'] as $value) {
-  pinjambuku($value);
-
+  }
 }
+
 
 include '../../template/footer.php';
 ?>
