@@ -5,33 +5,28 @@ function Denda()
 {
     include 'koneksi.php';
 
-    $sql = "SELECT * FROM `denda`";
+    $sql = "SELECT * FROM `p_buku` WHERE `tgl_kmbl` < CURDATE();";
     $result = $conn->query($sql);
-
 
     $i = 0;
     while ($row = $result->fetch_assoc()) {
-        $awal = date_create($row['created']);
-        $akhir = date_create(); // waktu sekarang
-        $diff = date_diff($awal, $akhir);
-        $denda = number_format($diff->days * 500, 2, ',', '.');
+        $i++;
+      
 
-        echo "  <tr>
-                        <td>1</td>
+        $tgl = explode(" ", $row['tgl_kmbl']);
+        $date1 = date("Y-m-d");
+        $date2 = $row['tgl_kmbl'];
+
+        $diff = strtotime($date1) - strtotime($date2); // menghitung selisih waktu dalam detik
+        $days = floor($diff / (60 * 60 * 24)); // mengubah selisih waktu menjadi jumlah hari, dan membulatkannya ke bawah
+      
+            echo "<tr>
+                        <td>" . $i . "</td>
                         <td>" . $row['nama'] . "</td>
                         <td>" . $row['jdl_buku'] . "</td>
-                        <td>" . $row['status'] . "</td>
-                        <td>" . $denda . "</td>
-                        <td>
-                        ";
-                        if ($row['status'] == '1') {
-                           echo "<label for='' class='badge badge-success'>Lunas</label>";
-                        }else {
-                           echo "<label for='' class='badge badge-danger'>Belum Lunas</label>";
-                        }
-                        echo "
-                            
-                        </td>
+                        <td><center>" . $row['tgl_kmbl'] . "</center></td>
+                        <td>" . $days * 500 . "</td>
+                        <td><label for='' class='badge badge-danger'> Belum Lunas</label></td>    
                         <td>
                         <button type='button' class='btn btn-primary btn-icon-text'>
                           <i class='ti-check btn-icon-prepend'></i>
@@ -47,14 +42,18 @@ function Denda()
                         </button>
                         </td>
                     </tr>";
+        }
 
 
 
 
-    }
+
+    
 }
 
 
 
 
 ?>
+
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2023 at 06:33 PM
+-- Generation Time: Mar 02, 2023 at 01:47 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -45,8 +45,8 @@ INSERT INTO `absen` (`id`, `username`, `foto`, `status`, `created`) VALUES
 (3, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:47'),
 (4, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:46'),
 (5, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:46'),
-(6, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:45'),
-(7, 'damarwulan1', 'umi.jpg', 1, '2023-02-26 17:13:40'),
+(6, 'damarwulan1', 'umi.jpg', 2, '2023-01-26 17:13:45'),
+(7, 'damarwulan1', 'umi.jpg', 1, '2023-03-26 17:13:40'),
 (8, 'damarwulan1', 'umi.jpg', 1, '2023-02-26 17:05:30');
 
 -- --------------------------------------------------------
@@ -77,12 +77,10 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id`, `req_perpus`, `nama`, `STB`, `fklts`, `jrsn`, `almt`, `email`, `username`, `password`, `level`, `status`, `img`, `created`) VALUES
-(18, 'YTGJB356GBH18', 'Achmad Latief Alwy', '123', '122', '555', 'SSSS', 'AchmadLatiefAlwy@gmail.com', 'AchmadLatiefAlwy18', 'aaa131', '2', 1, 'umi.jpg', '2023-02-26 16:35:14'),
 (19, 'YTGJB356GBH19', 'Achmad Nugraha Djuanda', '123', '122', '555', 'SSSS', 'AchmadNugrahaDjuanda@gmail.com', 'AchmadNugrahaDjuanda19', 'aaa132', '2', 1, 'umi.jpg', '2023-02-26 16:38:33'),
-(23, 'YTGJB356GBH23', 'Ade R. Syarief', '123', '122', '555', 'SSSS', 'AdeR.Syarief@gmail.com', 'AdeR.Syarief23', 'aaa134', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
-(24, 'YTGJB356GBH24', 'Ade Tjakralaksana', '123', '122', '555', 'SSSS', 'AdeTjakralaksana@gmail.com', 'AdeTjakralaksana24', 'aaa134', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
-(25, 'YTGJB356GBH25', 'Adelina Prasetio', '123', '122', '555', 'SSSS', 'AdelinaPrasetio@gmail.com', 'AdelinaPrasetio25', 'aaa135', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
-(26, 'YTGJB356GBH26', 'Adhi Utomo', '123', '122', '555', 'SSSS', 'AdhiUtomo@gmail.com', 'AdhiUtomo26', 'aaa135', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
+(24, 'YTGJB356GBH24', 'Ade Tjakralaksana', '123', '122', '555', 'SSSS', 'AdeTjakralaksana@gmail.com', 'AdeTjakralaksana24', 'aaa134', '2', 1, 'umi.jpg', '2023-02-27 12:30:17'),
+(25, 'YTGJB356GBH25', 'Adelina Prasetio', '123', '122', '555', 'SSSS', 'AdelinaPrasetio@gmail.com', 'AdelinaPrasetio25', 'aaa135', '2', 1, 'umi.jpg', '2023-02-27 12:30:20'),
+(26, 'YTGJB356GBH26', 'Adhi Utomo', '123', '122', '555', 'SSSS', 'AdhiUtomo@gmail.com', 'AdhiUtomo26', 'aaa135', '2', 1, 'umi.jpg', '2023-02-27 12:30:22'),
 (27, 'YTGJB356GBH27', 'Adhi Utomo Jusman', '123', '122', '555', 'SSSS', 'AdhiUtomoJusman@gmail.com', 'AdhiUtomoJusman27', 'aaa136', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (28, 'YTGJB356GBH28', 'Adi Bisono', '123', '122', '555', 'SSSS', 'AdiBisono@gmail.com', 'AdiBisono28', 'aaa136', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (29, 'YTGJB356GBH29', 'Adi Sasono', '123', '122', '555', 'SSSS', 'AdiSasono@gmail.com', 'AdiSasono29', 'aaa137', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
@@ -189,7 +187,9 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES
-(12, '1', 'dada', '1', 'umi.jpg', '2023-02-26 15:18:08');
+(12, '1', 'dada', '1', 'umi.jpg', '2023-02-26 15:18:08'),
+(15, '232', '232323', '1', 'umi.jpg', '2023-02-27 12:26:43'),
+(17, '123', '1345', '1', 'umi.jpg', '2023-02-27 12:30:30');
 
 -- --------------------------------------------------------
 
@@ -200,7 +200,7 @@ INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VAL
 CREATE TABLE `denda` (
   `id` int(11) NOT NULL,
   `jdl_buku` varchar(80) NOT NULL,
-  `username` varchar(40) NOT NULL,
+  `nama` varchar(40) NOT NULL,
   `denda` varchar(40) NOT NULL,
   `status` varchar(5) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -210,8 +210,8 @@ CREATE TABLE `denda` (
 -- Dumping data for table `denda`
 --
 
-INSERT INTO `denda` (`id`, `jdl_buku`, `username`, `denda`, `status`, `created`) VALUES
-(1, 'asd', 'KWxWPleDs5yRXIm', '100000', '0', '2023-02-21 02:03:45');
+INSERT INTO `denda` (`id`, `jdl_buku`, `nama`, `denda`, `status`, `created`) VALUES
+(1, 'asd', 'KWxWPleDs5yRXIm', '100000', '1', '2023-04-02 08:04:03');
 
 -- --------------------------------------------------------
 
@@ -229,7 +229,6 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id`, `nama`) VALUES
-(4, 'asddf'),
 (6, 'asdss'),
 (5, 'sad');
 
@@ -250,7 +249,6 @@ CREATE TABLE `jurusan` (
 --
 
 INSERT INTO `jurusan` (`id`, `fklts`, `jrsn`) VALUES
-(5, 'asddf', '2222s3'),
 (6, 'asddf', 'asd'),
 (7, 'asdss', '44444');
 
@@ -264,13 +262,24 @@ CREATE TABLE `p_buku` (
   `id` int(11) NOT NULL,
   `code` varchar(12) NOT NULL,
   `jdl_buku` varchar(80) NOT NULL,
-  `tgl_pnjm` varchar(40) NOT NULL,
-  `tgl_kmbl` varchar(40) NOT NULL,
+  `tgl_pnjm` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tgl_kmbl` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` varchar(5) NOT NULL,
   `stts_buku` varchar(40) NOT NULL,
-  `username` varchar(40) NOT NULL,
+  `nama` varchar(40) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `p_buku`
+--
+
+INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `stts_buku`, `nama`, `created`) VALUES
+(1, '4', '3333', '2023-02-28 16:38:10', '2023-03-09 00:00:00', '0', '1', 'nama', '2023-03-02 05:30:05'),
+(2, '4', '3333', '2023-02-28 16:38:58', '2023-03-09 00:00:00', '0', '1', 'nama', '2023-03-02 05:30:11'),
+(3, '1', '3333', '2023-03-02 05:15:00', '2023-03-16 00:00:00', '0', '1', 'nama', '2023-03-02 05:30:14'),
+(4, '2', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', '1', 'nama', '2023-03-02 12:06:27'),
+(5, '4', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', '1', 'nama', '2023-03-02 12:06:32');
 
 --
 -- Indexes for dumped tables
@@ -343,7 +352,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `denda`
@@ -367,7 +376,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `p_buku`
 --
 ALTER TABLE `p_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
