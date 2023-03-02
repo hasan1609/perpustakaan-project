@@ -1,7 +1,7 @@
 <?php
 include '../../template/header.php';
 include '../../template/sidebar.php';
-include '../../config/function-anggota.php';
+include '../../config/function-denda.php';
 ?>
 
 <div class="main-panel">
@@ -22,35 +22,14 @@ include '../../config/function-anggota.php';
                     <th>No</th>
                     <th>Nama Anggota</th>
                     <th>Judul Buku</th>
+                    <th>Tgl Pengembalian</th>
                     <th>Denda</th>
                     <th>Status</th>
                     <th>Opsi</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Nama Anggota</td>
-                        <td>Judul Buku</td>
-                        <td>Denda</td>
-                        <td>
-                            <label for="" class="badge badge-danger">Lunas</label>
-                        </td>
-                        <td>
-                        <button type="button" class="btn btn-primary btn-icon-text">
-                          <i class="ti-check btn-icon-prepend"></i>
-                          Terima
-                        </button>
-                        <button type="button" class="btn btn-warning btn-icon-text">
-                          <i class="ti-close btn-icon-prepend"></i>
-                          Tolak
-                        </button>
-                        <button type="button" class="btn btn-danger btn-icon-text">
-                          <i class="ti-trash btn-icon-prepend"></i>
-                          Hapus
-                        </button>
-                        </td>
-                    </tr>
+                  <?php Denda(); ?>
                 </tbody>
               </table>
             </div>
