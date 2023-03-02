@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 02, 2023 at 01:47 PM
+-- Generation Time: Mar 02, 2023 at 02:51 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -187,9 +187,10 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES
-(12, '1', 'dada', '1', 'umi.jpg', '2023-02-26 15:18:08'),
-(15, '232', '232323', '1', 'umi.jpg', '2023-02-27 12:26:43'),
-(17, '123', '1345', '1', 'umi.jpg', '2023-02-27 12:30:30');
+(12, '1', 'dada', '0', 'umi.jpg', '2023-03-02 13:48:34'),
+(15, '232', '232323', '0', 'umi.jpg', '2023-03-02 13:48:34'),
+(17, '123', '1345', '0', 'umi.jpg', '2023-03-02 13:48:34'),
+(18, '555', '345345', '0', 'umi.jpg', '2023-03-02 13:48:34');
 
 -- --------------------------------------------------------
 
@@ -265,7 +266,6 @@ CREATE TABLE `p_buku` (
   `tgl_pnjm` timestamp NOT NULL DEFAULT current_timestamp(),
   `tgl_kmbl` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` varchar(5) NOT NULL,
-  `stts_buku` varchar(40) NOT NULL,
   `nama` varchar(40) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -274,12 +274,12 @@ CREATE TABLE `p_buku` (
 -- Dumping data for table `p_buku`
 --
 
-INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `stts_buku`, `nama`, `created`) VALUES
-(1, '4', '3333', '2023-02-28 16:38:10', '2023-03-09 00:00:00', '0', '1', 'nama', '2023-03-02 05:30:05'),
-(2, '4', '3333', '2023-02-28 16:38:58', '2023-03-09 00:00:00', '0', '1', 'nama', '2023-03-02 05:30:11'),
-(3, '1', '3333', '2023-03-02 05:15:00', '2023-03-16 00:00:00', '0', '1', 'nama', '2023-03-02 05:30:14'),
-(4, '2', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', '1', 'nama', '2023-03-02 12:06:27'),
-(5, '4', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', '1', 'nama', '2023-03-02 12:06:32');
+INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `nama`, `created`) VALUES
+(1, '4', '3333', '2023-02-28 16:38:10', '2023-03-09 00:00:00', '0', 'nama', '2023-03-02 05:30:05'),
+(2, '4', '3333', '2023-02-28 16:38:58', '2023-03-09 00:00:00', '0', 'nama', '2023-03-02 05:30:11'),
+(3, '1', '3333', '2023-03-02 05:15:00', '2023-03-16 00:00:00', '0', 'nama', '2023-03-02 05:30:14'),
+(4, '2', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', 'nama', '2023-03-02 12:06:27'),
+(5, '4', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', 'nama', '2023-03-02 12:06:32');
 
 --
 -- Indexes for dumped tables
@@ -352,7 +352,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `denda`
