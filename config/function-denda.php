@@ -25,7 +25,7 @@ function Denda()
                         <td>" . $row['jdl_buku'] . "</td>
                         <td><center>" . $row['tgl_kmbl'] . "</center></td>
                         <td>" . $days * 500 . "</td>
-                        <td><label for='' class='badge badge-success'>Lunas</label></td>    
+                        <td><label for='' class='badge badge-danger'> Belum Lunas</label></td>    
                         <td>
                         <button type='button' class='btn btn-primary btn-icon-text'>
                           <i class='ti-check btn-icon-prepend'></i>
