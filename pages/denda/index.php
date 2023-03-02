@@ -11,10 +11,6 @@ include '../../config/function-denda.php';
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Data Denda</h4>
-            <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="exportDenda()">
-            <i class="mdi mdi-printer btn-icon-prepend"></i> Export </a>
-            <br>
-            <br>
             <div class="table-responsive">
               <table class="table table-striped table-bordered" id="example">
                 <thead>
@@ -30,6 +26,33 @@ include '../../config/function-denda.php';
                 </thead>
                 <tbody>
                   <?php Denda(); ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Riwayat Denda</h4>
+            <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="exportDenda()">
+            <i class="mdi mdi-printer btn-icon-prepend"></i> Export </a>
+            <br>
+            <br>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered" id="denda">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Anggota</th>
+                    <th>Judul Buku</th>
+                    <th>Tgl Pengembalian</th>
+                    <th>Denda</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
                 </tbody>
               </table>
             </div>
