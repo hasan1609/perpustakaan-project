@@ -5,12 +5,13 @@ function Denda()
 {
     include 'koneksi.php';
 
-    $sql = "SELECT * FROM `p_buku`";
+    $sql = "SELECT * FROM `p_buku` WHERE `tgl_kmbl` < CURDATE();";
     $result = $conn->query($sql);
-
 
     $i = 0;
     while ($row = $result->fetch_assoc()) {
+        $i++;
+      
 
         $tgl = explode(" ", $row['tgl_kmbl']);
         $date1 = date("Y-m-d");
@@ -18,9 +19,9 @@ function Denda()
 
         $diff = strtotime($date1) - strtotime($date2); // menghitung selisih waktu dalam detik
         $days = floor($diff / (60 * 60 * 24)); // mengubah selisih waktu menjadi jumlah hari, dan membulatkannya ke bawah
-        if ($days * 500 >= 1) {
-            echo "  <tr>
-                        <td>1</td>
+      
+            echo "<tr>
+                        <td>" . $i . "</td>
                         <td>" . $row['nama'] . "</td>
                         <td>" . $row['jdl_buku'] . "</td>
                         <td><center>" . $row['tgl_kmbl'] . "</center></td>
@@ -47,7 +48,7 @@ function Denda()
 
 
 
-    }
+    
 }
 
 
