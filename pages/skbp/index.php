@@ -61,6 +61,9 @@ include '../../config/function-anggota.php';
                         <i class='ti-trash btn-icon-prepend'></i>
                         Hapus
                       </a>
+                      <!-- jika sudah diterima -->
+                      <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="viewSkbp2()">
+                        <i class="mdi mdi-printer btn-icon-prepend"></i> Cetak </a>
                     </td>
                     </tr>
                   </tbody>
@@ -94,6 +97,9 @@ include '../../config/function-anggota.php';
                       <td>
                         <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="viewSkbp2()">
                           <i class="mdi mdi-eye btn-icon-prepend"></i> View </a>
+                          <!-- jika sudah diterima -->
+                        <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="viewSkbp2()">
+                          <i class="mdi mdi-printer btn-icon-prepend"></i> Cetak </a>
                       </td>
                     </tr>
                   </tbody>
