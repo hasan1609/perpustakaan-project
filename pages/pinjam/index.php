@@ -76,10 +76,8 @@ error_reporting(E_ALL ^ E_NOTICE);
               <div class="form-group mb-3">
                 <label for="jurusan">Pilih Buku</label>
                 <select class="form-control" id="pilihBuku" name="pilihBuku[]" multiple="multiple" style="width: 100%">
-                  <option value="1">1</option>
-                  <option value="2">234</option>
-                  <option value="3">djdfkjf</option>
-                  <option value="4">efjkoj</option>
+                 
+                <?php list_buku(); ?>
                 </select>
               </div>
               <div class="form-group mb-3">
@@ -122,7 +120,11 @@ print_r($_REQUEST);
 echo "<br>";
 if (!empty($_REQUEST['pilihBuku'])) {
   foreach ($_REQUEST['pilihBuku'] as $value) {
-    pinjambuku($value,$_REQUEST['tgl_kembali']);
+    $buku = explode(',',$value);
+    $idbuku = $buku[0];
+    update_status_buku($idbuku);
+
+    echo $idbuku;
 
   }
 }
