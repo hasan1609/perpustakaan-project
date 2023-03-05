@@ -27,33 +27,11 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <th>Tgl. Pinjam</th>
                     <th>Tgl. Kembali</th>
                     <th>Status</th>
-                    <th>Opsi</th>
+                    <th><center>Opsi</center></th>
                   </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>0fhdu</td>
-                      <td>fhdjkhf</td>
-                      <td>hfdehafj</td>
-                      <td>bukuku</td>
-                      <td>gfjhkd</td>
-                      <td><label for="" class="badge badge-danger">Pinjam</label></td>
-                      <td>
-                        <button type="button" class="btn btn-primary btn-icon-text">
-                          <i class="ti-check btn-icon-prepend"></i>
-                          Terima
-                        </button>
-                        <button type="button" class="btn btn-warning btn-icon-text">
-                          <i class="ti-close btn-icon-prepend"></i>
-                          Tolak
-                        </button>
-                        <button type="button" class="btn btn-danger btn-icon-text">
-                          <i class="ti-trash btn-icon-prepend"></i>
-                          Hapus
-                        </button>
-                      </td>
-                    </tr>
+                  <?php data_pinjam(); ?>
                   </tbody>
                 </table>
               </div>
@@ -79,10 +57,6 @@ error_reporting(E_ALL ^ E_NOTICE);
                  
                 <?php list_buku(); ?>
                 </select>
-              </div>
-              <div class="form-group mb-3">
-                <label for="example-text-input" class="form-control-label">Tgl Kembali</label>
-                <input class="form-control" type="date" name="tgl_kembali" id="tgl_kembali">
               </div>
             </div>
             <div class="modal-footer">
@@ -115,20 +89,40 @@ error_reporting(E_ALL ^ E_NOTICE);
     </script>
 <?php
 
-print_r($_REQUEST);
 
+$user = "nama";
 echo "<br>";
 if (!empty($_REQUEST['pilihBuku'])) {
   foreach ($_REQUEST['pilihBuku'] as $value) {
     $buku = explode(',',$value);
     $idbuku = $buku[0];
-    update_status_buku($idbuku);
+    $jdl_buku = $buku[1];
+    status_buku_pinjam($idbuku);
+    pinjambuku($idbuku,$jdl_buku,$user);
 
-    echo $idbuku;
-
+  
   }
 }
 
+if ($_GET['kembali']) {
+  status_buku_kembali($_GET['code']);
+
+  Kembali($_GET['kembali']);
+ 
+}elseif ($_GET['terima']) {
+
+  terima($_GET['terima']);
+
+
+}elseif ($_GET['tolak']) {
+  status_buku_kembali($_GET['code']);
+  tolak($_GET['tolak']);
+
+}elseif($_GET['hapus']){
+
+  hapus($_GET['hapus']);
+
+}
 
 include '../../template/footer.php';
 ?>
