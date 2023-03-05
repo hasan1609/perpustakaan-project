@@ -32,14 +32,7 @@ function Denda()
                           <i class='ti-check btn-icon-prepend'></i>
                           Terima
                         </button>
-                        <button type='button' class='btn btn-warning btn-icon-text'>
-                          <i class='ti-close btn-icon-prepend'></i>
-                          Tolak
-                        </button>
-                        <button type='button' class='btn btn-danger btn-icon-text'>
-                          <i class='ti-trash btn-icon-prepend'></i>
-                          Hapus
-                        </button>
+        
                         </td>
                     </tr>";
         }

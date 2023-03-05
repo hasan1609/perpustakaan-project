@@ -27,7 +27,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <th>Tgl. Pinjam</th>
                     <th>Tgl. Kembali</th>
                     <th>Status</th>
-                    <th><center>Opsi</center></th>
+                    <th>Opsi</th>
                   </tr>
                   </thead>
                   <tbody>
