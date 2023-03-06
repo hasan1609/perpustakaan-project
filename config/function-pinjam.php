@@ -61,16 +61,16 @@ function data_pinjam(){
                           <i class='ti-trash btn-icon-prepend'></i>
                           Hapus
                         </a>";
-                      }elseif($row['status'] == '1'){
-                        echo"
-                       <a href='index.php?kembali=" . $row['id'] . "&code=". $row['code']."' type='submit' class='btn btn-success btn-icon-text'>
+                      }elseif(strtotime($row['tgl_kmbl']) < strtotime(date('Y-m-d')) && $row['status'] == '1') {
+                        echo "<label for='' class='badge badge-danger'>KENA DENDA</label>";
+                      } elseif ($row['status'] == '1') {
+                         echo "
+                       <a href='index.php?kembali=" . $row['id'] . "&code=" . $row['code'] . "' type='submit' class='btn btn-success btn-icon-text'>
                           <i class='ti-check btn-icon-prepend'></i>
                           Pengembalian Buku
                         </a>
                         ";
-                      }else {
-                        echo "";
-                      }
+    }
                      
                         echo "
                       </td>

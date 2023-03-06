@@ -2,6 +2,8 @@
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-denda.php';
+error_reporting(E_ALL ^ E_NOTICE);
+
 ?>
 
 <div class="main-panel">
@@ -53,6 +55,7 @@ include '../../config/function-denda.php';
                   </tr>
                 </thead>
                 <tbody>
+                  <?php riwayat_Denda(); ?>
                 </tbody>
               </table>
             </div>
@@ -124,20 +127,20 @@ include '../../config/function-denda.php';
               </div>
               <div class="form-group mb-3">
                 <label for="jurusan">Pilih Bulan</label>
-                <select class="form-control" id="level" name="level">
+                <select class="form-control" id="bulan" name="bulan">
                   <option value="" disabled selected>Pilih Bulan</option>
-                  <option >Januari</option>
-                  <option value="">Februari</option>
-                  <option value="">Maret</option>
-                  <option value="">April</option>
-                  <option value="">Mei</option>
-                  <option value="">Juni</option>
-                  <option value="">Juli</option>
-                  <option value="">Agustus</option>
-                  <option value="">September</option>
-                  <option value="">Oktober</option>
-                  <option value="">November</option>
-                  <option value="">Desember</option>
+                  <option value="01">Januari</option>
+                  <option value="02">Februari</option>
+                  <option value="03">Maret</option>
+                  <option value="04">April</option>
+                  <option value="05">Mei</option>
+                  <option value="06">Juni</option>
+                  <option value="07">Juli</option>
+                  <option value="08">Agustus</option>
+                  <option value="09">September</option>
+                  <option value="10">Oktober</option>
+                  <option value="11">November</option>
+                  <option value="12">Desember</option>
                 </select>
               </div>
             </div>
@@ -177,5 +180,20 @@ include '../../config/function-denda.php';
   }
 </script>
 <?php
+
+print_r($_REQUEST);
+
+if ($_GET['terima']) {
+
+  terima($_GET['terima']);
+
+
+}elseif($_GET['addDenda']){
+export($_GET['bulan'],$_GET['tahun']);
+
+}
+
+
+
 include '../../template/footer.php';
 ?>

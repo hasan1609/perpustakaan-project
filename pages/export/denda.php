@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denda</title>
+    <title>DENDA</title>
     <style>
         table, td, th {
         border: 1px solid;
@@ -17,7 +18,7 @@
     </style>
 </head>
 <body>
-    <h2 style="text-align: center;">Denda 01/2023</h2>
+    <h2><center>Denda 01/2023</center></h2>
     <table>
         <thead>
             <tr>
@@ -30,13 +31,16 @@
         </thead>
         <tbody>
             <tr>
-                <td style="text-align: center;" width="5%">1</td>
+                <td width="5%">1</td>
                 <td width="20%">Nama</td>
-                <td wifth="35%">Buku</td>
+                <td width="35%">Buku</td>
                 <td width="15%">Tgl.Pinjam</td>
                 <td width="15%">Tgl. Kembali</td>
             </tr>
         </tbody>
     </table>
 </body>
+<script type="text/javascript">
+      window.onload = function() { window.print(); }
+ </script>
 </html>
