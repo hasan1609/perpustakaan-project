@@ -49,7 +49,7 @@ function list_absensi_terima()
                     <td>" . $i . "</td>
 
                     <td>".$row['username']."</td>
-                    <td>bukuku</td>
+                    <td>" . $row['created'] . "</td>
         
                     </td>
                  </tr>";
