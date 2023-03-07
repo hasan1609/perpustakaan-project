@@ -27,10 +27,9 @@ function list_absensi(){
                         Hapus
                       </a>
                     </td>
-                 ";
-        
+                 </tr>";
     }
-echo ' </tr>';
+
 
 
 }
@@ -53,10 +52,9 @@ function list_absensi_terima()
                     <td>bukuku</td>
         
                     </td>
-                 ";
-
+                 </tr>";
     }
-    echo ' </tr>';
+   
 
 
 }
