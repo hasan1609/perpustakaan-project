@@ -27,6 +27,10 @@ function list_buku(){
             <td>" . $row['code'] . "</td>
             <td>" . $row['jdl_buku'] . "</td>
             <td>
+            <label class='badge badge-danger'>Dipinjam</label>
+            <label class='badge badge-info'>Tersedia</label>
+            </td>
+            <td>
                 <button type='button' class='btn btn-primary btn-icon-text'onClick='editBuku" . $row['id'] . "()'><i class='ti-pencil'></i></button>
                 <!-- edit buku -->
                 <div class='modal fade' id='editBuku" . $row['id'] . "' tabindex='-1' role='dialog' aria-labelledby='editBukuLabel' aria-hidden='true'>

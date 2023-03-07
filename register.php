@@ -64,7 +64,7 @@ $noreg =  "NOREG".generateRandomString(10);
 
                     <div class="form-group mb-3">
                         <label for="jurusan">Pilih Kategori</label>
-                        <select class="form-control" id="level" name="level">
+                        <select class="form-control" id="level" name="level" onchange="change(this)">
                         <option value="" disabled selected>Pilih Kategori</option>
                         <option value="1">Admin</option>
                         <option value="2">Dosen</option>
@@ -77,16 +77,16 @@ $noreg =  "NOREG".generateRandomString(10);
                         <input class="form-control" type="text" name="nama" id="nama">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="example-text-input" class="form-control-label">STB</label>
-                        <input class="form-control" type="text" name="stb" id="stb">
+                        <label for="example-text-input" class="form-control-label">NIDN</label>
+                        <input class="form-control" type="text" name="nidn" id="nidn">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-3" id="fak">
                         <label for="fakultas">Fakultas</label>
                         <select class="form-control" id="fakultas" name="fakultas">
                         <option value="1">1</option>
                         </select>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-3" id="jur">
                         <label for="jurusan">Jurusan</label>
                         <select class="form-control" id="jurusan" name="jurusan">
                         <option value="1">1</option>
@@ -134,6 +134,23 @@ $noreg =  "NOREG".generateRandomString(10);
       </div>
     </section>
   </main>
+  <script>
+    function change(obj) {
+      var selectBox = obj;
+      var selected = selectBox.options[selectBox.selectedIndex].value;
+      var fak = document.getElementById("fak")
+      var jur = document.getElementById("jur");
+
+      if(selected == '1' || selected === '2' || selected === '3'){
+          fak.style.display = "none";
+          jur.style.display = "none";
+      }
+      else{
+        fak.style.display = "block";
+        jur.style.display = "block";
+      }
+    }
+  </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

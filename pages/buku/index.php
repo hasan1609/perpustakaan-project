@@ -23,6 +23,7 @@ include '../../config/function-buku.php';
                     <th>No</th>
                     <th>Kode Buku</th>
                     <th>Nama Buku</th>
+                    <th>Status</th>
                     <th>Opsi</th>
                   </tr>
                 </thead>

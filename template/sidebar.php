@@ -44,11 +44,26 @@
         <span class="menu-title">Denda</span>
       </a>
     </li>
+    <!-- User -->
     <li class="nav-item">
       <a class="nav-link" href="../skbp/index.php">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">SKBP</span>
       </a>
+    </li>
+    <!-- admin -->
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#data-skbp" aria-expanded="false" aria-controls="data-skbp">
+        <i class="menu-icon mdi mdi-database"></i>
+        <span class="menu-title">SKBP</span>
+        <i class="menu-arrow"></i> 
+      </a>
+      <div class="collapse" id="data-skbp">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="../skbp1/index.php">SKBP 1</a></li>
+          <li class="nav-item"> <a class="nav-link" href="../skbp2/index.php">SKBP 2</a></li>
+        </ul>
+      </div>
     </li>
   </ul>
 </nav>
