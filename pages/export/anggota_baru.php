@@ -1,3 +1,7 @@
+<?php
+include '../../config/function-export.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +13,23 @@
         table, td, th {
         border: 1px solid;
         }
-
+        @media print{
+            .button{
+                display: none;
+            }
+        }
         table {
         width: 100%;
         border-collapse: collapse;
         }
     </style>
 </head>
+<button onclick="goBack()" class="button">Go Back</button>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <body>
     <h2 style="text-align: center;">Data Anggota Baru 01/2023</h2>
     <table>
@@ -23,7 +37,7 @@
             <tr>
                 <th width="10%">No.Reg</th>
                 <th width="15%">Nama</th>
-                <th width="10%">STB</th>
+                <th width="10%">NIDN</th>
                 <th width="10%">Fakultas</th>
                 <th width="10%">Jurusan</th>
                 <th width="25%">Alamat</th>
@@ -32,17 +46,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td width="5%">12345ASDFG</td>
-                <td width="20%">GFDGFH GTFTGF</td>
-                <td width="10%">GFGHFGGG</td>
-                <td width="8%">TEKNIK</td>
-                <td width="8%">INFORMATIKA</td>
-                <td width="25%">Alamat</td>
-                <td width="14%">hasan@gmail.com</td>
-                <td width="10%">21/10/2023</td>
-            </tr>
+            <?php export_anggota_baru(); ?>
         </tbody>
     </table>
 </body>
+<script type="text/javascript">
+      window.onload = function() { window.print(); }
+ </script>
 </html>

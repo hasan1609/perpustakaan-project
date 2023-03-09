@@ -27,8 +27,15 @@ function list_buku(){
             <td>" . $row['code'] . "</td>
             <td>" . $row['jdl_buku'] . "</td>
             <td>
-            <label class='badge badge-danger'>Dipinjam</label>
-            <label class='badge badge-info'>Tersedia</label>
+            ";
+            if ($row['status'] == '0') {
+                echo "<label class='badge badge-danger'>Dipinjam</label>";
+            }else{
+                echo "<label class='badge badge-info'>Tersedia</label>";
+            }
+            
+            echo "
+            
             </td>
             <td>
                 <button type='button' class='btn btn-primary btn-icon-text'onClick='editBuku" . $row['id'] . "()'><i class='ti-pencil'></i></button>

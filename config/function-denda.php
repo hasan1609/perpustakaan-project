@@ -105,38 +105,7 @@ function riwayat_Denda()
 
 
 }
-function export_denda($bulan,$tahun){
 
-  include 'koneksi.php';
-
-  $sql = "SELECT * FROM `p_buku` WHERE `tgl_kmbl` < CURDATE() AND `status` LIKE '2' AND `created` LIKE '%$tahun-$bulan-%'";
-  $result = $conn->query($sql);
-
-  $i = 0;
-  while ($row = $result->fetch_assoc()) {
-    $i++;
-
-
-    $tgl = explode(" ", $row['tgl_kmbl']);
-    $date1 = date("Y-m-d");
-    $date2 = $row['tgl_kmbl'];
-
-    $diff = strtotime($date1) - strtotime($date2); // menghitung selisih waktu dalam detik
-    $days = floor($diff / (60 * 60 * 24)); // mengubah selisih waktu menjadi jumlah hari, dan membulatkannya ke bawah
-
-                    echo " <tr>
-                <td width='5%'><center>" . $i . "</center></td>
-                <td width='20%'><center>" . $row['nama'] . "</center></td>
-                <td><center>" . $row['denda'] . "</center></td>
-                <td width='15%'><center>LUNAS</center></td>
-                <td width='15%'><center>" . $row['created'] . "</center></td>
-            </tr>";
-  }
-
-
-
-
-}
 
 ?>
 

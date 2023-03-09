@@ -152,7 +152,7 @@ function list_anggota(){
             <td>" . $row['jrsn'] . "</td>
             <td> " . $row['level'] . "</td>
             <td> 
-                <button type='button' class='btn btn-primary btn-icon-text' data-toggle='modal' data-target='#modalAnggota" . $row["id"] . "'><i class='ti-pencil'></i></button>
+                <button type='button' class='btn btn-primary btn-icon-text' data-toggle='modal' data-target='#modalAnggota" . $row["id"] . "'><i class='ti-eye'></i></button>
                 <!-- Button trigger modal -->
                 <!-- Modal -->
                 <div class='modal fade' id='modalAnggota".$row['id']."' tabindex='-1' role='dialog' aria-labelledby='modalAnggotaLabel' aria-hidden='true'>
@@ -199,7 +199,7 @@ function list_anggota(){
                             </div>
                             <div class='modal-footer'>
                                 <button type='button' class='btn btn-secondary' data-dismiss='modal' >Close</button>
-                                <button type='button' class='btn btn-primary'>Cetak</button>
+                                <a href='index.php?cetak=" . $row['req_perpus'] . "' type='submit' class='btn btn-primary'>Cetak</a>
                             </div>
                         </div>
                     </div>
@@ -231,4 +231,44 @@ function deletanggota($id){
 }
 
 
+
+function kartu_anggota($reg){
+    
+    include 'koneksi.php';
+    $sql = "SELECT * FROM `anggota` WHERE `req_perpus` LIKE '$reg' ORDER BY `id` ASC";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    echo "  <tr>
+                                    <td width='30%'>No. Reg Pendaftaran</td>
+                                    <td width='5%'>:</td>
+                                    <td width='65%'>" . $row["req_perpus"] . "</td>
+                                </tr>
+                                <tr>
+                                    <td width='30%'>Nama</td>
+                                    <td width='5%'>:</td>
+                                    <td width='65%'>" . $row["nama"] . "</td>
+                                </tr>
+                                <tr>
+                                    <td width='30%'>NIDN</td>
+                                    <td width='5%'>:</td>
+                                    <td width='65%'>" . $row["STB"] . "</td>
+                                </tr>
+                                <tr>
+                                    <td width='30%'>Fak / Jur</td>
+                                    <td width='5%'>:</td>
+                                    <td width='65%'>" . $row["fklts"] . " \ " . $row["jrsn"] . "</td>
+                                </tr>
+                                <tr>
+                                    <td width='30%'>Alamat</td>
+                                    <td width='5%'>:</td>
+                                    <td width='65%'>" . $row["almt"] . "</td>
+                                </tr>";
+   
+}
+
+
+function barcode($id){
+    
+
+}
 ?>

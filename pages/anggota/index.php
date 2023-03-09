@@ -77,6 +77,9 @@ include '../../config/function-anggota.php';
       });
     </script>
 <?php
-
+if ($_GET['cetak']) {
+  echo "<script type='text/javascript'>window.top.location='../export/kartu_anggota.php?id=". $_GET['cetak']."';</script>";
+  # code...
+}
 include '../../template/footer.php';
 ?>

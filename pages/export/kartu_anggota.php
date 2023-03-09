@@ -1,3 +1,7 @@
+<?php
+include '../../config/function-anggota.php';
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <html>
@@ -5,7 +9,7 @@
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-    <title></title>
+    <title>KARTU ANGGOTA</title>
     <style>
         table {
         width: 100%;
@@ -61,31 +65,7 @@
                     <td colspan="3">
                         <table width="100%">
                             <thead>
-                                <tr>
-                                    <td width="30%">No. Reg Pendaftaran</td>
-                                    <td width="5%">:</td>
-                                    <td width="65%">sdhgfjd</td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">Nama</td>
-                                    <td width="5%">:</td>
-                                    <td width="65%">sdhgfjd</td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">NIDN</td>
-                                    <td width="5%">:</td>
-                                    <td width="65%">sdhgfjd</td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">Fak / Jur</td>
-                                    <td width="5%">:</td>
-                                    <td width="65%">sdhgfjd</td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">Alamat</td>
-                                    <td width="5%">:</td>
-                                    <td width="65%">sdhgfjd</td>
-                                </tr>
+                              <?php kartu_anggota($_GET['id']); ?>
                             </thead>
                         </table>
                     </td>
@@ -96,7 +76,7 @@
                             height="100">
                     </td>
                     <td></td>
-                    <td class="alignright">Makassar, 21 Januari 2024</td>
+                    <td class="alignright">Makassar, <?php echo date('d F Y'); ?></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -111,7 +91,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="alignright"><u>gfjrhrfjk</u><br>NIDN.67589347598</td>
+                    <td class="alignright"><u>ELizabet. S.T.M.T</u><br>NIDN. 0930056501</td>
                 </tr>
             </thead>    
         </table>
@@ -185,13 +165,26 @@
                 <tr>
                     <td colspan="2" class="center">
                         <br>
-                        <img src="../../images/logo.png" alt="Image" width="70">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" alt="Image" width="70">
                         <br>
                     </td>
                 </tr>
             </thead>
         </table>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
-
+<script type="text/javascript">
+      window.onload = function() { window.print(); }
+ </script>
 </html>
