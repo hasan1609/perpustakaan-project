@@ -163,11 +163,7 @@ error_reporting(E_ALL ^ E_NOTICE);
    function closeExport() { 
     $('#exportDenda').modal('hide');
    }
-</script>
 
-
-
-<script>
   function viewAnggota(){
     // $('#add-group').trigger("reset");
     $('#modalAnggotaLabel').html("Data Anggota");
@@ -178,6 +174,7 @@ error_reporting(E_ALL ^ E_NOTICE);
   function closeAnggota() { 
     $('#modalAnggota').modal('hide');
   }
+  
 </script>
 <?php
 
@@ -193,6 +190,7 @@ if ($_GET['terima']) {
 // export($_GET['bulan'],$_GET['tahun']);
   print_r($_REQUEST);
   echo "<script type='text/javascript'>window.top.location='../export/denda.php?tahun=".$_REQUEST['tahun']."&bulan=".$_REQUEST['bulan']."';</script>";
+
 }
 
 
