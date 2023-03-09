@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 02, 2023 at 02:51 PM
+-- Generation Time: Mar 09, 2023 at 06:58 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -40,7 +40,7 @@ CREATE TABLE `absen` (
 --
 
 INSERT INTO `absen` (`id`, `username`, `foto`, `status`, `created`) VALUES
-(1, 'damarwulan1', 'umi.jpg', 0, '2023-02-21 02:17:51'),
+(1, 'damarwulan1', 'umi.jpg', 1, '2023-03-07 15:58:23'),
 (2, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:47'),
 (3, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:47'),
 (4, 'damarwulan1', 'umi.jpg', 2, '2023-02-26 17:13:46'),
@@ -187,10 +187,9 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES
-(12, '1', 'dada', '0', 'umi.jpg', '2023-03-02 13:48:34'),
-(15, '232', '232323', '0', 'umi.jpg', '2023-03-02 13:48:34'),
-(17, '123', '1345', '0', 'umi.jpg', '2023-03-02 13:48:34'),
-(18, '555', '345345', '0', 'umi.jpg', '2023-03-02 13:48:34');
+(15, '232', '232323', '0', 'umi.jpg', '2023-03-09 16:57:49'),
+(17, '123', '1345', '1', 'umi.jpg', '2023-03-09 16:57:15'),
+(18, '555', '345345', '1', 'umi.jpg', '2023-03-09 16:57:17');
 
 -- --------------------------------------------------------
 
@@ -263,9 +262,10 @@ CREATE TABLE `p_buku` (
   `id` int(11) NOT NULL,
   `code` varchar(12) NOT NULL,
   `jdl_buku` varchar(80) NOT NULL,
-  `tgl_pnjm` timestamp NOT NULL DEFAULT current_timestamp(),
-  `tgl_kmbl` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tgl_pnjm` date NOT NULL DEFAULT current_timestamp(),
+  `tgl_kmbl` date NOT NULL DEFAULT current_timestamp(),
   `status` varchar(5) NOT NULL,
+  `denda` varchar(12) DEFAULT NULL,
   `nama` varchar(40) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -274,12 +274,15 @@ CREATE TABLE `p_buku` (
 -- Dumping data for table `p_buku`
 --
 
-INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `nama`, `created`) VALUES
-(1, '4', '3333', '2023-02-28 16:38:10', '2023-03-09 00:00:00', '0', 'nama', '2023-03-02 05:30:05'),
-(2, '4', '3333', '2023-02-28 16:38:58', '2023-03-09 00:00:00', '0', 'nama', '2023-03-02 05:30:11'),
-(3, '1', '3333', '2023-03-02 05:15:00', '2023-03-16 00:00:00', '0', 'nama', '2023-03-02 05:30:14'),
-(4, '2', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', 'nama', '2023-03-02 12:06:27'),
-(5, '4', '3333', '2023-03-02 05:15:00', '2023-02-16 00:00:00', '0', 'nama', '2023-03-02 12:06:32');
+INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `denda`, `nama`, `created`) VALUES
+(4, '232', '232323', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '2023-03-07 13:15:52'),
+(5, '123', '1345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '2023-03-07 13:17:41'),
+(6, '555', '345345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '2023-03-07 13:17:42'),
+(7, '232', '232323', '2023-03-07', '2023-03-02', '2', '2500', 'nama', '2023-03-07 13:24:02'),
+(8, '123', '1345', '2023-03-07', '2023-03-03', '2', '2000', 'nama', '2023-03-07 13:24:37'),
+(9, '555', '345345', '2023-03-07', '2023-03-04', '2', '1500', 'nama', '2023-03-07 13:30:17'),
+(10, '232', '232323', '2023-03-09', '2023-03-12', '2', NULL, 'nama', '2023-03-09 16:57:39'),
+(11, '232', '232323', '2023-03-09', '2023-03-12', '1', NULL, 'nama', '2023-03-09 16:57:51');
 
 --
 -- Indexes for dumped tables
@@ -376,7 +379,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `p_buku`
 --
 ALTER TABLE `p_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

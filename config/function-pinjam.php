@@ -3,10 +3,10 @@
 <?php
 
 
-function pinjambuku($code,$jdl_buku,$user){
+function pinjambuku($code,$jdl_buku, $user, $noreg){
 
   include 'koneksi.php';
-  $sql = "INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `nama`, `created`) VALUES (NULL, '$code', '$jdl_buku', current_timestamp(), DATE_ADD(current_timestamp(), INTERVAL 3 DAY), '0', '$user', current_timestamp());";
+  $sql = "INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `nama`,`req_perpus`, `created`) VALUES (NULL, '$code', '$jdl_buku', current_timestamp(), DATE_ADD(current_timestamp(), INTERVAL 3 DAY), '0', '$user','$noreg', current_timestamp());";
   $conn->query($sql);
   
 
