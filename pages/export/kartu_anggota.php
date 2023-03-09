@@ -19,6 +19,11 @@ include '../../config/function-anggota.php';
             border-style: double;
             padding: 5px;
         }
+                @media print{
+            .button{
+                display: none;
+            }
+        }
         td.start {
             text-align:start;
             vertical-align:text-top
@@ -34,7 +39,17 @@ include '../../config/function-anggota.php';
 
 </head>
 
+<button onclick="goBack()" class="button">Go Back</button>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
+<br>
+<br>
+<br>
+<br>
 <body>
     <div>
         <table class="center">
