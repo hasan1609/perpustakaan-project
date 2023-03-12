@@ -10,8 +10,11 @@ include '../../config/function-anggota.php';
       <div class="col-sm-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-          <div class="row">
             <h4 class="card-title">Data SKBP 1</h4>
+            <a href="" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="addBuku()">
+            <i class="mdi mdi-printer btn-icon-prepend"></i> SKBP 1 </a>
+            <br>
+            <br>
               <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="example">
                   <thead>
@@ -61,7 +64,6 @@ include '../../config/function-anggota.php';
                 </table>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
