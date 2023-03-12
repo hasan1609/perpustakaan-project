@@ -38,7 +38,7 @@ include '../../config/function-anggota.php';
                       <td>fdhedfb</td>
                       <td>fdsfnj</td>
                       <td>
-                        <label for="" class="badge badge-info">Pending</label>
+                        <label for="" class="badge badge-info">Syarat Belum Terpenuhi</label>
                         <label for="" class="badge badge-success">Diterima</label>
                         <label for="" class="badge badge-danger">Ditolak</label>
                       </td>

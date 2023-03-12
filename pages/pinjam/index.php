@@ -91,6 +91,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 
 $user = "nama";
+$noreg = "YTGJB356GBH19";
 echo "<br>";
 if (!empty($_REQUEST['pilihBuku'])) {
   foreach ($_REQUEST['pilihBuku'] as $value) {
@@ -98,7 +99,7 @@ if (!empty($_REQUEST['pilihBuku'])) {
     $idbuku = $buku[0];
     $jdl_buku = $buku[1];
     status_buku_pinjam($idbuku);
-    pinjambuku($idbuku,$jdl_buku,$user);
+    pinjambuku($idbuku,$jdl_buku,$user, $noreg);
 
   
   }
