@@ -189,15 +189,7 @@ include '../../config/function-anggota.php';
     </div>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
 </body>
 <script type="text/javascript">
       window.onload = function() { window.print(); }
