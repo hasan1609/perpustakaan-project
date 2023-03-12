@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2023 at 06:58 PM
+-- Generation Time: Mar 12, 2023 at 04:54 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -187,7 +187,7 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES
-(15, '232', '232323', '0', 'umi.jpg', '2023-03-09 16:57:49'),
+(15, '232', '232323', '1', 'umi.jpg', '2023-03-09 18:09:04'),
 (17, '123', '1345', '1', 'umi.jpg', '2023-03-09 16:57:15'),
 (18, '555', '345345', '1', 'umi.jpg', '2023-03-09 16:57:17');
 
@@ -267,6 +267,7 @@ CREATE TABLE `p_buku` (
   `status` varchar(5) NOT NULL,
   `denda` varchar(12) DEFAULT NULL,
   `nama` varchar(40) NOT NULL,
+  `req_perpus` varchar(40) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -274,15 +275,16 @@ CREATE TABLE `p_buku` (
 -- Dumping data for table `p_buku`
 --
 
-INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `denda`, `nama`, `created`) VALUES
-(4, '232', '232323', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '2023-03-07 13:15:52'),
-(5, '123', '1345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '2023-03-07 13:17:41'),
-(6, '555', '345345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '2023-03-07 13:17:42'),
-(7, '232', '232323', '2023-03-07', '2023-03-02', '2', '2500', 'nama', '2023-03-07 13:24:02'),
-(8, '123', '1345', '2023-03-07', '2023-03-03', '2', '2000', 'nama', '2023-03-07 13:24:37'),
-(9, '555', '345345', '2023-03-07', '2023-03-04', '2', '1500', 'nama', '2023-03-07 13:30:17'),
-(10, '232', '232323', '2023-03-09', '2023-03-12', '2', NULL, 'nama', '2023-03-09 16:57:39'),
-(11, '232', '232323', '2023-03-09', '2023-03-12', '1', NULL, 'nama', '2023-03-09 16:57:51');
+INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `denda`, `nama`, `req_perpus`, `created`) VALUES
+(4, '232', '232323', '2023-03-07', '2023-03-01', '2', '3000', 'nama', 'req_perpus', '2023-03-09 18:06:25'),
+(5, '123', '1345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '', '2023-03-07 13:17:41'),
+(6, '555', '345345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '', '2023-03-07 13:17:42'),
+(7, '232', '232323', '2023-03-07', '2023-03-02', '2', '2500', 'nama', '', '2023-03-07 13:24:02'),
+(8, '123', '1345', '2023-03-07', '2023-03-03', '2', '2000', 'nama', '', '2023-03-07 13:24:37'),
+(9, '555', '345345', '2023-03-07', '2023-03-04', '2', '1500', 'nama', '', '2023-03-07 13:30:17'),
+(10, '232', '232323', '2023-03-09', '2023-03-12', '2', NULL, 'nama', '', '2023-03-09 16:57:39'),
+(11, '232', '232323', '2023-03-09', '2023-03-12', '2', NULL, 'nama', '', '2023-03-09 18:04:30'),
+(12, '232', '232323', '2023-03-10', '2023-03-13', '1', NULL, 'nama', 'YTGJB356GBH19', '2023-03-09 18:11:46');
 
 --
 -- Indexes for dumped tables
@@ -379,7 +381,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `p_buku`
 --
 ALTER TABLE `p_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
