@@ -1,5 +1,6 @@
 <?php
 session_start();
+$sessionlevel = 1;
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-buku.php';

@@ -1,7 +1,7 @@
 <?php
 
 
-function Denda()
+function Denda($sessionlevel)
 {
     include 'koneksi.php';
 
@@ -31,15 +31,21 @@ function Denda()
 
                       
                         <td><label for='' class='badge badge-danger'> Belum Lunas</label></td>   
-                        <td>
-                        <a href='index.php?terima=" . $row['id'] . "&denda=". $days * 500 ."&code=". $row['code']."' type='submit' class='btn btn-primary btn-icon-text'>
+                        ";
+                        if ($sessionlevel == 1) {
+                        echo "
+                         <td>
+                        <a href='index.php?terima=" . $row['id'] . "&denda=" . $days * 500 . "&code=" . $row['code'] . "' type='submit' class='btn btn-primary btn-icon-text'>
                           <i class='ti-check btn-icon-prepend'></i>
                           Terima
                         </a>
         
-                        </td>
+                        </td>";
+                        }
+                
+
                        
-                    </tr>";
+                    echo "</tr>";
         }
 
 

@@ -1,4 +1,6 @@
 <?php
+session_start();
+$sessionlevel = 3;
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
