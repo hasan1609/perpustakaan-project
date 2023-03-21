@@ -190,6 +190,6 @@ include '../../config/function-chart-pengunjung.php';
 	  </script>
       
 <?php
-
+print_r($_SESSION);
 include '../../template/footer.php';
 ?>

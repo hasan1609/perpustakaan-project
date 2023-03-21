@@ -92,24 +92,25 @@
 </html>
 
 <?php
+session_start();
 include "config/koneksi.php";
 if (!empty($_POST)) {
-  echo "<script type='text/javascript'>window.top.location='pages/dashboard/';</script>";
-  // $email = $_POST['email'];
-  // $password = $_POST['password'];
-  // $sql = "SELECT * FROM `anggota` WHERE `email` LIKE '$email' AND `password` LIKE '$password' ORDER BY `id` DESC";
-  // $result = $conn->query($sql);
+  // echo "<script type='text/javascript'>window.top.location='pages/dashboard/';</script>";
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $sql = "SELECT * FROM `anggota` WHERE `email` LIKE '$email' AND `password` LIKE '$password' ORDER BY `id` DESC";
+  $result = $conn->query($sql);
 
-  // if ($result->num_rows > 0) {
-  //   // output data of each row
-  //   while ($row = $result->fetch_assoc()) {
-
-  //     echo "<script type='text/javascript'>window.top.location='pages/dashboard/';</script>";
-  //   }
-  // } else {
-  //   echo "0 results";
-  // }
-  // $conn->close();
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+      $_SESSION = $row;
+      echo "<script type='text/javascript'>window.top.location='pages/dashboard/index.php';</script>";
+    }
+  } else {
+    echo "0 results";
+  }
+ 
 }
 
 ?>
