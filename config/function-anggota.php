@@ -1,6 +1,6 @@
 <?php
 
-function list_anggota_baru()
+function list_anggota_baru($sessionlevel)
 {
 
     include 'koneksi.php';
@@ -13,8 +13,10 @@ function list_anggota_baru()
             echo "<tr>
                     <td>". $i."</td>
                     <td>" . $row["nama"] . "</td>
-                    <td>bukuku</td>
-                    <td>
+                    <td>" . $row["created"] . "</td>
+                    ";
+                    if ($sessionlevel == 1) {
+                        echo "<td>
                       <a href='javascript:void(0)' onClick='viewAnggota" . $row["id"] . "()' class='btn btn-info btn-icon-text'>
                         <i class='ti-eye btn-icon-prepend'></i>
                         Lihat
@@ -78,8 +80,10 @@ function list_anggota_baru()
                     <i class='ti-trash btn-icon-prepend'></i>
                     Hapus
                 </a>
-            </td>        
-        </tr>";
+            </td> ";
+                    }
+                   
+       echo " </tr>";
                 
     }
 
@@ -267,8 +271,4 @@ function kartu_anggota($reg){
 }
 
 
-function barcode($id){
-    
-
-}
 ?>

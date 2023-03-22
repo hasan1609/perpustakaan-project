@@ -17,8 +17,14 @@ error_reporting(E_ALL ^ E_NOTICE);
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Data Peminjaman Buku</h4>
-            <a href="javascript:void(0)" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="addPinjam()">
-            <i class="mdi mdi-plus-box btn-icon-prepend"></i> Pinjam Buku </a>
+            <?php 
+            if ($sessionlevel == 2 or $sessionlevel == 3) {
+              echo " <a href='javascript:void(0)' class='btn btn-primary btn-icon-text btn-md mt-0' onClick='addPinjam()'>
+              <i class='mdi mdi-plus-box btn-icon-prepend'></i> Pinjam Buku </a>";
+            }
+            
+            ?>
+            
             <br>
             <br>
             <div class="table-responsive">

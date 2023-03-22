@@ -28,11 +28,16 @@ if (empty($_SESSION["level"])) {
                     <th>No</th>
                     <th>Nama</th>
                     <th>Tgl</th>
-                    <th>Opsi</th>
+                   <?php 
+                   if ($sessionlevel == 1) {
+                     echo " <th>Opsi</th>";
+                   }
+                 
+                    ?>
                   </tr>
                 </thead>
                 <tbody>
-                <?php list_anggota_baru(); ?>
+                <?php list_anggota_baru($sessionlevel); ?>
                 </tbody>
               </table>
             </div>

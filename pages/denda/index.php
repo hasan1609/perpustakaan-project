@@ -14,12 +14,14 @@ error_reporting(E_ALL ^ E_NOTICE);
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
-      <div class="col-sm-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Data Denda</h4>
-            <div class="table-responsive">
-              <table class="table table-striped table-bordered" id="example">
+      <?php 
+    if ($sessionlevel == 1) {
+      echo "<div class='col-sm-12 grid-margin stretch-card'>
+        <div class='card'>
+          <div class='card-body'>
+            <h4 class='card-title'>Data Denda</h4>
+            <div class='table-responsive'>
+              <table class='table table-striped table-bordered' id='example'>
                 <thead>
                   <tr>
                     <th>No</th>
@@ -27,28 +29,24 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <th>Judul Buku</th>
                     <th>Tgl Pengembalian</th>
                     <th>Denda</th>
-                    <th>Status</th>
-                    <?php 
-                    if ($sessionlevel == 1) {
-                      echo "  <th>Opsi</th>";
-                    }
-                     
-                    ?>
-                  
+                    <th>Status</th><th>Opsi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php Denda($sessionlevel,$_SESSION['nama']); ?>
-                </tbody>
+                ";
+                   Denda($sessionlevel,$_SESSION['nama']); 
+                echo "</tbody>
               </table>
             </div>
           </div>
         </div>
-      </div>
+      </div>";
+    }
+      ?>
 
       <?php
 
-      if ($sessionlevel == 1) {
+      if ($sessionlevel == 1 or $sessionlevel == 4) {
         echo "<div class='col-sm-12 grid-margin stretch-card'>
         <div class='card'>
           <div class='card-body'>

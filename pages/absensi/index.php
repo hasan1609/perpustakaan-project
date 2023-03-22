@@ -37,13 +37,15 @@ if (empty($_SESSION["level"])) {
           </div>
         </div>
       </div>
-      <div class="col-sm-7 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-          <h3 class="card-title">Permintaan Absensi</h3>
+      <?php
+      if ($sessionlevel == 1) {
+        echo "      <div class='col-sm-7 grid-margin stretch-card'>
+        <div class='card'>
+          <div class='card-body'>
+          <h3 class='card-title'>Permintaan Absensi</h3>
             <br>
-            <div class="table-responsive">
-              <table class="table table-striped table-bordered" id="absensi2">
+            <div class='table-responsive'>
+              <table class='table table-striped table-bordered' id='absensi2'>
                 <thead>
                   <tr>
                   <tr>
@@ -59,7 +61,10 @@ if (empty($_SESSION["level"])) {
             </div>
           </div>
         </div>
-      </div>
+      </div>";
+        
+      }
+      ?>
     </div>
 
         <!--add Absensi -->

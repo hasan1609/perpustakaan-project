@@ -16,7 +16,7 @@ function pinjambuku($code,$jdl_buku, $user, $noreg){
 function data_pinjam($noreg, $sessionlevel){
 
     include 'koneksi.php';
-if (empty($noreg)) {
+if ($sessionlevel ==  1 or $sessionlevel == 4) {
  $sql = "SELECT * FROM `p_buku`";
 }else{
   $sql = "SELECT * FROM `p_buku` WHERE `req_perpus` LIKE '$noreg' ORDER BY `id` ASC";

@@ -5,7 +5,7 @@ function Denda($sessionlevel,$nama)
 {
     include 'koneksi.php';
 
-    if ($sessionlevel == 1) {
+    if ($sessionlevel == 1 or $sessionlevel == 4) {
     $sql = "SELECT * FROM `p_buku` WHERE `tgl_kmbl` < CURDATE() AND `status` LIKE '1'";
     }else{
     $sql = "SELECT * FROM `p_buku` WHERE `tgl_kmbl` < CURDATE() AND `status` LIKE '1' AND `nama` LIKE '$nama'";

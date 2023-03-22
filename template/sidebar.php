@@ -30,8 +30,8 @@ echo "<nav class='sidebar sidebar-offcanvas' id='sidebar'>
         </ul>
       </div>
     </li>";
-   
-
+    };
+if ($sessionlevel == 1 or $sessionlevel == 4) {
 echo "
     <li class='nav-item'>
       <a class='nav-link' href='../absensi/index.php'>
@@ -73,7 +73,7 @@ echo "
     </li>";
     }
 
-    if ($sessionlevel == 1) {
+    if ($sessionlevel == 1 or $sessionlevel == 4) {
   echo "   <!-- admin -->
     <li class='nav-item'>
       <a class='nav-link' data-bs-toggle='collapse' href='#data-skbp' aria-expanded='false' aria-controls='data-skbp'>

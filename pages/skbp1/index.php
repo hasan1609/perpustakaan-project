@@ -31,7 +31,13 @@ if (empty($_SESSION["level"])) {
                       <th>Jurusan</th>
                       <th>Tgl Pengajuan</th>
                       <th>Status</th>
-                      <th>Opsi</th>
+                      <?php 
+                      if ($sessionlevel == 1) {
+                        echo " <th>Opsi</th>";
+                      }
+                    
+                      ?>
+                     
                     </tr>
                   </thead>
                   <tbody>
@@ -47,7 +53,9 @@ if (empty($_SESSION["level"])) {
                         <label for="" class="badge badge-success">Diterima</label>
                         <label for="" class="badge badge-danger">Ditolak</label>
                       </td>
-                      <td>
+                      <?php
+                      if ($sessionlevel == 1) {
+                        echo "<td>
                       <a href='' type='submit' class='btn btn-success btn-icon-text terima_absensi'>
                         <i class='ti-check btn-icon-prepend'></i>
                         Terima
@@ -61,9 +69,13 @@ if (empty($_SESSION["level"])) {
                         Hapus
                       </a>
                       <!-- jika sudah diterima -->
-                      <a href="" class="btn btn-primary btn-icon-text btn-md mt-0" onClick="viewSkbp2()">
-                        <i class="mdi mdi-printer btn-icon-prepend"></i> Cetak </a>
-                    </td>
+                      <a href='' class='btn btn-primary btn-icon-text btn-md mt-0' onClick='viewSkbp2()'>
+                        <i class='mdi mdi-printer btn-icon-prepend'></i> Cetak </a>
+                    </td>";
+                      }
+                      
+                      ?>
+
                     </tr>
                   </tbody>
                 </table>
