@@ -13,11 +13,16 @@ function pinjambuku($code,$jdl_buku, $user, $noreg){
 }
 
 
-function data_pinjam(){
+function data_pinjam($noreg, $sessionlevel){
 
     include 'koneksi.php';
-
-    $sql = "SELECT * FROM `p_buku`";
+if (empty($noreg)) {
+ $sql = "SELECT * FROM `p_buku`";
+}else{
+  $sql = "SELECT * FROM `p_buku` WHERE `req_perpus` LIKE '$noreg' ORDER BY `id` ASC";
+}
+    
+    
     $result = $conn->query($sql);
     
 
@@ -43,37 +48,40 @@ function data_pinjam(){
                     } else {
                         echo "  <td><label for='' class='badge badge-danger'>Tolak</label></td>";
                     }
-                    echo "
+                    
+                    if ($sessionlevel == 1) {
+                             echo "
                       <td>";
-
-                      if ($row['status'] == '0'){
+                      if ($row['status'] == '0') {
 
                         echo "<a href='index.php?terima=" . $row['id'] . "' type='submit' class='btn btn-primary btn-icon-text'>
-                          <i class='ti-check btn-icon-prepend'></i>
-                          Terima
-                        </a>
-                        <a href='index.php?tolak=" . $row['id'] . "&code=" . $row['code'] . "' type='submit' class='btn btn-warning btn-icon-text'>
-                          <i class='ti-close btn-icon-prepend'></i>
-                          Tolak
-                        </a>
-                        
-                        <a href='index.php?hapus=" . $row['id'] . "' type='submit' class='btn btn-danger btn-icon-text'>
-                          <i class='ti-trash btn-icon-prepend'></i>
-                          Hapus
-                        </a>";
-                      }elseif(strtotime($row['tgl_kmbl']) < strtotime(date('Y-m-d')) && $row['status'] == '1') {
+                                          <i class='ti-check btn-icon-prepend'></i>
+                                          Terima
+                                        </a>
+                                        <a href='index.php?tolak=" . $row['id'] . "&code=" . $row['code'] . "' type='submit' class='btn btn-warning btn-icon-text'>
+                                          <i class='ti-close btn-icon-prepend'></i>
+                                          Tolak
+                                        </a>
+                                        
+                                        <a href='index.php?hapus=" . $row['id'] . "' type='submit' class='btn btn-danger btn-icon-text'>
+                                          <i class='ti-trash btn-icon-prepend'></i>
+                                          Hapus
+                                        </a>";
+                      } elseif (strtotime($row['tgl_kmbl']) < strtotime(date('Y-m-d')) && $row['status'] == '1') {
                         echo "<label for='' class='badge badge-danger'>KENA DENDA</label>";
                       } elseif ($row['status'] == '1') {
-                         echo "
-                       <a href='index.php?kembali=" . $row['id'] . "&code=" . $row['code'] . "' type='submit' class='btn btn-success btn-icon-text'>
-                          <i class='ti-check btn-icon-prepend'></i>
-                          Pengembalian Buku
-                        </a>
-                        ";
-    }
+                        echo "
+                                      <a href='index.php?kembali=" . $row['id'] . "&code=" . $row['code'] . "' type='submit' class='btn btn-success btn-icon-text'>
+                                          <i class='ti-check btn-icon-prepend'></i>
+                                          Pengembalian Buku
+                                        </a>
+                                        ";
+                    }
+                     echo "</td>" ;
+                          }
                      
                         echo "
-                      </td>
+                     
                     </tr>";
         
     }

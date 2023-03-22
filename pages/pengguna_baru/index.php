@@ -1,9 +1,12 @@
 <?php
 session_start();
-$sessionlevel = 1;
+$sessionlevel = $_SESSION['level'];
 include '../../config/function-anggota.php';
 include '../../template/header.php';
 include '../../template/sidebar.php';
+if (empty($_SESSION["level"])) {
+  echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
+}
 
 ?>
 

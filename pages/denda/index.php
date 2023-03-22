@@ -1,9 +1,12 @@
 <?php
 session_start();
-$sessionlevel = 1;
+$sessionlevel = $_SESSION['level'];
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-denda.php';
+if (empty($_SESSION["level"])) {
+  echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
+}
 error_reporting(E_ALL ^ E_NOTICE);
 
 ?>
@@ -35,7 +38,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                   </tr>
                 </thead>
                 <tbody>
-                  <?php Denda($sessionlevel); ?>
+                  <?php Denda($sessionlevel,$_SESSION['nama']); ?>
                 </tbody>
               </table>
             </div>

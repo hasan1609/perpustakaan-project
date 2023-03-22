@@ -1,9 +1,12 @@
 <?php
 session_start();
-$sessionlevel = 1;
+$sessionlevel = $_SESSION['level'];
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-pinjam.php';
+if (empty($_SESSION["level"])) {
+  echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
+}
 error_reporting(E_ALL ^ E_NOTICE);
 ?>
 
@@ -29,11 +32,16 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <th>Tgl. Pinjam</th>
                     <th>Tgl. Kembali</th>
                     <th>Status</th>
-                    <th>Opsi</th>
+                    <?php 
+                    if ($sessionlevel == 1) {
+                      echo "<th>Opsi</th>";
+                    }
+                    ?>
+                    
                   </tr>
                   </thead>
                   <tbody>
-                  <?php data_pinjam(); ?>
+                  <?php data_pinjam($_SESSION['req_perpus'], $sessionlevel); ?>
                   </tbody>
                 </table>
               </div>
@@ -92,8 +100,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 <?php
 
 
-$user = "nama";
-$noreg = "YTGJB356GBH19";
+$user = $_SESSION['nama'];
+$noreg = $_SESSION['req_perpus'];
 echo "<br>";
 if (!empty($_REQUEST['pilihBuku'])) {
   foreach ($_REQUEST['pilihBuku'] as $value) {

@@ -1,5 +1,8 @@
 <?php
 include '../../config/function-export.php';
+if (empty($_SESSION["level"])) {
+    echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
+}
 ?>
 
 <!DOCTYPE html>

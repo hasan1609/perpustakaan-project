@@ -1,12 +1,15 @@
 <?php
 session_start();
-$sessionlevel = 1;
+$sessionlevel = $_SESSION['level'];
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
 include '../../config/function-buku.php';
 include '../../config/function-chart-anggota.php';
 include '../../config/function-chart-pengunjung.php';
+if (empty($_SESSION["level"])) {
+	echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
+}
 ?>
 
 <div class="main-panel">

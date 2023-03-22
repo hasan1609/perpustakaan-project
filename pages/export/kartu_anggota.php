@@ -1,5 +1,8 @@
 <?php
 include '../../config/function-anggota.php';
+if (empty($_SESSION["level"])) {
+    echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
+}
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
