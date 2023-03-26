@@ -23,10 +23,14 @@ echo "<nav class='sidebar sidebar-offcanvas' id='sidebar'>
         <i class='menu-arrow'></i> 
       </a>
       <div class='collapse' id='data-master'>
-        <ul class='nav flex-column sub-menu'>
-          <li class='nav-item'> <a class='nav-link' href='../anggota/index.php'>Anggota</a></li>
+        <ul class='nav flex-column sub-menu'>";
+        echo"
+          <li class='nav-item'> <a class='nav-link' href='../anggota/index.php'>Anggota</a></li>";
+          if ($sessionlevel == 1) {
+          echo "
           <li class='nav-item'> <a class='nav-link' href='../buku/index.php'>Buku</a></li>
-          <li class='nav-item'> <a class='nav-link' href='../fakultas/index.php'>Fakultas & Jurusan</a></li>
+          <li class='nav-item'> <a class='nav-link' href='../fakultas/index.php'>Fakultas & Jurusan</a></li>";}
+          echo"
         </ul>
       </div>
     </li>";

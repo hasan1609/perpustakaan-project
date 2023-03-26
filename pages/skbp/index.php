@@ -4,6 +4,7 @@ $sessionlevel = $_SESSION['level'];
 include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
+include '../../config/function-skbp1.php';
 if (empty($_SESSION["level"])) {
   echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
 }
@@ -12,11 +13,11 @@ if (empty($_SESSION["level"])) {
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
-      <div class="col-sm-3 stretch-card grid-margin">
-        <a href="" class="card bg-gradient-success card-img-holder text-white" style="text-decoration-line: none;">
-          <div class="card-body">
-            <img src="../../images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-            <h2 class="font-weight-normal"> SKBP 1</h2>
+      <div class='col-sm-3 stretch-card grid-margin'>
+        <a href='index.php?noreg=<?php echo $_SESSION['req_perpus']; ?>&nidn=<?php echo $_SESSION['STB']; ?>&nama=<?php echo $_SESSION['nama']; ?>&fklts=<?php echo $_SESSION['fklts']; ?>&jrsn=<?php echo $_SESSION['jrsn']; ?>' class='card bg-gradient-success card-img-holder text-white' style='text-decoration-line: none;'>
+          <div class='card-body'>
+            <img src='../../images/dashboard/circle.svg' class='card-img-absolute' alt='circle-image' />
+            <h2 class='font-weight-normal'> SKBP 1</h2>
           </div>
         </a>
       </div>
@@ -78,5 +79,12 @@ if (empty($_SESSION["level"])) {
     </div>
 
 <?php
+if (!empty($_GET['noreg'])) {
+print_r($_GET);
+
+ addskbp1($_GET['noreg'],$_GET['nidn'],$_GET['nama'],$_GET['fklts'],$_GET['jrsn']);
+
+}
+
 include '../../template/footer.php';
 ?>

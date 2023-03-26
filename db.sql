@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2023 at 04:54 AM
+-- Generation Time: Mar 26, 2023 at 05:09 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -77,11 +77,11 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id`, `req_perpus`, `nama`, `STB`, `fklts`, `jrsn`, `almt`, `email`, `username`, `password`, `level`, `status`, `img`, `created`) VALUES
-(19, 'YTGJB356GBH19', 'Achmad Nugraha Djuanda', '123', '122', '555', 'SSSS', 'AchmadNugrahaDjuanda@gmail.com', 'AchmadNugrahaDjuanda19', 'aaa132', '2', 1, 'umi.jpg', '2023-02-26 16:38:33'),
-(24, 'YTGJB356GBH24', 'Ade Tjakralaksana', '123', '122', '555', 'SSSS', 'AdeTjakralaksana@gmail.com', 'AdeTjakralaksana24', 'aaa134', '2', 1, 'umi.jpg', '2023-02-27 12:30:17'),
-(25, 'YTGJB356GBH25', 'Adelina Prasetio', '123', '122', '555', 'SSSS', 'AdelinaPrasetio@gmail.com', 'AdelinaPrasetio25', 'aaa135', '2', 1, 'umi.jpg', '2023-02-27 12:30:20'),
-(26, 'YTGJB356GBH26', 'Adhi Utomo', '123', '122', '555', 'SSSS', 'AdhiUtomo@gmail.com', 'AdhiUtomo26', 'aaa135', '2', 1, 'umi.jpg', '2023-02-27 12:30:22'),
-(27, 'YTGJB356GBH27', 'Adhi Utomo Jusman', '123', '122', '555', 'SSSS', 'AdhiUtomoJusman@gmail.com', 'AdhiUtomoJusman27', 'aaa136', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
+(19, '', 'admin', '123', '122', '555', 'SSSS', 'admin@gmail.com', 'AchmadNugrahaDjuanda19', '12345', '1', 1, 'umi.jpg', '2023-03-22 02:54:47'),
+(24, 'YTGJB356GBH24', 'user', '123', '122', '555', 'SSSS', 'user@gmail.com', 'AdeTjakralaksana24', '12345', '3', 1, 'umi.jpg', '2023-03-22 02:54:51'),
+(25, 'YTGJB356GBH25', 'dosen', '123', '122', '555', 'SSSS', 'dosen@gmail.com', 'AdelinaPrasetio25', '12345', '2', 1, 'umi.jpg', '2023-03-22 02:54:59'),
+(26, 'YTGJB356GBH26', 'tu', '123', '122', '555', 'SSSS', 'tu@gmail.com', 'AdhiUtomo26', '12345', '4', 1, 'umi.jpg', '2023-03-22 02:55:03'),
+(27, 'YTGJB356GBH27', 'Adhi Utomo Jusman', '123', '122', '555', 'SSSS', 'AdhiUtomoJusman@gmail.com', 'AdhiUtomoJusman27', 'aaa136', '2', 1, 'umi.jpg', '2023-03-26 13:58:57'),
 (28, 'YTGJB356GBH28', 'Adi Bisono', '123', '122', '555', 'SSSS', 'AdiBisono@gmail.com', 'AdiBisono28', 'aaa136', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (29, 'YTGJB356GBH29', 'Adi Sasono', '123', '122', '555', 'SSSS', 'AdiSasono@gmail.com', 'AdiSasono29', 'aaa137', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
 (30, 'YTGJB356GBH30', 'Adi Sumito', '123', '122', '555', 'SSSS', 'AdiSumito@gmail.com', 'AdiSumito30', 'aaa137', '2', 0, 'umi.jpg', '2023-02-21 02:08:08'),
@@ -187,9 +187,9 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `code`, `jdl_buku`, `status`, `img_bk`, `created`) VALUES
-(15, '232', '232323', '1', 'umi.jpg', '2023-03-09 18:09:04'),
-(17, '123', '1345', '1', 'umi.jpg', '2023-03-09 16:57:15'),
-(18, '555', '345345', '1', 'umi.jpg', '2023-03-09 16:57:17');
+(15, '232', '232323', '0', 'umi.jpg', '2023-03-22 02:55:44'),
+(17, '123', '1345', '0', 'umi.jpg', '2023-03-26 14:32:03'),
+(18, '555', '345345', '1', 'umi.jpg', '2023-03-22 02:01:05');
 
 -- --------------------------------------------------------
 
@@ -276,15 +276,58 @@ CREATE TABLE `p_buku` (
 --
 
 INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`, `denda`, `nama`, `req_perpus`, `created`) VALUES
-(4, '232', '232323', '2023-03-07', '2023-03-01', '2', '3000', 'nama', 'req_perpus', '2023-03-09 18:06:25'),
-(5, '123', '1345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '', '2023-03-07 13:17:41'),
-(6, '555', '345345', '2023-03-07', '2023-03-01', '2', '3000', 'nama', '', '2023-03-07 13:17:42'),
-(7, '232', '232323', '2023-03-07', '2023-03-02', '2', '2500', 'nama', '', '2023-03-07 13:24:02'),
-(8, '123', '1345', '2023-03-07', '2023-03-03', '2', '2000', 'nama', '', '2023-03-07 13:24:37'),
-(9, '555', '345345', '2023-03-07', '2023-03-04', '2', '1500', 'nama', '', '2023-03-07 13:30:17'),
-(10, '232', '232323', '2023-03-09', '2023-03-12', '2', NULL, 'nama', '', '2023-03-09 16:57:39'),
-(11, '232', '232323', '2023-03-09', '2023-03-12', '2', NULL, 'nama', '', '2023-03-09 18:04:30'),
-(12, '232', '232323', '2023-03-10', '2023-03-13', '1', NULL, 'nama', 'YTGJB356GBH19', '2023-03-09 18:11:46');
+(2, '123', '1345', '2023-03-22', '2023-03-09', '2', '6500', 'Ade Tjakralaksana', 'YTGJB356GBH24', '2023-03-22 02:00:33'),
+(3, '555', '345345', '2023-03-22', '2023-03-10', '2', '6000', 'Ade Tjakralaksana', 'YTGJB356GBH24', '2023-03-22 02:00:34'),
+(4, '232', '232323', '2023-03-22', '2023-03-25', '2', NULL, 'Ade Tjakralaksana', 'YTGJB356GBH24', '2023-03-22 02:02:22'),
+(5, '232', '232323', '2023-03-22', '2023-03-25', '2', NULL, 'Adhi Utomo', 'YTGJB356GBH26', '2023-03-22 02:02:55'),
+(6, '232', '232323', '2023-03-22', '2023-03-08', '2', '7000', 'user', 'YTGJB356GBH24', '2023-03-22 02:56:58'),
+(7, '123', '1345', '2023-03-26', '2023-03-29', '1', NULL, 'user', 'YTGJB356GBH24', '2023-03-26 14:32:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skbp_1`
+--
+
+CREATE TABLE `skbp_1` (
+  `id` int(11) NOT NULL,
+  `req_perpus` varchar(40) NOT NULL,
+  `status` int(4) NOT NULL,
+  `nidn` varchar(40) NOT NULL,
+  `nama` varchar(40) NOT NULL,
+  `fklts` varchar(40) NOT NULL,
+  `jrsn` varchar(40) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `skbp_1`
+--
+
+INSERT INTO `skbp_1` (`id`, `req_perpus`, `status`, `nidn`, `nama`, `fklts`, `jrsn`, `created`) VALUES
+(1, 'YTGJB356GBH24', 0, '123', 'user', '122', '555', '2023-03-26 15:06:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skbp_2`
+--
+
+CREATE TABLE `skbp_2` (
+  `id` int(11) NOT NULL,
+  `username` varchar(40) NOT NULL,
+  `Abstrak_Toc` varchar(123) NOT NULL,
+  `Appedieces` varchar(123) NOT NULL,
+  `Chapter_1` varchar(123) NOT NULL,
+  `Chapter_2` varchar(123) NOT NULL,
+  `Chapter_3` varchar(123) NOT NULL,
+  `Chapter_4` varchar(123) NOT NULL,
+  `Conclusiuon` varchar(123) NOT NULL,
+  `Cover` varchar(123) NOT NULL,
+  `References` varchar(123) NOT NULL,
+  `status` int(4) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -338,6 +381,18 @@ ALTER TABLE `p_buku`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `skbp_1`
+--
+ALTER TABLE `skbp_1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `skbp_2`
+--
+ALTER TABLE `skbp_2`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -381,7 +436,19 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `p_buku`
 --
 ALTER TABLE `p_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `skbp_1`
+--
+ALTER TABLE `skbp_1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `skbp_2`
+--
+ALTER TABLE `skbp_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

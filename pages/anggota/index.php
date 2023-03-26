@@ -30,7 +30,7 @@ if (empty($_SESSION["level"])) {
                   </tr>
                 </thead>
                 <tbody>
-                  <?php list_anggota(); ?>
+                  <?php list_anggota($_SESSION["level"]); ?>
                 </tbody>
               </table>
             </div>

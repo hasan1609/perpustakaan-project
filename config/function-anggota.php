@@ -140,7 +140,7 @@ function anggota_baru()
     return $rows["COUNT(*)"];
 
 }
-function list_anggota(){
+function list_anggota($sessionlevel){
 
     include 'koneksi.php';
 
@@ -148,13 +148,26 @@ function list_anggota(){
     $result = $conn->query($sql);
     $i = 0;
     while ($row = $result->fetch_assoc()) {
+        if ($row['level'] == 1) {
+            $level = 'ADMIN';
+        }elseif ($row['level'] == 2) {
+            $level = 'DOSEN';
+        } elseif ($row['level'] == 3) {
+            $level = 'MAHASISWA';
+        } elseif ($row['level'] == 4) {
+            $level = 'TATA USAHA(TU)';
+        }
+
+
         $i++;
         echo "<tr>
                     <td>" . $i . "</td>
             <td> " . $row['nama'] . "</td>
             <td>" . $row['fklts'] . "</td>
             <td>" . $row['jrsn'] . "</td>
-            <td> " . $row['level'] . "</td>
+
+
+            <td> " . $level . "</td>
             <td> 
                 <button type='button' class='btn btn-primary btn-icon-text' data-toggle='modal' data-target='#modalAnggota" . $row["id"] . "'><i class='ti-eye'></i></button>
                 <!-- Button trigger modal -->
@@ -207,9 +220,13 @@ function list_anggota(){
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>";
+                 if ($sessionlevel == 1) {
+                echo "
                 <!-- Button delete anggota -->
-                <a href='index.php?hapus=".$row['id']."' type='submit' class='btn btn btn-danger btn-icon-text hapus_anggota'><i class='ti-trash'></i></a>
+                <a href='index.php?hapus=".$row['id']."' type='submit' class='btn btn btn-danger btn-icon-text hapus_anggota'><i class='ti-trash'></i></a>";
+                 }
+                echo"
             </td>
         </tr>";
         
