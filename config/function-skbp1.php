@@ -29,5 +29,16 @@ function addskbp1($noreg,$nidn,$nama,$fklts,$jrns){
     
 }
 
+function skbp1($noreg){
+
+
+    echo "  <td>noreg</td>
+            <td>tgl</td>
+            <td>
+            <label for='' class='badge badge-info'>Pending</label>
+            <label for='' class='badge badge-success'>Diterima</label>
+            <label for='' class='badge badge-danger'>Ditolak</label>
+            </td>";
+}
 
 ?>
