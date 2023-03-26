@@ -32,13 +32,30 @@ function addskbp1($noreg,$nidn,$nama,$fklts,$jrns){
 function skbp1($noreg){
 
 
-    echo "  <td>noreg</td>
-            <td>tgl</td>
+  include 'koneksi.php';
+
+  $sql = "SELECT * FROM `skbp_1` WHERE `req_perpus` LIKE '$noreg'";
+  $result = $conn->query($sql);
+
+
+  while ($row = $result->fetch_assoc()) {
+        echo "  <td>".$row['req_perpus']."</td>
+            <td>".$row['created']."</td>
             <td>
-            <label for='' class='badge badge-info'>Pending</label>
-            <label for='' class='badge badge-success'>Diterima</label>
-            <label for='' class='badge badge-danger'>Ditolak</label>
+           ";
+           if ($row['status'] == 0) {
+            echo " <label for='' class='badge badge-info'>Pending</label>";
+           }elseif ($row['status'] == 1) {
+            echo " <label for='' class='badge badge-success'>Diterima</label>";
+           }elseif ($row['status'] == 2) {
+           echo "<label for='' class='badge badge-danger'>Ditolak</label>";
+           }
+           echo "
             </td>";
+  }
+
+
+   
 }
 
 ?>

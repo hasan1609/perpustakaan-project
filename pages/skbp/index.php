@@ -50,7 +50,7 @@ if (empty($_SESSION["level"])) {
                   <tbody>
                     <tr>
                       <td>SKBP 1</td>
-              <?php skbp1($noreg); ?>
+              <?php skbp1($_SESSION['req_perpus']); ?>
                     </tr>
                     <tr>
                     <tr>
