@@ -35,10 +35,10 @@ function export_denda($bulan, $tahun)
 
 }
 
-function export_anggota_baru(){
+function export_anggota_baru($tahun,$bulan){
     include 'koneksi.php';
 
-    $sql = "SELECT * FROM `anggota` WHERE `created` LIKE '%2023-02%' ORDER BY `anggota`.`id` ASC";
+    $sql = "SELECT * FROM `anggota` WHERE `created` LIKE '%$tahun-$bulan%' ORDER BY `anggota`.`id` ASC";
     $result = $conn->query($sql);
     $i = 0;
     while ($row = $result->fetch_assoc()) {

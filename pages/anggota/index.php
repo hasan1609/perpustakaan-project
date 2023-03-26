@@ -81,9 +81,10 @@ if (empty($_SESSION["level"])) {
       });
     </script>
 <?php
-if (isset($_GET['cetak'])) {
+if (!empty($_GET['cetak'])) {
   echo "<script type='text/javascript'>window.top.location='../export/kartu_anggota.php?id=". $_GET['cetak']."';</script>";
   # code...
 }
+
 include '../../template/footer.php';
 ?>

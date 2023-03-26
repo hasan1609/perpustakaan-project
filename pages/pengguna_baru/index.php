@@ -61,7 +61,7 @@ if (empty($_SESSION["level"])) {
               </div>
               <div class="form-group mb-3">
                 <label for="jurusan">Pilih Bulan</label>
-                <select class="form-control" id="level" name="level">
+                <select class="form-control" id="bulan" name="bulan">
                   <option value="" disabled selected>Pilih Bulan</option>
                   <option value="01">Januari</option>
                   <option value="02">Februari</option>
@@ -80,7 +80,7 @@ if (empty($_SESSION["level"])) {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeExport()">Close</button>
-              <button type="submit" value="addPengguna" name="addPengguna" class="btn btn-primary">Export</button>
+              <button type="submit" value="peggunabaru" name="peggunabaru" class="btn btn-primary">Export</button>
             </div>
           </form>
         </div>
@@ -223,6 +223,9 @@ if (isset($_GET['hapus'])) {
       </script>
 
 <?php
-
+if (!empty($_GET['tahun'])) {
+  echo "<script type='text/javascript'>window.top.location='../export/anggota_baru.php?tahun=" . $_GET['tahun'] . "&bulan=". $_GET['bulan']."';</script>";
+  # code...
+}
 include '../../template/footer.php';
 ?>

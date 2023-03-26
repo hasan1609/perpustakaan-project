@@ -3,6 +3,8 @@ include '../../config/function-export.php';
 if (empty($_SESSION["level"])) {
     echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
 }
+$tahun =  $_GET['tahun'];
+$bulan = $_GET['bulan'];
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +51,7 @@ if (empty($_SESSION["level"])) {
             </tr>
         </thead>
         <tbody>
-            <?php export_anggota_baru(); ?>
+            <?php export_anggota_baru($tahun,$bulan); ?>
         </tbody>
     </table>
 </body>

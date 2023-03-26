@@ -14,7 +14,7 @@ echo "<nav class='sidebar sidebar-offcanvas' id='sidebar'>
         <span class='menu-title'>Dashboard</span>
       </a>
     </li>";
-    if ($sessionlevel == 1) {
+    if ($sessionlevel == 1 or $sessionlevel == 2) {
   echo "
     <li class='nav-item'>
       <a class='nav-link' data-bs-toggle='collapse' href='#data-master' aria-expanded='false' aria-controls='data-master'>
