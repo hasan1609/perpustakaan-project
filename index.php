@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     while ($row = $result->fetch_assoc()) {
       $_SESSION = $row;
       print_r($row);
-      echo "<script type='text/javascript'>window.top.location='pages/dashboard/index.php';</script>";
+      echo "<script type='text/javascript'>window.top.location='pages/capture_absensi/index.php';</script>";
     }
   } else {
       echo "<script type='text/javascript'>window.top.location='index.php?login=gagal';</script>";
