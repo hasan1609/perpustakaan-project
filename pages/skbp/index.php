@@ -50,13 +50,7 @@ if (empty($_SESSION["level"])) {
                   <tbody>
                     <tr>
                       <td>SKBP 1</td>
-                      <td>1</td>
-                      <td>fdsfnj</td>
-                      <td>
-                        <label for="" class="badge badge-info">Pending</label>
-                        <label for="" class="badge badge-success">Diterima</label>
-                        <label for="" class="badge badge-danger">Ditolak</label>
-                      </td>
+              <?php skbp1($_SESSION['req_perpus']); ?>
                     </tr>
                     <tr>
                     <tr>
@@ -80,9 +74,13 @@ if (empty($_SESSION["level"])) {
 
 <?php
 if (!empty($_GET['noreg'])) {
-print_r($_GET);
 
- addskbp1($_GET['noreg'],$_GET['nidn'],$_GET['nama'],$_GET['fklts'],$_GET['jrsn']);
+if (check_anggota($_GET['noreg']) > 0) {
+ echo "MASIH ADA TANGGUNGAN.. SILAHAKAN HUBUNGI ADMIN";
+}else{
+    addskbp1($_GET['noreg'], $_GET['nidn'], $_GET['nama'], $_GET['fklts'], $_GET['jrsn']);
+}
+
 
 }
 
