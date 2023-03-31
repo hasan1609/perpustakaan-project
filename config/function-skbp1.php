@@ -37,7 +37,7 @@ function skbp1($noreg){
   $sql = "SELECT * FROM `skbp_1` WHERE `req_perpus` LIKE '$noreg'";
   $result = $conn->query($sql);
 
-
+if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
         echo "  <td>".$row['req_perpus']."</td>
             <td>".$row['created']."</td>
@@ -53,7 +53,14 @@ function skbp1($noreg){
            echo "
             </td>";
   }
-
+    } else {
+        echo "         <td>TIDAK ADA PERMINTAAN</td>
+                      <td>TIDAK ADA PERMINTAAN</td>
+                      <td>
+                       
+                        <label for='' class='badge badge-danger'>TIDAK ADA PERMINTAAN</label>
+                      </td>";
+    }
 
    
 }
