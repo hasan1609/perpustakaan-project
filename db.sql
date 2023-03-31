@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2023 at 05:09 PM
+-- Generation Time: Mar 31, 2023 at 12:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -281,7 +281,7 @@ INSERT INTO `p_buku` (`id`, `code`, `jdl_buku`, `tgl_pnjm`, `tgl_kmbl`, `status`
 (4, '232', '232323', '2023-03-22', '2023-03-25', '2', NULL, 'Ade Tjakralaksana', 'YTGJB356GBH24', '2023-03-22 02:02:22'),
 (5, '232', '232323', '2023-03-22', '2023-03-25', '2', NULL, 'Adhi Utomo', 'YTGJB356GBH26', '2023-03-22 02:02:55'),
 (6, '232', '232323', '2023-03-22', '2023-03-08', '2', '7000', 'user', 'YTGJB356GBH24', '2023-03-22 02:56:58'),
-(7, '123', '1345', '2023-03-26', '2023-03-29', '1', NULL, 'user', 'YTGJB356GBH24', '2023-03-26 14:32:31');
+(7, '123', '1345', '2023-03-26', '2023-03-29', '2', NULL, 'user', 'YTGJB356GBH24', '2023-03-26 18:15:14');
 
 -- --------------------------------------------------------
 
@@ -305,7 +305,7 @@ CREATE TABLE `skbp_1` (
 --
 
 INSERT INTO `skbp_1` (`id`, `req_perpus`, `status`, `nidn`, `nama`, `fklts`, `jrsn`, `created`) VALUES
-(1, 'YTGJB356GBH24', 0, '123', 'user', '122', '555', '2023-03-26 15:06:58');
+(1, 'YTGJB356GBH24', 0, '123', 'user', '122', '555', '2023-03-26 18:20:04');
 
 -- --------------------------------------------------------
 
@@ -384,7 +384,8 @@ ALTER TABLE `p_buku`
 -- Indexes for table `skbp_1`
 --
 ALTER TABLE `skbp_1`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `req_perpus` (`req_perpus`);
 
 --
 -- Indexes for table `skbp_2`
