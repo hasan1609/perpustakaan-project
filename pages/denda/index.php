@@ -15,7 +15,7 @@ error_reporting(E_ALL ^ E_NOTICE);
   <div class="content-wrapper">
     <div class="row">
       <?php 
-    if ($sessionlevel == 1) {
+    if ($sessionlevel == 1 or $sessionlevel == 3) {
       echo "<div class='col-sm-12 grid-margin stretch-card'>
         <div class='card'>
           <div class='card-body'>
@@ -150,13 +150,13 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 
 
-if ($_GET['terima']) {
+if (!empty($_GET['terima'])) {
 
   terima($_GET['terima'], $_GET['denda']);
   status_buku_kembali($_GET['denda']);
 
 
-}elseif($_GET['addDenda']){
+}elseif(!empty($_GET['addDenda'])){
 // export($_GET['bulan'],$_GET['tahun']);
   print_r($_REQUEST);
   echo "<script type='text/javascript'>window.top.location='../export/denda.php?tahun=".$_REQUEST['tahun']."&bulan=".$_REQUEST['bulan']."';</script>";

