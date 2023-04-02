@@ -78,7 +78,15 @@ if (empty($_SESSION["level"])) {
                     
                 </div>
                 
-                <button name="_upl" type="submit" id="_upl" value="Upload" class="btn btn-primary mt-4">Upload</button>
+                
+            <?php
+                if (checkskb1($_SESSION['req_perpus']) == 1) {
+                    echo "<button name='_upl' type='submit' id='_upl' value='Upload' class='btn btn-primary mt-4'>Upload</button>";
+                }
+            ?>
+            
+            
+            
             </form>
           </div>
         </div>

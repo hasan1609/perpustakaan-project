@@ -71,5 +71,17 @@ if ($result->num_rows > 0) {
 
    
 }
+function checkskb1($noreg){
 
+
+    include 'koneksi.php';
+    $sql = "SELECT COUNT(*) FROM `skbp_1` WHERE `req_perpus` LIKE '$noreg' AND `status` = 1";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_assoc();
+    return $rows["COUNT(*)"];
+
+
+
+
+}
 ?>
