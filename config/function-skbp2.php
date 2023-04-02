@@ -8,7 +8,7 @@ function addskbp2($noreg){
   
   if ($result->num_rows > 0) {
 
-    $sql = "UPDATE `skbp_2` SET `Appedieces` = 'appedieces_$noreg', `Chapter_1` = 'chapter1_$noreg', `Chapter_2` = 'chapter2_$noreg', `Chapter_3` = 'chapter3_$noreg', `Chapter_4` = 'chapter4_$noreg', `Conclusiuon` = 'conclusion_$noreg', `Cover` = 'cover_$noreg', `References` = 'references_$noreg' WHERE `req_perpus` = '$noreg'";
+    $sql = "UPDATE `skbp_2` SET `status` = '0' WHERE `req_perpus` = '$noreg'";
 
     if ($conn->query($sql) === TRUE) {
       echo "Record updated successfully";
