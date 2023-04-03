@@ -74,7 +74,7 @@ if (empty($_SESSION["level"])) {
           <div class="modal-header">
             <h5 class="modal-title" id="exportAbsensiLabel"></h5>
           </div>
-          <form role="form" method="post" action="index.php">
+          <form role="form" method="GET" action="../export/pengunjung.php">
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Masukkan Tahun</label>
@@ -82,26 +82,26 @@ if (empty($_SESSION["level"])) {
               </div>
               <div class="form-group mb-3">
                 <label for="jurusan">Pilih Bulan</label>
-                <select class="form-control" id="level" name="level">
-                  <option value="" disabled selected>Pilih Bulan</option>
-                  <option >Januari</option>
-                  <option value="">Februari</option>
-                  <option value="">Maret</option>
-                  <option value="">April</option>
-                  <option value="">Mei</option>
-                  <option value="">Juni</option>
-                  <option value="">Juli</option>
-                  <option value="">Agustus</option>
-                  <option value="">September</option>
-                  <option value="">Oktober</option>
-                  <option value="">November</option>
-                  <option value="">Desember</option>
+                <select class="form-control" id="bulan" name="bulan">
+                  <option disabled selected>Pilih Bulan</option>
+                  <option value="01">Januari</option>
+                  <option value="02">Februari</option>
+                  <option value="03">Maret</option>
+                  <option value="04">April</option>
+                  <option value="05">Mei</option>
+                  <option value="06">Juni</option>
+                  <option value="07">Juli</option>
+                  <option value="08">Agustus</option>
+                  <option value="09">September</option>
+                  <option value="10">Oktober</option>
+                  <option value="12">November</option>
+                  <option value="12">Desember</option>
                 </select>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeExport()">Close</button>
-              <button type="submit" value="addAbsensi" name="addAbsensi" class="btn btn-primary">Export</button>
+              <button type="submit" class="btn btn-primary">Export</button>
             </div>
           </form>
         </div>

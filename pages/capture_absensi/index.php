@@ -1,5 +1,15 @@
 <?php 
 session_start();
+if($_SESSION['level'] == '1'){
+    $jabatan = "Admin" ;
+}elseif($_SESSION['level'] == '2'){
+    $jabatan = "Anggota" ;
+}elseif($_SESSION['level'] == '3'){
+    $jabatan = "Dosen" ;
+}else{
+    $jabatan = "TU" ;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +52,8 @@ session_start();
     <div class="container justify-content-center align-items-center">
         <form action="../../config/capture.php" method="post">
             <input type="hidden" id="username" name="username" value="<?= $_SESSION['username'] ?>">
+            <input type="hidden" name="jabatan" value="<?= $jabatan ?>">
+            <input type="hidden" name="nama" value="<?= $_SESSION['username'] ?>">
             <input type="hidden" name="image" class="image-tag">
             <div class="row">
                 <div class="col-sm-6 text-center p-5">

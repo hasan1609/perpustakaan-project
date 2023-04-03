@@ -2,6 +2,8 @@
 include 'koneksi.php';
 $img = $_POST['image'];
 $username = $_POST['username'];
+$nama = $_POST['nama'];
+$jabatan = $_POST['jabatan'];
 $folderPath = "../images/absensi/";
 
 $image_parts = explode(";base64,", $img);
@@ -17,7 +19,7 @@ file_put_contents($file, $image_base64);
 // print_r($fileName);
     
 //memasukkan data ke dalam tabel biodata
-mysqli_query($conn, "INSERT into absen SET username= '$username' , foto='$fileName'");
+mysqli_query($conn, "INSERT into absen SET username= '$username' , foto='$fileName', nama='$nama', jabatan='$jabatan'");
 echo "<script type='text/javascript'>window.top.location='../pages/dashboard/index.php';</script>";
 
 ?>
