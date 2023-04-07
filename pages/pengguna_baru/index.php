@@ -53,7 +53,7 @@ if (empty($_SESSION["level"])) {
           <div class="modal-header">
             <h5 class="modal-title" id="exportPenggunaLabel"></h5>
           </div>
-          <form role="form" method="get" action="index.php">
+          <form role="form" method="get" action="../export/anggota_baru.php" target="_blank">
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Masukkan Tahun</label>
@@ -80,7 +80,7 @@ if (empty($_SESSION["level"])) {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" onclick="closeExport()">Close</button>
-              <button type="submit" value="peggunabaru" name="peggunabaru" class="btn btn-primary">Export</button>
+              <button type="submit" class="btn btn-primary">Export</button>
             </div>
           </form>
         </div>
@@ -223,9 +223,5 @@ if (isset($_GET['hapus'])) {
       </script>
 
 <?php
-if (!empty($_GET['tahun'])) {
-  echo "<script type='text/javascript'>window.top.location='../export/anggota_baru.php?tahun=" . $_GET['tahun'] . "&bulan=". $_GET['bulan']."';</script>";
-  # code...
-}
 include '../../template/footer.php';
 ?>

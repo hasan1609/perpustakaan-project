@@ -1,11 +1,42 @@
 <?php
-include '../../config/function-anggota.php';
+include "../../config/koneksi.php";
 if (empty($_SESSION["level"])) {
     echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
 }
-?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+require '../../vendor/autoload.php';
+// Create an instance of the class:
+$mpdf = new \Mpdf\Mpdf();
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	
+	// variabel pecahkan 0 = tanggal
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tahun
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+// instantiate and use the dompdf class
+$id=$_GET['id'];
+$query = mysqli_query($conn,"SELECT * FROM anggota where id = '$id'");
+$row = $query->fetch_assoc();
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$html = '
+<!DOCTYPE html>
 
 <html>
 
@@ -22,11 +53,6 @@ if (empty($_SESSION["level"])) {
             border-style: double;
             padding: 5px;
         }
-                @media print{
-            .button{
-                display: none;
-            }
-        }
         td.start {
             text-align:start;
             vertical-align:text-top
@@ -41,18 +67,6 @@ if (empty($_SESSION["level"])) {
     </style>
 
 </head>
-
-<button onclick="goBack()" class="button">Go Back</button>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
-
-<br>
-<br>
-<br>
-<br>
 <body>
     <div>
         <table class="center">
@@ -66,7 +80,7 @@ if (empty($_SESSION["level"])) {
                                         <img src="../../images/logo_yayasan.png" alt="Image" width="100">
                                     </td>
                                     <td>
-                                        <h3 style="text-align: center">Kartu Anggota<br>Perpustakaan UKIP<br>Makassar</h3>
+                                        <h3 style="text-align: center"><center>Kartu Anggota<br>Perpustakaan UKIP<br>Makassar</center></h3>
                                     </td>
                                     <td class="alignright">
                                         <img src="../../images/logo.png" alt="Image" width="100">
@@ -83,18 +97,43 @@ if (empty($_SESSION["level"])) {
                     <td colspan="3">
                         <table width="100%">
                             <thead>
-                              <?php kartu_anggota($_GET['id']); ?>
+                                <tr>
+                                    <td width="30%">No. Reg Pendaftaran</td>
+                                    <td width="5%">:</td>
+                                    <td width="65%">' . $row["req_perpus"] . '</td>
+                                </tr>
+                                <tr>
+                                    <td width="30%">Nama</td>
+                                    <td width="5%">:</td>
+                                    <td width="65%">' . $row["nama"] . '</td>
+                                </tr>
+                                <tr>
+                                    <td width="30%">NIDN</td>
+                                    <td width="5%">:</td>
+                                    <td width="65%">' . $row["STB"] . '</td>
+                                </tr>
+                                <tr>
+                                    <td width="30%">Fak / Jur</td>
+                                    <td width="5%">:</td>
+                                    <td width="65%">' . $row["fklts"] .' \ '.$row["jrsn"] .'</td>
+                                </tr>
+                                <tr>
+                                    <td width="30%">Alamat</td>
+                                    <td width="5%">:</td>
+                                    <td width="65%">' . $row["almt"] .'</td>
+                                </tr>
                             </thead>
                         </table>
                     </td>
                 </tr>
                 <tr>
                     <td rowspan="4">
-                        <img src="../../images/logo.png" alt="Image" width="100"
-                            height="100">
+                        <div style=" border:1px solid #000;">
+                        4 x 6
+                        </div>
                     </td>
                     <td></td>
-                    <td class="alignright">Makassar, <?php echo date('d F Y'); ?></td>
+                    <td class="align-right">Makassar, '.tgl_indo(date('Y-m-d')).'</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -115,6 +154,8 @@ if (empty($_SESSION["level"])) {
         </table>
     </div>
     <br>
+    <hr style="border: 2px solid black;">
+    <br>
     <div>
         <table class="center">
             <thead>
@@ -124,10 +165,10 @@ if (empty($_SESSION["level"])) {
                             <thead>
                                 <tr>
                                     <td>
-                                        <img src="../../images/logo.png" alt="Image" width="100">
+                                        <img src="../../images/logo_yayasan.png" alt="Image" width="100">
                                     </td>
                                     <td>
-                                        <h3 style="text-align: center">Kartu Anggota<br>Perpustakaan UKIP<br>Makassar</h3>
+                                        <h3 style="text-align: center"><center>Kartu Anggota<br>Perpustakaan UKIP<br>Makassar</center></h3>
                                     </td>
                                     <td class="alignright">
                                         <img src="../../images/logo.png" alt="Image" width="100">
@@ -183,7 +224,7 @@ if (empty($_SESSION["level"])) {
                 <tr>
                     <td colspan="2" class="center">
                         <br>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" alt="Image" width="70">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='. $url.'" alt="Image" width="70">
                         <br>
                     </td>
                 </tr>
@@ -194,7 +235,10 @@ if (empty($_SESSION["level"])) {
     <br>
 
 </body>
-<script type="text/javascript">
-      window.onload = function() { window.print(); }
- </script>
-</html>
+</html>';
+
+$mpdf->WriteHTML($html);
+
+// Output a PDF file directly to the browser
+$mpdf->Output("kartu-anggota.pdf", "I");
+?>

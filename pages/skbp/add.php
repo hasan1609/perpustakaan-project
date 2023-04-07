@@ -21,58 +21,62 @@ if (empty($_SESSION["level"])) {
             <h4>Upload File Skripsi</h4>
             <form action="add.php" method="post" enctype="multipart/form-data" name="uploader" id="uploader">
                 <div class="row">
+                    <div class="form-group mb-3">
+                        <label for="example-text-input" class="form-control-label">Judul Skripsi</label>
+                        <input class="form-control" type="text" name="judul" id="judul" required>
+                    </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Abstrak-Toc</label>
-                            <input class="form-control" type="file" name="abstrak" id="abstrak">
+                            <input class="form-control" type="file" name="abstrak" id="abstrak" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Appedieces</label>
-                            <input class="form-control" type="file" name="appedieces" id="appedieces">
+                            <input class="form-control" type="file" name="appedieces" id="appedieces"required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Chapter 1</label>
-                            <input class="form-control" type="file" name="chapter1" id="chapter1">
+                            <input class="form-control" type="file" name="chapter1" id="chapter1"required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Chapter 2</label>
-                            <input class="form-control" type="file" name="chapter2" id="chapter2">
+                            <input class="form-control" type="file" name="chapter2" id="chapter2"required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Chapter 3</label>
-                            <input class="form-control" type="file" name="chapter3" id="chapter3">
+                            <input class="form-control" type="file" name="chapter3" id="chapter3"required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Chapter 4</label>
-                            <input class="form-control" type="file" name="chapter4" id="chapter4">
+                            <input class="form-control" type="file" name="chapter4" id="chapter4" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Conclusiuon</label>
-                            <input class="form-control" type="file" name="conclusion" id="conclusion">
+                            <input class="form-control" type="file" name="conclusion" id="conclusion"required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">Cover</label>
-                            <input class="form-control" type="file" name="cover" id="cover">
+                            <input class="form-control" type="file" name="cover" id="cover"required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group mb-3">
                             <label for="example-text-input" class="form-control-label">References</label>
-                            <input class="form-control" type="file" name="references" id="references">
+                            <input class="form-control" type="file" name="references" id="references"required>
                         </div>
                     </div>
                     
@@ -108,7 +112,7 @@ if( $_POST['_upl'] == "Upload" ) {
     && @copy($_FILES['cover']['tmp_name'],"../../skbp_file/cover_".$_SESSION['req_perpus'].".jpg")
     && @copy($_FILES['references']['tmp_name'],"../../skbp_file/references_".$_SESSION['req_perpus'].".jpg"))
     {
-        addskbp2($_SESSION['req_perpus']);
+        addskbp2($_SESSION['req_perpus'], $_POST['judul']);
         
     echo '<b>sukses</b><br><br>';
     }

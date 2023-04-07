@@ -1,14 +1,14 @@
 <?php
 
-function addskbp2($noreg){
+function addskbp2($noreg, $judul){
     include 'koneksi.php';
+
 
     $sql = "SELECT * FROM `skbp_2` WHERE `req_perpus` LIKE '$noreg'";
     $result = $conn->query($sql);
   
   if ($result->num_rows > 0) {
-
-    $sql = "UPDATE `skbp_2` SET `status` = '0' WHERE `req_perpus` = '$noreg'";
+    $sql = "UPDATE `skbp_2` SET `status` = '0' WHEsRE `req_perpus` = '$noreg'";
 
     if ($conn->query($sql) === TRUE) {
       echo "Record updated successfully";
@@ -17,7 +17,7 @@ function addskbp2($noreg){
     }
   }else{
 
-    $sql = " INSERT INTO `skbp_2` (`id`, `req_perpus`, `Abstrak_Toc`, `Appedieces`, `Chapter_1`, `Chapter_2`, `Chapter_3`, `Chapter_4`, `Conclusiuon`, `Cover`, `References`, `status`, `created`) VALUES (NULL, 'YTGJB356GBH24', 'abstrak_$noreg', 'appedieces_$noreg', 'chapter1_$noreg', 'chapter2_$noreg', 'chapter3_$noreg', 'chapter4_$noreg', 'conclusion_$noreg', 'cover_$noreg', 'references_$noreg', '0', current_timestamp());";
+    $sql = " INSERT INTO `skbp_2` (`id`, `judul`, `req_perpus`, `Abstrak_Toc`, `Appedieces`, `Chapter_1`, `Chapter_2`, `Chapter_3`, `Chapter_4`, `Conclusiuon`, `Cover`, `References`, `status`, `created`) VALUES (NULL,'$judul' ,'$noreg', 'abstrak_$noreg', 'appedieces_$noreg', 'chapter1_$noreg', 'chapter2_$noreg', 'chapter3_$noreg', 'chapter4_$noreg', 'conclusion_$noreg', 'cover_$noreg', 'references_$noreg', '0', current_timestamp());";
 
 
     if ($conn->query($sql) === TRUE) {
@@ -84,4 +84,5 @@ function checkskb1($noreg){
 
 
 }
+
 ?>

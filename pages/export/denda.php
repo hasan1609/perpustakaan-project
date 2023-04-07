@@ -1,11 +1,20 @@
 <?php
-include "../../config/function-export.php";
+session_start();
+include "../../config/koneksi.php";
 if (empty($_SESSION["level"])) {
     echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
 }
-?>
 
+require '../../vendor/autoload.php';
+// Create an instance of the class:
+$mpdf = new \Mpdf\Mpdf();
+$bulan=$_GET['bulan'];
+$tahun = $_GET['tahun'];
+$query = mysqli_query($conn,"SELECT * FROM p_buku where status = '2' and month(created)='$bulan' and year(created) = '$tahun'");
 
+$i = 1;
+
+$html = '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,41 +26,45 @@ if (empty($_SESSION["level"])) {
         table, td, th {
         border: 1px solid;
         }
-        @media print{
-            .button{
-                display: none;
-            }
-        }
         table {
       
         border-collapse: collapse;
         }
     </style>
 </head>
-<button onclick="goBack()" class="button">Go Back</button>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
 <body>
-    <h2><center>Denda <?php echo $_GET['bulan']."/".$_GET['tahun'];  ?></center></h2>
-    <table>
+    <h2>Data Denda '.$bulan.'/'.$tahun.'</h2>
+    <table width="100%">
         <thead>
             <tr>
                 <th width="5%">No</th>
-                <th width="20%">Nama</th>
-                <th >Total Denda</th>
+                <th width="40%">Nama</th>
+                <th width="20%">Total Denda</th>
                 <th width="15%">Status</th>
-                <th width="15%">Tgl Pembayaran</th>
+                <th width="20%">Tgl Pembayaran</th>
             </tr>
         </thead>
-        <tbody>
-            <?php export_denda($_GET['bulan'], $_GET['tahun']); ?>
+        <tbody>';
+        while ($row = $query->fetch_assoc()) {
+$html .='
+            <tr>
+                <td width="5%"><center>'. $i++ .'</center></td>
+                <td width="40%"><center>'. $row["nama"] .'</center></td>
+                <td width="20%"><center>'. $row["denda"] .'</center></td>
+                <td width="15%"><center>LUNAS</center></td>
+                <td width="20%"><center>'. $row["created"] .'</center></td>
+            </tr>';
+            }
+$html .='
         </tbody>
     </table>
 </body>
-<script type="text/javascript">
-      window.onload = function() { window.print(); }
- </script>
-</html>
+
+</html>';
+
+$mpdf->WriteHTML($html);
+
+// Output a PDF file directly to the browser
+$mpdf->Output("data-denda.pdf", "I");
+?>
+

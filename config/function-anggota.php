@@ -216,7 +216,7 @@ function list_anggota($sessionlevel){
                             </div>
                             <div class='modal-footer'>
                                 <button type='button' class='btn btn-secondary' data-dismiss='modal' >Close</button>
-                                <a href='index.php?cetak=" . $row['req_perpus'] . "' type='submit' class='btn btn-primary'>Cetak</a>
+                                <a href='../export/kartu_anggota.php?id=" . $row['id'] . "' target='_blank' class='btn btn-primary'>Cetak</a>
                             </div>
                         </div>
                     </div>

@@ -21,10 +21,12 @@ error_reporting(E_ALL ^ E_NOTICE);
             if ($sessionlevel == 2 or $sessionlevel == 3) {
               echo " <a href='javascript:void(0)' class='btn btn-primary btn-icon-text btn-md mt-0' onClick='addPinjam()'>
               <i class='mdi mdi-plus-box btn-icon-prepend'></i> Pinjam Buku </a>";
+            }else{
+              echo "<a href='javascript:void(0)' class='btn btn-primary btn-icon-text btn-md mt-0' onClick='exportPinjam()'>
+            <i class='mdi mdi-printer btn-icon-prepend'></i> Export </a>";
             }
             
             ?>
-            
             <br>
             <br>
             <div class="table-responsive">
@@ -84,6 +86,47 @@ error_reporting(E_ALL ^ E_NOTICE);
       </div>
     </div>
 
+    <!--add Pinjam -->
+    <div class='modal fade' id='exportPinjam' tabindex='-1' role='dialog' aria-labelledby='exportPinjamLabel' aria-hidden='true'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='exportPinjamLabel'></h5>
+          </div>
+          <form role='form' method='get' action='../export/pinjam.php' target="_blank">
+            <div class='modal-body'>
+              <div class='form-group mb-3'>
+                <label for='example-text-input' class='form-control-label'>Masukkan Tahun</label>
+                <input class='form-control' type='number' name='tahun' id='tahun'>
+              </div>
+              <div class='form-group mb-3'>
+                <label for='jurusan'>Pilih Bulan</label>
+                <select class='form-control' id='bulan' name='bulan'>
+                  <option value='' disabled selected>Pilih Bulan</option>
+                  <option value='01'>Januari</option>
+                  <option value='02'>Februari</option>
+                  <option value='03'>Maret</option>
+                  <option value='04'>April</option>
+                  <option value='05'>Mei</option>
+                  <option value='06'>Juni</option>
+                  <option value='07'>Juli</option>
+                  <option value='08'>Agustus</option>
+                  <option value='09'>September</option>
+                  <option value='10'>Oktober</option>
+                  <option value='11'>November</option>
+                  <option value='12'>Desember</option>
+                </select>
+              </div>
+            </div>
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-secondary' onclick='closeExport()'>Close</button>
+              <button type='submit' class='btn btn-primary'>Export</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
 
     <script>
       function addPinjam(){
@@ -102,6 +145,17 @@ error_reporting(E_ALL ^ E_NOTICE);
         dropdownParent: $('#modalBuku'),
         theme: "classic"
     });
+
+    function exportPinjam(){
+   // $('#add-group').trigger('reset');
+   $('#exportPinjamLabel').html('Cetak Laporan');
+   $('#exportPinjam').modal('show');
+   // $('#id').val('');
+   }
+
+   function closeExport() { 
+    $('#exportPinjam').modal('hide');
+   }
     </script>
 <?php
 
@@ -121,21 +175,21 @@ if (!empty($_REQUEST['pilihBuku'])) {
   }
 }
 
-if ($_GET['kembali']) {
+if (!empty($_GET['kembali'])) {
   status_buku_kembali($_GET['code']);
 
   Kembali($_GET['kembali']);
  
-}elseif ($_GET['terima']) {
+}elseif (!empty($_GET['terima'])) {
 
   terima($_GET['terima']);
 
 
-}elseif ($_GET['tolak']) {
+}elseif (!empty($_GET['tolak'])) {
   status_buku_kembali($_GET['code']);
   tolak($_GET['tolak']);
 
-}elseif($_GET['hapus']){
+}elseif(!empty($_GET['hapus'])){
 
   hapus($_GET['hapus']);
 

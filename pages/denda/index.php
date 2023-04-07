@@ -86,7 +86,7 @@ error_reporting(E_ALL ^ E_NOTICE);
           <div class='modal-header'>
             <h5 class='modal-title' id='exportDendaLabel'></h5>
           </div>
-          <form role='form' method='get' action='index.php'>
+          <form role='form' method='get' action='../export/denda.php' target='_blank'>
             <div class='modal-body'>
               <div class='form-group mb-3'>
                 <label for='example-text-input' class='form-control-label'>Masukkan Tahun</label>
@@ -113,7 +113,7 @@ error_reporting(E_ALL ^ E_NOTICE);
             </div>
             <div class='modal-footer'>
               <button type='button' class='btn btn-secondary' onclick='closeExport()'>Close</button>
-              <button type='submit' value='addDenda' name='addDenda' class='btn btn-primary'>Export</button>
+              <button type='submit' class='btn btn-primary'>Export</button>
             </div>
           </form>
         </div>

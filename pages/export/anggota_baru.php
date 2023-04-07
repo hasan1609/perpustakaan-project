@@ -1,12 +1,19 @@
 <?php
-include '../../config/function-export.php';
+session_start();
+include '../../config/koneksi.php';
 if (empty($_SESSION["level"])) {
     echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
 }
-$tahun =  $_GET['tahun'];
-$bulan = $_GET['bulan'];
-?>
+require '../../vendor/autoload.php';
+// Create an instance of the class:
+$mpdf = new \Mpdf\Mpdf();;
+$bulan=$_GET['bulan'];
+$tahun = $_GET['tahun'];
+$query = mysqli_query($conn,"SELECT * FROM anggota where status = '1' and month(created)='$bulan' and year(created) = '$tahun'");
 
+$i = 0;
+
+$html = '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +24,6 @@ $bulan = $_GET['bulan'];
     <style>
         table, td, th {
         border: 1px solid;
-        }
-        @media print{
-            .button{
-                display: none;
-            }
         }
         table {
         width: 100%;
@@ -50,12 +52,31 @@ $bulan = $_GET['bulan'];
                 <th width="10%">Tgl.Pendaftaran</th>
             </tr>
         </thead>
-        <tbody>
-            <?php export_anggota_baru($tahun,$bulan); ?>
+        <tbody>';
+        while ($row = $query->fetch_assoc()) {
+$html .='
+            <tr>
+                <td width="5%">'.$row["req_perpus"].'</td>
+                <td width="20%">'.$row["nama"].'</td>
+                <td width="10%">' . $row["STB"] . '</td>
+                <td width="8%">' . $row["fklts"] . '</td>
+                <td width="8%">' . $row["jrsn"] . '</td>
+                <td width="25%">' . $row["almt"] . '</td>
+                <td width="14%">' . $row["email"] . '</td>
+                <td width="10%">' . $row['created'] . '</td>
+            </tr>';
+
+        }
+$html .='
         </tbody>
     </table>
 </body>
-<script type="text/javascript">
-      window.onload = function() { window.print(); }
- </script>
-</html>
+        
+</html>';
+        
+$mpdf->WriteHTML($html);
+
+// Output a PDF file directly to the browser
+$mpdf->Output("data-anggota-baru.pdf", "I");
+?>
+        

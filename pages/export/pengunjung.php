@@ -1,13 +1,13 @@
 <?php
-include '../../config/koneksi.php';
+session_start();
+include "../../config/koneksi.php";
+if (empty($_SESSION["level"])) {
+    echo "<script type='text/javascript'>window.top.location='../../logout.php';</script>";
+}
+
 require '../../vendor/autoload.php';
-
-
-// reference the Dompdf namespace
-use Dompdf\Dompdf;
-
-// instantiate and use the dompdf class
-$dompdf = new Dompdf();
+// Create an instance of the class:
+$mpdf = new \Mpdf\Mpdf();;
 $bulan=$_GET['bulan'];
 $tahun = $_GET['tahun'];
 $query = mysqli_query($conn,"SELECT * FROM absen where status = 1 and month(created)='$bulan' and year(created) = '$tahun'");
@@ -63,11 +63,8 @@ $html .='
 </body>
 </html>';
 
-$dompdf->loadHtml($html); 
-// Setting ukuran dan orientasi kertas
-$dompdf->setPaper('A4', 'potrait');
-// Rendering dari HTML Ke PDF
-$dompdf->render();
-// Melakukan output file Pdf
-$dompdf->stream('data_pengunjung.pdf');
+$mpdf->WriteHTML($html);
+
+// Output a PDF file directly to the browser
+$mpdf->Output("data-absensi-pengunjung.pdf", "I");
 ?>

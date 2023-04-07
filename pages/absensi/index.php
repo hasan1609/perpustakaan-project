@@ -74,7 +74,7 @@ if (empty($_SESSION["level"])) {
           <div class="modal-header">
             <h5 class="modal-title" id="exportAbsensiLabel"></h5>
           </div>
-          <form role="form" method="GET" action="../export/pengunjung.php">
+          <form role="form" method="GET" action="../export/pengunjung.php" target="_blank">
             <div class="modal-body">
               <div class="form-group mb-3">
                 <label for="example-text-input" class="form-control-label">Masukkan Tahun</label>
