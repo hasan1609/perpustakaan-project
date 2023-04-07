@@ -34,7 +34,7 @@ function tgl_indo($tanggal){
 }
 
 $id=$_GET['id'];
-$query = mysqli_query($conn,"SELECT * FROM anggota where req_perpus = '$id'");
+$query = mysqli_query($conn,"SELECT anggota.*, skbp_2.judul FROM anggota INNER JOIN skbp_2 ON anggota.req_perpus = skbp_2.req_perpus where anggota.req_perpus = '$id'");
 $row = $query->fetch_assoc();
 
 $html = '
@@ -178,7 +178,7 @@ $html = '
                 </tr>
                 <tr>
                     <td colspan="3" class="center" style="padding: 5px 40px 5px 40px;">
-                        "JHFJDHF JHFJD JUFHJRF JUHFGJR GHFUIRGF RGHUJIRG RGYHEUIR RGHRIU IRGUYIRE IGYHIT"
+                        "'.$row['judul'].'"
                     </td>
                 </tr>  
                 <tr>
